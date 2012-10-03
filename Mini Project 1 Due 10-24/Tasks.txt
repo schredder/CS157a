@@ -1,0 +1,5 @@
+Tasks:
+	UI (MVC?) Console or GUI
+	Backend (DB Interaction layer)
+	Auto Makers DB
+	Documentation

@@ -1,0 +1,15 @@
+Example Program Flow:
+
+Retrieve Menu:
+	Retrieve by car model
+		Select auto maker (create ourselves)
+			Select model
+				Select year
+					Select engine
+						Select part
+							Show part information
+							Order Part? (Y/N)
+	Retrieve by vendor part
+		Select part
+			Show part information
+			Order Part? (Y/N)
