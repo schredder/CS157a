@@ -40,7 +40,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel2.setText("Search By:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel3.setText("Car Store");
+        jLabel3.setText("CAR STORE");
 
         jButton1.setText("Car Model");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
