@@ -23,7 +23,10 @@ public class partsDB {
      * @param whereClause
      * @return An arrayList
      */
-    public ArrayList<Hashtable<String, String>> select(String SQLStatement) {
+    public ArrayList<HashMap<String, String>> select(String SQLStatement) {
+        /* TODO: Execute the SQL statement, and return it as an ArrayList of tuples
+         * represented as HashMaps with the column as the key
+         */
         ResultSet rs;
         try { rs = oracleStmt.executeQuery(SQLStatement); }
         catch (SQLException e) {
@@ -41,4 +44,9 @@ public class partsDB {
      * @return Oracle Database Statement object
      */
     public Statement getDBStatement() { return oracleStmt; }
+    
+    public void disconnectFromDB() throws SQLException {
+        oracleConn.close();
+    }
+
 }
