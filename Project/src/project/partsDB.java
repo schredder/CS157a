@@ -65,6 +65,5 @@ public class partsDB {
         /** get the database connection object. */
     public Connection getDBConnection()
     {  return this.oracleConn; } //method
-    
-     
+
 }
