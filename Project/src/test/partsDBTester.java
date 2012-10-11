@@ -12,12 +12,16 @@ import java.sql.*;
  * @author Eric Schroeder
  */
 public class partsDBTester {
-    public static void main(String args) {
-        partsDB db;
     
-        try { db = new partsDB("jdbc:oracle:thin:@localhost:1521:XE","sjsu","sjsu"); }
-        catch (SQLException e) {
-            System.out.println("Unable to connect: " + e.getMessage());
+    public static void main(String args) throws SQLException{
+        
+        try{
+        partsDB dbc = new partsDB("jdbc:oracle:thin:@localhost:1521:orcl","system","Password17");
+        dbc.disconnectFromDB();
         }
-    }
+        catch(SQLException ex)
+        {
+                    System.err.println(ex.getMessage());
+        }
+    } 
 }
