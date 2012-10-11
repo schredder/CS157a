@@ -1,7 +1,8 @@
 package project;
 
 import java.sql.*;
-import java.sql.*;
+import oracle.jdbc.driver.*;
+import java.util.*;
 
 /**
  * Creates and manages a connection to the parts database
@@ -10,29 +11,19 @@ import java.sql.*;
 public class partsDB {
     private Connection oracleConn;
     private Statement oracleStmt;
-    public partsDB(String connectString) {
+    public partsDB(String connectString, String user, String password) throws SQLException {
         DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
-        try {
-            oracleConn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","sjsu","sjsu");
-        } catch (SQLException e) {
-            //DoSomething("Unable to connect to database: " + e.getMessage());
-            return;
-        }
-        
-        try { oracleStmt = oracleConn.createStatement(); }
-        catch (SQLException e) {
-            //DoSomething("Unable to create statement: " + e.getMessage());
-            return;
-        }
+        oracleConn = DriverManager.getConnection(connectString, user, password);
+        oracleStmt = oracleConn.createStatement();
     }
-    
+
     /**
      * Returns an array list with the contents of the supplied query.
      * @param fromTable
      * @param whereClause
      * @return An arrayList
      */
-    public ArrayList<String> select(String SQLStatement) {
+    public ArrayList<Hashtable<String, String>> select(String SQLStatement) {
         ResultSet rs;
         try { rs = oracleStmt.executeQuery(SQLStatement); }
         catch (SQLException e) {
@@ -43,7 +34,7 @@ public class partsDB {
         
         
     }
-    
+
     /**
      * Returns a Statement in case something needs to be done 
      * outside the scope of this class.
