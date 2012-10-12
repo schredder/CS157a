@@ -36,7 +36,7 @@ public class partsDBTest {
     // The methods must be annotated with annotation @Test. For example:
     //
      @Test
-     public void hello() { 
+     public void test() { 
         try{
         partsDB dbc = new partsDB("jdbc:oracle:thin:@localhost:1521:orcl","system","Password17");
         dbc.disconnectFromDB();
