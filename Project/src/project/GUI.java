@@ -84,7 +84,7 @@ public class GUI extends javax.swing.JFrame {
 
         panel1.setBackground(new java.awt.Color(247, 149, 62));
 
-        jButton4.setIcon(new javax.swing.ImageIcon("D:\\My Documents\\GitHub\\CS157a\\Project\\src\\project\\next icon.jpg")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/next icon.jpg"))); // NOI18N
         jButton4.setAlignmentY(0.0F);
         jButton4.setBorder(null);
         jButton4.setBorderPainted(false);
@@ -92,7 +92,7 @@ public class GUI extends javax.swing.JFrame {
         jButton4.setMaximumSize(new java.awt.Dimension(80, 25));
         jButton4.setMinimumSize(new java.awt.Dimension(80, 25));
         jButton4.setPreferredSize(new java.awt.Dimension(80, 25));
-        jButton4.setRolloverIcon(new javax.swing.ImageIcon("D:\\My Documents\\GitHub\\CS157a\\Project\\src\\project\\next icon hover.jpg")); // NOI18N
+        jButton4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/project/next icon hover.jpg"))); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -201,7 +201,7 @@ public class GUI extends javax.swing.JFrame {
         chooseByCarPanel.add(panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, 120));
 
         backgroundImage.setBackground(new java.awt.Color(255, 255, 255));
-        backgroundImage.setIcon(new javax.swing.ImageIcon("D:\\My Documents\\GitHub\\CS157a\\Project\\src\\project\\background.jpg")); // NOI18N
+        backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/background.jpg"))); // NOI18N
         backgroundImage.setPreferredSize(new java.awt.Dimension(686, 400));
         chooseByCarPanel.add(backgroundImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -251,7 +251,7 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jLabel11)
                         .addGap(18, 18, 18)
                         .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, selectPartPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton5)
