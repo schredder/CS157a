@@ -6,6 +6,7 @@ package project;
 
 import java.awt.Color;
 import java.awt.Toolkit;
+import javax.swing.JPanel;
 import javax.swing.UIManager;
 
 /**
@@ -21,6 +22,7 @@ public class GUI extends javax.swing.JFrame {
         initComponents();
         selectPartPanel.setVisible(false);
         chooseByCarPanel.setVisible(false);
+        jButton4.setEnabled(false);
     }
 
     /**
@@ -40,11 +42,11 @@ public class GUI extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         panel2 = new java.awt.Panel();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        carModelDropdown = new javax.swing.JComboBox();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
+        yearDropdown = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
+        engineDropDown = new javax.swing.JComboBox();
         backgroundImage = new javax.swing.JLabel();
         selectPartPanel = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -75,6 +77,11 @@ public class GUI extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI Symbol", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Home >");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
         chooseByCarPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Symbol", 1, 12)); // NOI18N
@@ -124,14 +131,14 @@ public class GUI extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(0, 153, 204));
         jLabel5.setText("Car Model:");
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jComboBox1.setMaximumRowCount(16);
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-Car Model-", "AMERICAN MOTORS OR AMC", "AUDI", "BMW", "BUICK", "CADILLAC", "CHEVROLET", "CHRYSLER", "DODGE", "DODGE/PLYMOUTH LITE TRK & VAN", "FORD LIGHT TRUCK AND VAN", "FORD MEDIUM AND HEAVY TRUCK", "FIAT", "FORD", "CHEVROLET & GMC TRUCK & VAN", "HONDA", "INTERNATIONAL TRUCK (I.H.C.)", "ISUZU", "LINCOLN", "MERCEDES", "MITSUBISHI", "MERCURY", "MAZDA", "NISSAN / DATSUN", "OLDSMOBILE", "PLYMOUTH", "PORSCHE", "PONTIAC", "RENAULT", "SAAB", "SUBARU", "TOYOTA", "UPS", "VOLKSWAGEN", "HYUNDAI", "YUGO", "GMC TRUCK AND VAN" }));
-        jComboBox1.setToolTipText("");
-        jComboBox1.setBorder(null);
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        carModelDropdown.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        carModelDropdown.setMaximumRowCount(16);
+        carModelDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Car Model -", "AMERICAN MOTORS OR AMC", "AUDI", "BMW", "BUICK", "CADILLAC", "CHEVROLET", "CHRYSLER", "DODGE", "DODGE/PLYMOUTH LITE TRK & VAN", "FORD LIGHT TRUCK AND VAN", "FORD MEDIUM AND HEAVY TRUCK", "FIAT", "FORD", "CHEVROLET & GMC TRUCK & VAN", "HONDA", "INTERNATIONAL TRUCK (I.H.C.)", "ISUZU", "LINCOLN", "MERCEDES", "MITSUBISHI", "MERCURY", "MAZDA", "NISSAN / DATSUN", "OLDSMOBILE", "PLYMOUTH", "PORSCHE", "PONTIAC", "RENAULT", "SAAB", "SUBARU", "TOYOTA", "UPS", "VOLKSWAGEN", "HYUNDAI", "YUGO", "GMC TRUCK AND VAN" }));
+        carModelDropdown.setToolTipText("");
+        carModelDropdown.setBorder(null);
+        carModelDropdown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                carModelDropdownActionPerformed(evt);
             }
         });
 
@@ -139,12 +146,12 @@ public class GUI extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(0, 153, 204));
         jLabel6.setText("Car Year:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Year -", "Car Year 1", "Car Year 2", "Car Yearl 3" }));
-        jComboBox2.setToolTipText("");
-        jComboBox2.setEnabled(false);
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        yearDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Year -", "Car Year 1", "Car Year 2", "Car Yearl 3" }));
+        yearDropdown.setToolTipText("");
+        yearDropdown.setEnabled(false);
+        yearDropdown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                yearDropdownActionPerformed(evt);
             }
         });
 
@@ -152,12 +159,12 @@ public class GUI extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 153, 204));
         jLabel7.setText("Car Engine:");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Engine -", "Engine 1", "Engine 2", "Engine 3" }));
-        jComboBox3.setToolTipText("");
-        jComboBox3.setEnabled(false);
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        engineDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Engine -", "Engine 1", "Engine 2", "Engine 3" }));
+        engineDropDown.setToolTipText("");
+        engineDropDown.setEnabled(false);
+        engineDropDown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
+                engineDropDownActionPerformed(evt);
             }
         });
 
@@ -173,13 +180,13 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(194, 194, 194)
                         .addComponent(jLabel6))
                     .addGroup(panel2Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(carModelDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(yearDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(engineDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(156, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
@@ -192,9 +199,9 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(carModelDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(yearDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(engineDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
 
@@ -202,6 +209,7 @@ public class GUI extends javax.swing.JFrame {
 
         backgroundImage.setBackground(new java.awt.Color(255, 255, 255));
         backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/background.jpg"))); // NOI18N
+        backgroundImage.setToolTipText("");
         backgroundImage.setPreferredSize(new java.awt.Dimension(686, 400));
         chooseByCarPanel.add(backgroundImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -384,17 +392,21 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox3ActionPerformed
+    private void engineDropDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_engineDropDownActionPerformed
+        jButton4.setEnabled(true);
+    }//GEN-LAST:event_engineDropDownActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    private void yearDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearDropdownActionPerformed
+        engineDropDown.setEnabled(true);
+    }//GEN-LAST:event_yearDropdownActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    private void carModelDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carModelDropdownActionPerformed
+        yearDropdown.setEnabled(true);
+    }//GEN-LAST:event_carModelDropdownActionPerformed
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        switchVisibility(chooseByCarPanel, homeScreenPage);
+    }//GEN-LAST:event_jLabel8MouseClicked
 
     /**
      * @param args the command line arguments
@@ -440,15 +452,14 @@ public class GUI extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backgroundImage;
+    private javax.swing.JComboBox carModelDropdown;
     private javax.swing.JPanel chooseByCarPanel;
+    private javax.swing.JComboBox engineDropDown;
     private javax.swing.JPanel homeScreenPage;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -466,5 +477,11 @@ public class GUI extends javax.swing.JFrame {
     private java.awt.Panel panel1;
     private java.awt.Panel panel2;
     private javax.swing.JPanel selectPartPanel;
+    private javax.swing.JComboBox yearDropdown;
     // End of variables declaration//GEN-END:variables
+
+    private void switchVisibility(JPanel componentToHide, JPanel componentToShow) {
+        componentToHide.setVisible(false);
+        componentToShow.setVisible(true);
+    }
 }
