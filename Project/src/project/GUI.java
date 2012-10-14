@@ -91,16 +91,16 @@ public class GUI extends javax.swing.JFrame {
         panel1.setBackground(new java.awt.Color(247, 149, 62));
         panel1.setPreferredSize(new java.awt.Dimension(550, 25));
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/next icon.jpg"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/next icon.jpg"))); // NOI18N
         jButton4.setAlignmentY(0.0F);
         jButton4.setBorder(null);
         jButton4.setBorderPainted(false);
-        jButton4.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/project/next icon hover.jpg"))); // NOI18N
+        jButton4.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/images/next icon hover.jpg"))); // NOI18N
         jButton4.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jButton4.setMaximumSize(new java.awt.Dimension(80, 25));
         jButton4.setMinimumSize(new java.awt.Dimension(80, 25));
         jButton4.setPreferredSize(new java.awt.Dimension(80, 25));
-        jButton4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/project/next icon hover.jpg"))); // NOI18N
+        jButton4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/next icon hover.jpg"))); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -209,7 +209,7 @@ public class GUI extends javax.swing.JFrame {
         chooseByCarPanel.add(panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, 120));
 
         backgroundImage.setBackground(new java.awt.Color(255, 255, 255));
-        backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/background.jpg"))); // NOI18N
+        backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background.jpg"))); // NOI18N
         backgroundImage.setToolTipText("");
         backgroundImage.setPreferredSize(new java.awt.Dimension(550, 400));
         chooseByCarPanel.add(backgroundImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -239,13 +239,13 @@ public class GUI extends javax.swing.JFrame {
         panel3.setBackground(new java.awt.Color(247, 149, 62));
         panel3.setPreferredSize(new java.awt.Dimension(550, 25));
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/Purchase Button.jpg"))); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Purchase Button.jpg"))); // NOI18N
         jButton5.setBorder(null);
         jButton5.setBorderPainted(false);
         jButton5.setMaximumSize(new java.awt.Dimension(80, 25));
         jButton5.setMinimumSize(new java.awt.Dimension(80, 25));
         jButton5.setPreferredSize(new java.awt.Dimension(80, 25));
-        jButton5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/project/Purchase Button Hover.jpg"))); // NOI18N
+        jButton5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Purchase Button Hover.jpg"))); // NOI18N
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -312,28 +312,28 @@ public class GUI extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Search by...");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/Car Chooser.jpg"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Car Chooser.jpg"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jButton1.setMaximumSize(new java.awt.Dimension(200, 300));
         jButton1.setMinimumSize(new java.awt.Dimension(200, 300));
         jButton1.setPreferredSize(new java.awt.Dimension(200, 300));
-        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/project/Car Chooser Hover.jpg"))); // NOI18N
+        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Car Chooser Hover.jpg"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/Part Chooser.jpg"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Part Chooser.jpg"))); // NOI18N
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jButton2.setMaximumSize(new java.awt.Dimension(200, 300));
         jButton2.setMinimumSize(new java.awt.Dimension(200, 300));
         jButton2.setPreferredSize(new java.awt.Dimension(200, 300));
-        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/project/Part Chooser Hover.jpg"))); // NOI18N
+        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Part Chooser Hover.jpg"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

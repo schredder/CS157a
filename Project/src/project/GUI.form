@@ -154,7 +154,7 @@
             <Component class="javax.swing.JButton" name="jButton4">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/project/next icon.jpg"/>
+                  <Image iconType="3" name="/images/next icon.jpg"/>
                 </Property>
                 <Property name="alignmentY" type="float" value="0.0"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -162,7 +162,7 @@
                 </Property>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/project/next icon hover.jpg"/>
+                  <Image iconType="3" name="/images/next icon hover.jpg"/>
                 </Property>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                   <Insets value="[0, 0, 0, 0]"/>
@@ -177,7 +177,7 @@
                   <Dimension value="[80, 25]"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/project/next icon hover.jpg"/>
+                  <Image iconType="3" name="/images/next icon hover.jpg"/>
                 </Property>
               </Properties>
               <Events>
@@ -379,7 +379,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/project/background.jpg"/>
+              <Image iconType="3" name="/images/background.jpg"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -524,7 +524,7 @@
             <Component class="javax.swing.JButton" name="jButton5">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/project/Purchase Button.jpg"/>
+                  <Image iconType="3" name="/images/Purchase Button.jpg"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -540,7 +540,7 @@
                   <Dimension value="[80, 25]"/>
                 </Property>
                 <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/project/Purchase Button Hover.jpg"/>
+                  <Image iconType="3" name="/images/Purchase Button Hover.jpg"/>
                 </Property>
               </Properties>
               <Events>
@@ -617,7 +617,7 @@
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/project/Car Chooser.jpg"/>
+              <Image iconType="3" name="/images/Car Chooser.jpg"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -636,7 +636,7 @@
               <Dimension value="[200, 300]"/>
             </Property>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/project/Car Chooser Hover.jpg"/>
+              <Image iconType="3" name="/images/Car Chooser Hover.jpg"/>
             </Property>
           </Properties>
           <Events>
@@ -646,7 +646,7 @@
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/project/Part Chooser.jpg"/>
+              <Image iconType="3" name="/images/Part Chooser.jpg"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -665,7 +665,7 @@
               <Dimension value="[200, 300]"/>
             </Property>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/project/Part Chooser Hover.jpg"/>
+              <Image iconType="3" name="/images/Part Chooser Hover.jpg"/>
             </Property>
           </Properties>
           <Events>
