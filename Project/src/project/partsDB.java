@@ -40,8 +40,19 @@ public class partsDB {
      
       
       ResultSet rs; 
+      ResultSetMetaData rsMetaData; 
       try { 
           rs = oracleStmt.executeQuery(SQLStatement); 
+          /* This is risky. We can't guarantee Oracle will give us the same indices
+             for a column every time. Instead, we should use ResultSetMetaData:
+             http://docs.oracle.com/javase/7/docs/api/java/sql/ResultSetMetaData.html
+             
+             My proposed solution:
+          rsMetaData = rs.getMetaData();
+          for (int i = 0; i < rsMetaData.getColumnCount(); i++) {
+             column.put(rsMetaData.getColumnName(i), rs.getString(i));
+          }
+           */
           column.put("model",rs.getString(1));
           column.put("year",rs.getString(2));
           column.put("desc",rs.getString(3));
