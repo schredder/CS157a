@@ -14,7 +14,8 @@ import javax.swing.UIManager;
  * @author Yous
  */
 public class GUI extends javax.swing.JFrame {
-
+private String carModel;
+//private partsDB db = new partsDB(carModel, carModel, carModel)
     /**
      * Creates new form GUI
      */
@@ -66,7 +67,7 @@ public class GUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Car Store");
         setBackground(new java.awt.Color(255, 255, 255));
-        setIconImage(Toolkit.getDefaultToolkit().getImage("src/images/bmw-mini-icon.png"));
+        setIconImage(Toolkit.getDefaultToolkit().getImage("images/bmw-mini-icon.png"));
         setPreferredSize(new java.awt.Dimension(550, 400));
         setResizable(false);
 
@@ -429,6 +430,8 @@ public class GUI extends javax.swing.JFrame {
 
     private void carModelDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carModelDropdownActionPerformed
         yearDropdown.setEnabled(true);
+        carModel = carModelDropdown.getSelectedItem().toString();
+        
     }//GEN-LAST:event_carModelDropdownActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked

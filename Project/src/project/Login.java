@@ -6,7 +6,7 @@ package project;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
- import java.util.logging.Level;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Login extends javax.swing.JFrame {
@@ -14,27 +14,27 @@ public class Login extends javax.swing.JFrame {
     static Connection oracleConn;
     Statement oracleStmt;
     PreparedStatement st;
-      ResultSet rs;
-     GUI gui = new GUI();
+    ResultSet rs;
+    GUI gui = new GUI();
 
-      
     public Login() {
         initComponents();
-                try {
+        try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            oracleConn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCL", "scott", "tiger");
+            oracleConn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
             System.out.println("connected");
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         } catch (ClassNotFoundException ex) {
             System.err.println(ex.getMessage());
         }
-        
+
     }
 
-            public static Connection getDBConnection()
-    {  return oracleConn; }
-   
+    public static Connection getDBConnection() {
+        return oracleConn;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -182,38 +182,27 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void unameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unameActionPerformed
-               // TODO add your handling code here:
-  
-      
-  
+        // TODO add your handling code here:
     }//GEN-LAST:event_unameActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-              
-              String username=uname.getText();
-              String password=pword.getText();
-              if(username.equalsIgnoreCase("scott"))
-              {
 
-                  if ((!password.equalsIgnoreCase("tiger")))
-                  {
-                    JOptionPane.showMessageDialog(this,"Invalid Password");
-                  }
-                else if (!username.equalsIgnoreCase("scott"))
-                 {
-                   JOptionPane.showMessageDialog(this, "Invalid User Name");
-                 }
-                else if(!username.equalsIgnoreCase("scott") && !password.equalsIgnoreCase("tiger"))
-                {
-                  JOptionPane.showMessageDialog(this, "Invalid User Name and Password");
-                }
-              else
-              {
-                    getDBConnection();
-                     new Login().setVisible(false);
-                      gui.setVisible(true);
-              }
-              }
+        String username = uname.getText();
+        String password = pword.getText();
+        if (username.equalsIgnoreCase("scott")) {
+
+            if ((!password.equalsIgnoreCase("tiger"))) {
+                JOptionPane.showMessageDialog(this, "Invalid Password");
+            } else if (!username.equalsIgnoreCase("scott")) {
+                JOptionPane.showMessageDialog(this, "Invalid User Name");
+            } else if (!username.equalsIgnoreCase("scott") && !password.equalsIgnoreCase("tiger")) {
+                JOptionPane.showMessageDialog(this, "Invalid User Name and Password");
+            } else {
+                getDBConnection();
+                new Login().setVisible(false);
+                gui.setVisible(true);
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -250,13 +239,13 @@ public class Login extends javax.swing.JFrame {
         /*
          * Create and display the form
          */
-        
+
 
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
                 new Login().setVisible(true);
-               
+
             }
         });
     }

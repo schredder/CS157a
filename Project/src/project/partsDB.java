@@ -15,16 +15,9 @@ public class partsDB {
     ArrayList<HashMap> APLBUK = new ArrayList<HashMap>();
     HashMap<String, String> column = new HashMap<String, String>();
 
-    public partsDB(String connectString, String user, String password) throws SQLException {
+    public partsDB(){
 
-        try {
-            DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
-            oracleConn = DriverManager.getConnection(connectString, user, password);
-            oracleStmt = oracleConn.createStatement();
-            System.out.println("Connected to DB!");
-        } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
-        }
+        this.oracleConn = Login.oracleConn;
     }
 
     /**
