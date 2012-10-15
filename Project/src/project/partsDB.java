@@ -1,8 +1,9 @@
 package project;
 
-import java.sql.*;
-import oracle.jdbc.driver.*;
-import java.util.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Creates and manages a connection to the parts database
@@ -14,7 +15,7 @@ public class partsDB {
     private Connection oracleConn;
     private Statement oracleStmt;
 
-    public partsDB(String connectString, String user, String password) throws SQLException{
+    public partsDB(String connectString, String user, String password) throws SQLException {
         try {
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
             oracleConn = DriverManager.getConnection(connectString, user, password);
@@ -54,16 +55,18 @@ public class partsDB {
     }
 
     public void disconnectFromDB() throws SQLException {
-        try{
-        oracleConn.close();
-        System.out.println("Disconnected from DB!");
-        }
-        catch(SQLException e){
+        try {
+            oracleConn.close();
+            System.out.println("Disconnected from DB!");
+        } catch (SQLException e) {
             System.err.println(e.getMessage());
-                }
+        }
     }
-        /** get the database connection object. */
-    public Connection getDBConnection()
-    {  return this.oracleConn; } //method
 
+    /**
+     * get the database connection object.
+     */
+    public Connection getDBConnection() {
+        return this.oracleConn;
+    } //method
 }
