@@ -6,6 +6,9 @@ package project;
 
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
@@ -14,8 +17,7 @@ import javax.swing.UIManager;
  * @author Yous
  */
 public class GUI extends javax.swing.JFrame {
-private String carModel;
-//private partsDB db = new partsDB(carModel, carModel, carModel)
+private static partsDB db;
     /**
      * Creates new form GUI
      */
@@ -37,6 +39,9 @@ private String carModel;
 
         jLabel1 = new javax.swing.JLabel();
         chooseByCarPanel = new javax.swing.JPanel();
+        panel4 = new java.awt.Panel();
+        jLabel10 = new javax.swing.JLabel();
+        carMakerDropdown = new javax.swing.JComboBox();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         panel1 = new java.awt.Panel();
@@ -73,6 +78,47 @@ private String carModel;
 
         chooseByCarPanel.setPreferredSize(new java.awt.Dimension(550, 400));
         chooseByCarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panel4.setBackground(new java.awt.Color(51, 51, 51));
+        panel4.setPreferredSize(new java.awt.Dimension(550, 112));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 153, 204));
+        jLabel10.setText("Car Maker:");
+
+        carMakerDropdown.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        carMakerDropdown.setMaximumRowCount(16);
+        carMakerDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Car Maker -", "AMERICAN MOTORS OR AMC", "AUDI", "BMW", "BUICK", "CADILLAC", "CHEVROLET", "CHRYSLER", "DODGE", "DODGE/PLYMOUTH LITE TRK & VAN", "FORD LIGHT TRUCK AND VAN", "FORD MEDIUM AND HEAVY TRUCK", "FIAT", "FORD", "CHEVROLET & GMC TRUCK & VAN", "HONDA", "INTERNATIONAL TRUCK (I.H.C.)", "ISUZU", "LINCOLN", "MERCEDES", "MITSUBISHI", "MERCURY", "MAZDA", "NISSAN / DATSUN", "OLDSMOBILE", "PLYMOUTH", "PORSCHE", "PONTIAC", "RENAULT", "SAAB", "SUBARU", "TOYOTA", "UPS", "VOLKSWAGEN", "HYUNDAI", "YUGO", "GMC TRUCK AND VAN" }));
+        carMakerDropdown.setToolTipText("");
+        carMakerDropdown.setBorder(null);
+        carMakerDropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carMakerDropdownActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel4Layout = new javax.swing.GroupLayout(panel4);
+        panel4.setLayout(panel4Layout);
+        panel4Layout.setHorizontalGroup(
+            panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(carMakerDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(301, Short.MAX_VALUE))
+        );
+        panel4Layout.setVerticalGroup(
+            panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(carMakerDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        chooseByCarPanel.add(panel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 550, 60));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Symbol", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -138,6 +184,7 @@ private String carModel;
         carModelDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Car Model -", "AMERICAN MOTORS OR AMC", "AUDI", "BMW", "BUICK", "CADILLAC", "CHEVROLET", "CHRYSLER", "DODGE", "DODGE/PLYMOUTH LITE TRK & VAN", "FORD LIGHT TRUCK AND VAN", "FORD MEDIUM AND HEAVY TRUCK", "FIAT", "FORD", "CHEVROLET & GMC TRUCK & VAN", "HONDA", "INTERNATIONAL TRUCK (I.H.C.)", "ISUZU", "LINCOLN", "MERCEDES", "MITSUBISHI", "MERCURY", "MAZDA", "NISSAN / DATSUN", "OLDSMOBILE", "PLYMOUTH", "PORSCHE", "PONTIAC", "RENAULT", "SAAB", "SUBARU", "TOYOTA", "UPS", "VOLKSWAGEN", "HYUNDAI", "YUGO", "GMC TRUCK AND VAN" }));
         carModelDropdown.setToolTipText("");
         carModelDropdown.setBorder(null);
+        carModelDropdown.setEnabled(false);
         carModelDropdown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 carModelDropdownActionPerformed(evt);
@@ -207,7 +254,7 @@ private String carModel;
                 .addContainerGap(63, Short.MAX_VALUE))
         );
 
-        chooseByCarPanel.add(panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, 120));
+        chooseByCarPanel.add(panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, 120));
 
         backgroundImage.setBackground(new java.awt.Color(255, 255, 255));
         backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background.jpg"))); // NOI18N
@@ -422,6 +469,8 @@ private String carModel;
 
     private void engineDropDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_engineDropDownActionPerformed
         jButton4.setEnabled(true);
+        db.setYear(Integer.parseInt(yearDropdown.getSelectedItem().toString()));
+        // What do we after they select the year?
     }//GEN-LAST:event_engineDropDownActionPerformed
 
     private void yearDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearDropdownActionPerformed
@@ -429,8 +478,13 @@ private String carModel;
     }//GEN-LAST:event_yearDropdownActionPerformed
 
     private void carModelDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carModelDropdownActionPerformed
+        db.setModel(carModelDropdown.getSelectedItem().toString());
+        int[] years =  db.getYear();
+        yearDropdown.removeAllItems();
+        for (int year : years){
+            yearDropdown.addItem(year);
+        }
         yearDropdown.setEnabled(true);
-        carModel = carModelDropdown.getSelectedItem().toString();
         
     }//GEN-LAST:event_carModelDropdownActionPerformed
 
@@ -438,10 +492,26 @@ private String carModel;
         switchVisibility(chooseByCarPanel, homeScreenPage);
     }//GEN-LAST:event_jLabel8MouseClicked
 
+    private void carMakerDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carMakerDropdownActionPerformed
+        // TODO add your handling code here:
+        db.setMaker(carMakerDropdown.getSelectedItem().toString());
+        String[] models = db.getMaker();
+        carModelDropdown.removeAllItems();
+        for(String model : models){
+            carModelDropdown.addItem(model);
+        }
+        carModelDropdown.setEnabled(true);
+    }//GEN-LAST:event_carMakerDropdownActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        try {
+            db = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
+        } catch (SQLException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
         /*
          * Set the Nimbus look and feel
          */
@@ -482,6 +552,7 @@ private String carModel;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backgroundImage;
+    private javax.swing.JComboBox carMakerDropdown;
     private javax.swing.JComboBox carModelDropdown;
     private javax.swing.JPanel chooseByCarPanel;
     private javax.swing.JComboBox engineDropDown;
@@ -492,6 +563,7 @@ private String carModel;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -505,6 +577,7 @@ private String carModel;
     private java.awt.Panel panel1;
     private java.awt.Panel panel2;
     private java.awt.Panel panel3;
+    private java.awt.Panel panel4;
     private javax.swing.JPanel selectPartPanel;
     private javax.swing.JComboBox yearDropdown;
     // End of variables declaration//GEN-END:variables
