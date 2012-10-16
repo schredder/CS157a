@@ -188,7 +188,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         String username = uname.getText();
-        String password = pword.getText();
+        String password = pword.getSelectedText();
         if (username.equalsIgnoreCase("scott")) {
 
             if ((!password.equalsIgnoreCase("tiger"))) {
