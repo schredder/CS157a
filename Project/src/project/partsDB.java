@@ -8,12 +8,16 @@ import java.util.*;
  * @author Eric Schroeder
  */
 public class partsDB {
-
     private Connection oracleConn;
     private Statement oracleStmt;
     ArrayList<HashMap> APLBUK =  new ArrayList<HashMap>();
-   HashMap<String,String> column =  new HashMap<String, String>();
-      //ArrayList<String> column  =  new ArrayList<String>();
+    HashMap<String,String> column =  new HashMap<String, String>();
+    
+    private String maker;
+    private String model;
+    private int year;
+    private String engine;
+    
     public partsDB(String connectString, String user, String password) throws SQLException{
 
         try {
@@ -33,7 +37,6 @@ public class partsDB {
      * @param whereClause
      * @return An arrayList
      */
-    
       public ArrayList<HashMap> select(String SQLStatement) {
       /* TODO: Execute the SQL statement, and return it as an ArrayList of
        tuples represented as HashMaps with the column as the key*/
@@ -100,9 +103,7 @@ public class partsDB {
      *
      * @return Oracle Database Statement object
      */
-    public Statement getDBStatement() {
-        return oracleStmt;
-    }
+    public Statement getDBStatement() { return oracleStmt; }
 
     public void disconnectFromDB() throws SQLException {
         try {
@@ -116,9 +117,41 @@ public class partsDB {
     /**
      * get the database connection object.
      */
-    public Connection getDBConnection() {
-        return this.oracleConn;
-    } //method
-    
+    public Connection getDBConnection() { return this.oracleConn; } //method
 
+    public void setMaker(String autoMake) {
+        // TODO //
+    }
+    
+    public void setModel(String autoModel) {
+        // TODO //
+    }
+        
+    public void setYear(int autoYear) {
+        // TODO //
+    }
+    
+    public void setEngine(String autoEngine) {
+        // TODO //
+    }
+    
+    public String[] getMaker(String autoMake) {
+        // TODO //
+        return new String[0];
+    }
+    
+    public String[] getModel(String autoModel) {
+        // TODO //
+        return new String[0];
+    }
+        
+    public int[] getYear(int autoYear) {
+        // TODO //
+        return new int[0];
+    }
+    
+    public String[] getEngine(String autoEngine) {
+        // TODO //
+        return new String[0];
+    }
 }
