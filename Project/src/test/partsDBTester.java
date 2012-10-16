@@ -13,10 +13,11 @@ import java.sql.*;
  */
 public class partsDBTester {
     
-    public static void main(String args) throws SQLException{
+    public static void main(String[] args) throws SQLException{
         
         try{
         partsDB dbc = new partsDB("jdbc:oracle:thin:@localhost:1521:orcl","system","Password17");
+        dbc.select("Select * from APLBUK");
         dbc.disconnectFromDB();
         }
         catch(SQLException ex)
