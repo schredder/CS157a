@@ -14,11 +14,10 @@ public class partsDB {
     private Statement oracleStmt;
     private String maker;
     private String model;
-    private int year;
+    private String year;
     private String engine;
 
     public partsDB(String connectString, String user, String password) throws SQLException {
-
         try {
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
             oracleConn = DriverManager.getConnection(connectString, user, password);
@@ -39,8 +38,6 @@ public class partsDB {
     public ArrayList<HashMap> select(String SQLStatement) {
         /* TODO: Execute the SQL statement, and return it as an ArrayList of
          tuples represented as HashMaps with the column as the key*/
-
-
         ResultSet rs;
         ResultSetMetaData rsMetaData = null;
         ArrayList<HashMap> result = new ArrayList<HashMap>();
@@ -104,9 +101,7 @@ public class partsDB {
      *
      * @return Oracle Database Statement object
      */
-    public Statement getDBStatement() {
-        return oracleStmt;
-    }
+    public Statement getDBStatement() { return oracleStmt; }
 
     public void disconnectFromDB() throws SQLException {
         try {
@@ -120,43 +115,52 @@ public class partsDB {
     /**
      * get the database connection object.
      */
-    public Connection getDBConnection() {
-        return this.oracleConn;
-    } //method
+    public Connection getDBConnection() { return this.oracleConn; }
 
-    public void setMaker(String autoMake) {
-        this.maker = autoMake;
-    }
+    public void setMaker(String autoMake) { this.maker = autoMake; }
 
-    public void setModel(String autoModel) {
-        this.model = autoModel;
-    }
+    public void setModel(String autoModel) { this.model = autoModel; }
 
-    public void setYear(int autoYear) {
-        this.year = autoYear;
-    }
+    public void setYear(String autoYear) { this.year = autoYear; }
 
-    public void setEngine(String autoEngine) {
-        this.engine = autoEngine;
-    }
+    public void setEngine(String autoEngine) { this.engine = autoEngine; }
 
-    public String[] getMaker() {
-        // TODO //
-        return new String[0];
+    public ArrayList<HashMap> getMaker() {
+        return this.select("SELECT MAK,COD FROM MAKERS");
     }
 
     public String[] getModel() {
-        // TODO //
-        return new String[0];
+        ArrayList<HashMap> resultList = this.select("SELECT DISTINCT MODEL FROM APL" + this.maker);
+        String[] models = new String[resultList.size()];
+        for (int i = 0; i < resultList.size(); i++)
+            models[i] = (String) resultList.get(i).get("MODEL");
+        
+        return models;
     }
 
-    public int[] getYear() {
-        // TODO //
-        return new int[0];
+    public String[] getYear() {
+        ArrayList<HashMap> resultList = this.select("SELECT DISTINCT YEAR FROM APL" 
+                + this.maker + " WHERE MODEL='" + this.model + "'");
+        String[] years = new String[resultList.size()];
+        for (int i = 0; i < resultList.size(); i++) {
+            years[i] = (String) resultList.get(i).get("YEAR");
+        }
+        
+        return years;
     }
 
+    /**
+     * @return  an array of comma-delimited strings in the format
+     * ENGINE_TYPE, LITRES, CUBIC_INCHES
+     */
     public String[] getEngine() {
-        // TODO //
-        return new String[0];
+        ArrayList<HashMap> resultList = this.select("SELECT ENGINE_TYPE,LITRES,CUBIC_INCHES FROM APL" 
+                + this.maker + " WHERE MODEL='" + this.model + "' AND YEAR=" + this.year);
+        String[] engines = new String[resultList.size()];
+        for (int i = 0; i < resultList.size(); i++)
+            engines[i] = (String) resultList.get(i).get("ENGINE_TYPE") 
+                    + (String) resultList.get(i).get("LITRES")
+                    + (String) resultList.get(i).get("CUBIC_INCHES");
+        return engines;
     }
 }
