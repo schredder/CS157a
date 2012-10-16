@@ -6,6 +6,9 @@ package project;
 
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
@@ -14,8 +17,7 @@ import javax.swing.UIManager;
  * @author Yous
  */
 public class GUI extends javax.swing.JFrame {
-private String carModel;
-//private partsDB db = new partsDB(carModel, carModel, carModel)
+private static partsDB db;
     /**
      * Creates new form GUI
      */
@@ -467,6 +469,8 @@ private String carModel;
 
     private void engineDropDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_engineDropDownActionPerformed
         jButton4.setEnabled(true);
+        db.setYear(Integer.parseInt(yearDropdown.getSelectedItem().toString()));
+        // What do we after they select the year?
     }//GEN-LAST:event_engineDropDownActionPerformed
 
     private void yearDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearDropdownActionPerformed
@@ -474,8 +478,13 @@ private String carModel;
     }//GEN-LAST:event_yearDropdownActionPerformed
 
     private void carModelDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carModelDropdownActionPerformed
+        db.setModel(carModelDropdown.getSelectedItem().toString());
+        int[] years =  db.getYear();
+        yearDropdown.removeAllItems();
+        for (int year : years){
+            yearDropdown.addItem(year);
+        }
         yearDropdown.setEnabled(true);
-        carModel = carModelDropdown.getSelectedItem().toString();
         
     }//GEN-LAST:event_carModelDropdownActionPerformed
 
@@ -485,6 +494,12 @@ private String carModel;
 
     private void carMakerDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carMakerDropdownActionPerformed
         // TODO add your handling code here:
+        db.setMaker(carMakerDropdown.getSelectedItem().toString());
+        String[] models = db.getMaker();
+        carModelDropdown.removeAllItems();
+        for(String model : models){
+            carModelDropdown.addItem(model);
+        }
         carModelDropdown.setEnabled(true);
     }//GEN-LAST:event_carMakerDropdownActionPerformed
 
@@ -492,6 +507,11 @@ private String carModel;
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        try {
+            db = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
+        } catch (SQLException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
         /*
          * Set the Nimbus look and feel
          */
