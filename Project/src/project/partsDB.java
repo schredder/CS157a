@@ -12,8 +12,8 @@ public class partsDB {
     private Connection oracleConn;
     private Statement oracleStmt;
     ArrayList<HashMap> APLBUK =  new ArrayList<HashMap>();
-    HashMap<String,String> column =  new HashMap<String, String>();
-      
+   HashMap<String,String> column =  new HashMap<String, String>();
+      //ArrayList<String> column  =  new ArrayList<String>();
     public partsDB(String connectString, String user, String password) throws SQLException{
 
         try {
@@ -39,20 +39,36 @@ public class partsDB {
        tuples represented as HashMaps with the column as the key*/
      
       
+
       ResultSet rs; 
-      ResultSetMetaData rsMetaData; 
+      ResultSetMetaData rsMetaData = null; 
       try { 
           rs = oracleStmt.executeQuery(SQLStatement); 
-          /* This is risky. We can't guarantee Oracle will give us the same indices
+/*           This is risky. We can't guarantee Oracle will give us the same indices
              for a column every time. Instead, we should use ResultSetMetaData:
              http://docs.oracle.com/javase/7/docs/api/java/sql/ResultSetMetaData.html
              
              My proposed solution:
+             */
+          while(rs.next()){
           rsMetaData = rs.getMetaData();
-          for (int i = 0; i < rsMetaData.getColumnCount(); i++) {
+          for (int i = 1; i <=7; i++) {
              column.put(rsMetaData.getColumnName(i), rs.getString(i));
           }
-           */
+          APLBUK.add(column);
+          column = new HashMap<String, String>();
+          }
+            System.out.println(APLBUK);
+          System.out.println(APLBUK.size());
+
+      }
+/*
+      try {
+          rs = oracleStmt.executeQuery(SQLStatement); 
+      
+          
+          while(rs.next()){
+
           column.put("model",rs.getString(1));
           column.put("year",rs.getString(2));
           column.put("desc",rs.getString(3));
@@ -61,13 +77,17 @@ public class partsDB {
           column.put("inches",rs.getString(6));
           column.put("rlink",rs.getString(7));
           APLBUK.add(column);
-      } 
-      
+          column = new HashMap<String, String>();
+          }
+          oracleStmt.close();
+          System.out.println(APLBUK.get(0).get("model"));
+          System.out.println(APLBUK.get(0));
+          System.out.println(APLBUK.size());
+      }
+  */    
       catch(SQLException e) { System.out.println("Unable to execute statement: " +
-      SQLStatement + "\nMessage: "+ e.getMessage()); 
- 
+      SQLStatement + "\nMessage: "+ e.getMessage());
       
-      return null; 
       //ArrayList<String>; } ResultSetMetaData rsMetaData = rs.getMetaData(); }
       }
       return APLBUK; 
@@ -99,4 +119,6 @@ public class partsDB {
     public Connection getDBConnection() {
         return this.oracleConn;
     } //method
+    
+
 }
