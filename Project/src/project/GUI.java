@@ -88,7 +88,7 @@ private static partsDB db;
 
         carMakerDropdown.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         carMakerDropdown.setMaximumRowCount(16);
-        carMakerDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select Car Maker -", "AMERICAN MOTORS OR AMC", "AUDI", "BMW", "BUICK", "CADILLAC", "CHEVROLET", "CHRYSLER", "DODGE", "DODGE/PLYMOUTH LITE TRK & VAN", "FORD LIGHT TRUCK AND VAN", "FORD MEDIUM AND HEAVY TRUCK", "FIAT", "FORD", "CHEVROLET & GMC TRUCK & VAN", "HONDA", "INTERNATIONAL TRUCK (I.H.C.)", "ISUZU", "LINCOLN", "MERCEDES", "MITSUBISHI", "MERCURY", "MAZDA", "NISSAN / DATSUN", "OLDSMOBILE", "PLYMOUTH", "PORSCHE", "PONTIAC", "RENAULT", "SAAB", "SUBARU", "TOYOTA", "UPS", "VOLKSWAGEN", "HYUNDAI", "YUGO", "GMC TRUCK AND VAN" }));
+        carMakerDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AMC AMERICAN MOTORS OR AMC", "AUD AUDI", "BMW BMW", "BUK BUICK", "CAD CADILLAC", "CHE CHEVROLET", "CRY CHRYSLER", "DOD DODGE", "DOT DODGE/PLYMOUTH LITE TRK & VAN", "FDT FORD LIGHT TRUCK AND VAN", "FDM FORD MEDIUM AND HEAVY TRUCK", "FIA FIAT", "FOR FORD", "GMC CHEVROLET & GMC TRUCK & VAN", "HON HONDA", "INT INTERNATIONAL TRUCK (I.H.C.)", "ISU ISUZU", "LIN LINCOLN", "MCS MERCEDES", "MIT MITSUBISHI", "MRY MERCURY", "MZD MAZDA", "NIS NISSAN / DATSUN", "OLD OLDSMOBILE", "PLY PLYMOUTH", "POR PORSCHE", "PON PONTIAC", "REN RENAULT", "SAB SAAB", "SUB SUBARU", "TOY TOYOTA", "UPS UPS", "VOL VOLKSWAGEN", "HUN HYUNDAI", "YUG YUGO", "GMM GMC TRUCK AND VAN" }));
         carMakerDropdown.setToolTipText("");
         carMakerDropdown.setBorder(null);
         carMakerDropdown.addActionListener(new java.awt.event.ActionListener() {
@@ -479,9 +479,9 @@ private static partsDB db;
 
     private void carModelDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carModelDropdownActionPerformed
         db.setModel(carModelDropdown.getSelectedItem().toString());
-        int[] years =  db.getYear();
+        String[] years =  db.getYear();
         yearDropdown.removeAllItems();
-        for (int year : years){
+        for (String year : years){
             yearDropdown.addItem(year);
         }
         yearDropdown.setEnabled(true);
@@ -494,7 +494,8 @@ private static partsDB db;
 
     private void carMakerDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carMakerDropdownActionPerformed
         // TODO add your handling code here:
-        db.setMaker(carMakerDropdown.getSelectedItem().toString());
+        String maker = carMakerDropdown.getSelectedItem().toString().substring(0, 2);
+        db.setMaker(maker);
         String[] models = db.getMaker();
         carModelDropdown.removeAllItems();
         for(String model : models){
