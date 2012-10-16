@@ -199,7 +199,7 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Invalid User Name and Password");
             } else {
                 getDBConnection();
-                new Login().setVisible(false);
+                this.setVisible(false);
                 gui.setVisible(true);
             }
         }

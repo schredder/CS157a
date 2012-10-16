@@ -7,6 +7,8 @@ package project;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
@@ -469,7 +471,7 @@ private static partsDB db;
 
     private void engineDropDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_engineDropDownActionPerformed
         jButton4.setEnabled(true);
-        db.setYear(Integer.parseInt(yearDropdown.getSelectedItem().toString()));
+        db.setYear(yearDropdown.getSelectedItem().toString());
         // What do we after they select the year?
     }//GEN-LAST:event_engineDropDownActionPerformed
 
@@ -478,7 +480,7 @@ private static partsDB db;
     }//GEN-LAST:event_yearDropdownActionPerformed
 
     private void carModelDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carModelDropdownActionPerformed
-        db.setModel(carModelDropdown.getSelectedItem().toString());
+        
         String[] years =  db.getYear();
         yearDropdown.removeAllItems();
         for (String year : years){
@@ -493,13 +495,18 @@ private static partsDB db;
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void carMakerDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carMakerDropdownActionPerformed
-        // TODO add your handling code here:
-        String maker = carMakerDropdown.getSelectedItem().toString().substring(0, 2);
+        try {
+            // TODO add your handling code here:
+            db = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
+        } catch (SQLException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String maker = carMakerDropdown.getSelectedItem().toString().substring(0, 3);
         db.setMaker(maker);
-        String[] models = db.getMaker();
+        String[] models = db.getModel();
         carModelDropdown.removeAllItems();
         for(String model : models){
-            carModelDropdown.addItem(model);
+            carModelDropdown.addItem(model.toString());
         }
         carModelDropdown.setEnabled(true);
     }//GEN-LAST:event_carMakerDropdownActionPerformed
@@ -508,11 +515,11 @@ private static partsDB db;
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        try {
-            db = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
-        } catch (SQLException ex) {
-            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            
+//        } catch (SQLException ex) {
+//            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         /*
          * Set the Nimbus look and feel
          */
