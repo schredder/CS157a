@@ -60,7 +60,7 @@ public class partsDB {
             while (rs.next()) {
                 column = new HashMap<String, String>();
                 rsMetaData = rs.getMetaData();
-                for (int i = 1; i <= 7; i++) {
+                for (int i = 1; i <= rsMetaData.getColumnCount(); i++) {
                     columnName = rsMetaData.getColumnName(i);
                     column.put(columnName, rs.getString(columnName));
                 }
@@ -211,11 +211,16 @@ public class partsDB {
             while (column.hasNext()) {
                 Map.Entry current = (Map.Entry) column.next();
                 columnArray[i] = current.getKey().toString();
+                if(columnArray[i].equals("RLINK"))
+                    continue;
+              String p_number = vendorcolumn.get(columnArray[i]);
+              String vendorDB = columnArray[i].substring(0, columnArray[i].length()-1);
+                parts.addAll(this.select("SELECT * FROM RDIM"+vendorDB+" WHERE P_NUMBER='"+p_number+"'"));                
                 i++;
             
           }
           }
-            System.out.println(columnArray.toString());
+            System.out.println(parts);
 /*            String p_number = partNums.get(vendorColumn);
             // i.e. vendorColumn = MOD5
             String vendorDB = vendorColumn.substring(0, vendorColumn.length()-1);
@@ -227,6 +232,6 @@ public class partsDB {
             // and combine somehow. =\
         }
   */     
-        return new ArrayList<HashMap>();
+        return parts;
     }  
 }
