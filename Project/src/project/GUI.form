@@ -410,11 +410,8 @@
             <Component class="javax.swing.JComboBox" name="yearDropdown">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
+                  <StringArray count="1">
                     <StringItem index="0" value="- Year -"/>
-                    <StringItem index="1" value="Car Year 1"/>
-                    <StringItem index="2" value="Car Year 2"/>
-                    <StringItem index="3" value="Car Yearl 3"/>
                   </StringArray>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -438,11 +435,8 @@
             <Component class="javax.swing.JComboBox" name="engineDropDown">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
+                  <StringArray count="1">
                     <StringItem index="0" value="- Engine -"/>
-                    <StringItem index="1" value="Engine 1"/>
-                    <StringItem index="2" value="Engine 2"/>
-                    <StringItem index="3" value="Engine 3"/>
                   </StringArray>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>

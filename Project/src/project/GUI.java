@@ -234,7 +234,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(0, 153, 204));
         jLabel6.setText("Car Year:");
 
-        yearDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Year -", "Car Year 1", "Car Year 2", "Car Yearl 3" }));
+        yearDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Year -" }));
         yearDropdown.setToolTipText("");
         yearDropdown.setEnabled(false);
         yearDropdown.addActionListener(new java.awt.event.ActionListener() {
@@ -247,7 +247,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 153, 204));
         jLabel7.setText("Car Engine:");
 
-        engineDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Engine -", "Engine 1", "Engine 2", "Engine 3" }));
+        engineDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Engine -" }));
         engineDropDown.setToolTipText("");
         engineDropDown.setEnabled(false);
         engineDropDown.addActionListener(new java.awt.event.ActionListener() {
@@ -869,7 +869,7 @@ public class GUI extends javax.swing.JFrame {
             Iterator column = row.entrySet().iterator();
             while (column.hasNext()) {
                 Entry current = (Map.Entry) column.next();
-                rowArray[i] = current.getValue().toString();
+                rowArray[i] = current.getValue().toString();              
                 i++;
             }
             model.addRow(rowArray);
@@ -885,12 +885,19 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_engineDropDownActionPerformed
 
     private void yearDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearDropdownActionPerformed
+        String year = yearDropdown.getSelectedItem().toString();
+        db.setYear(year);
+        String[] engines = db.getEngine();
+        for(String engine : engines) {
+            engineDropDown.addItem(engine);
+        }
         engineDropDown.setEnabled(true);
-        db.setYear(yearDropdown.getSelectedItem().toString());
+        //db.setYear(yearDropdown.getSelectedItem().toString());
     }//GEN-LAST:event_yearDropdownActionPerformed
 
     private void carModelDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carModelDropdownActionPerformed
-
+        String model = carModelDropdown.getSelectedItem().toString();
+        db.setModel(model);
         String[] years = db.getYear();
         //yearDropdown.removeAllItems();
         for (String year : years) {
@@ -908,7 +915,7 @@ public class GUI extends javax.swing.JFrame {
         //carModelDropdown.removeAllItems();
         try {
             // TODO add your handling code here:
-            db = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
+            db = new partsDB("jdbc:oracle:thin:@localhost:1521:orcl", "scott", "tiger");
         } catch (SQLException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
