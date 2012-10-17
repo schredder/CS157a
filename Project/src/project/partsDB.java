@@ -16,6 +16,8 @@ public class partsDB {
     private String model;
     private String year;
     private String engine;
+    private String litres;
+    private string cubicIn;
 
     public partsDB(String connectString, String user, String password) throws SQLException {
         try {
@@ -132,7 +134,10 @@ public class partsDB {
     }
 
     public void setEngine(String autoEngine) {
-        this.engine = autoEngine;
+        String[] split = autoEngine.split(",");
+        this.engine = split[0];
+        this.litres = split[1];
+        this.cubicIn = split[2];
     }
 
     public ArrayList<HashMap> getMaker() {
@@ -169,10 +174,33 @@ public class partsDB {
                 + this.maker + " WHERE MODEL='" + this.model + "' AND YEAR=" + this.year);
         String[] engines = new String[resultList.size()];
         for (int i = 0; i < resultList.size(); i++) {
-            engines[i] = (String) resultList.get(i).get("ENGINE_TYPE")
-                    + (String) resultList.get(i).get("LITRES")
+            engines[i] = (String) resultList.get(i).get("ENGINE_TYPE") + ","
+                    + (String) resultList.get(i).get("LITRES") + ","
                     + (String) resultList.get(i).get("CUBIC_INCHES");
         }
         return engines;
+    }
+    
+    public ArrayList<HashMap> getParts() {
+        ArrayList<HashMap> resultList = 
+                this.select("SELECT * FROM RADCRX "
+                + "WHERE RLINK=(SELECT RLINK FROM APL" + this.maker
+                            + " WHERE MODEL='" + this.model
+                            + "' AND YEAR=" + this.year
+                            + " AND ENGINE_TYPE='" + this.engine
+                            + " AND (LITRES='" + this.litres 
+                            + "' OR CUBIC_INCHES=" + this.cubicIn
+                            + "))");
+        
+        // List of part nums is in the first index of resultList
+        HashMap<String, String> partNums = resultList.get(1);
+        for(String key : (String[]) partNums.keySet().toArray()) {
+            // TODO:
+            // Database for parts = "RDIM"+key (i.e. RDIMMOD RDIMARS, etc.)
+            // So for each key, select("select * from RDIM"+key+"where p_number="+partNums.get(key));
+            // and combine somehow. =\
+        }
+        
+        return new ArrayList<HashMap>();
     }
 }
