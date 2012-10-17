@@ -220,7 +220,7 @@ public class GUI extends javax.swing.JFrame {
 
         carModelDropdown.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         carModelDropdown.setMaximumRowCount(16);
-        carModelDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Car Model -", "AMERICAN MOTORS OR AMC", "AUDI", "BMW", "BUICK", "CADILLAC", "CHEVROLET", "CHRYSLER", "DODGE", "DODGE/PLYMOUTH LITE TRK & VAN", "FORD LIGHT TRUCK AND VAN", "FORD MEDIUM AND HEAVY TRUCK", "FIAT", "FORD", "CHEVROLET & GMC TRUCK & VAN", "HONDA", "INTERNATIONAL TRUCK (I.H.C.)", "ISUZU", "LINCOLN", "MERCEDES", "MITSUBISHI", "MERCURY", "MAZDA", "NISSAN / DATSUN", "OLDSMOBILE", "PLYMOUTH", "PORSCHE", "PONTIAC", "RENAULT", "SAAB", "SUBARU", "TOYOTA", "UPS", "VOLKSWAGEN", "HYUNDAI", "YUGO", "GMC TRUCK AND VAN" }));
+        carModelDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Car Model -" }));
         carModelDropdown.setToolTipText("");
         carModelDropdown.setBorder(null);
         carModelDropdown.setEnabled(false);

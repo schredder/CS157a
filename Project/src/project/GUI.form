@@ -382,44 +382,8 @@
                 </Property>
                 <Property name="maximumRowCount" type="int" value="16"/>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="37">
+                  <StringArray count="1">
                     <StringItem index="0" value="- Car Model -"/>
-                    <StringItem index="1" value="AMERICAN MOTORS OR AMC"/>
-                    <StringItem index="2" value="AUDI"/>
-                    <StringItem index="3" value="BMW"/>
-                    <StringItem index="4" value="BUICK"/>
-                    <StringItem index="5" value="CADILLAC"/>
-                    <StringItem index="6" value="CHEVROLET"/>
-                    <StringItem index="7" value="CHRYSLER"/>
-                    <StringItem index="8" value="DODGE"/>
-                    <StringItem index="9" value="DODGE/PLYMOUTH LITE TRK &amp; VAN"/>
-                    <StringItem index="10" value="FORD LIGHT TRUCK AND VAN"/>
-                    <StringItem index="11" value="FORD MEDIUM AND HEAVY TRUCK"/>
-                    <StringItem index="12" value="FIAT"/>
-                    <StringItem index="13" value="FORD"/>
-                    <StringItem index="14" value="CHEVROLET &amp; GMC TRUCK &amp; VAN"/>
-                    <StringItem index="15" value="HONDA"/>
-                    <StringItem index="16" value="INTERNATIONAL TRUCK (I.H.C.)"/>
-                    <StringItem index="17" value="ISUZU"/>
-                    <StringItem index="18" value="LINCOLN"/>
-                    <StringItem index="19" value="MERCEDES"/>
-                    <StringItem index="20" value="MITSUBISHI"/>
-                    <StringItem index="21" value="MERCURY"/>
-                    <StringItem index="22" value="MAZDA"/>
-                    <StringItem index="23" value="NISSAN / DATSUN"/>
-                    <StringItem index="24" value="OLDSMOBILE"/>
-                    <StringItem index="25" value="PLYMOUTH"/>
-                    <StringItem index="26" value="PORSCHE"/>
-                    <StringItem index="27" value="PONTIAC"/>
-                    <StringItem index="28" value="RENAULT"/>
-                    <StringItem index="29" value="SAAB"/>
-                    <StringItem index="30" value="SUBARU"/>
-                    <StringItem index="31" value="TOYOTA"/>
-                    <StringItem index="32" value="UPS"/>
-                    <StringItem index="33" value="VOLKSWAGEN"/>
-                    <StringItem index="34" value="HYUNDAI"/>
-                    <StringItem index="35" value="YUGO"/>
-                    <StringItem index="36" value="GMC TRUCK AND VAN"/>
                   </StringArray>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
