@@ -1210,7 +1210,7 @@
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/Part Chooser.jpg"/>
+              <Image iconType="3" name="/images/Vendor.jpg"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -1229,7 +1229,7 @@
               <Dimension value="[200, 300]"/>
             </Property>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/Part Chooser Hover.jpg"/>
+              <Image iconType="3" name="/images/Vendor Hover.jpg"/>
             </Property>
           </Properties>
           <Events>

@@ -596,14 +596,14 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Part Chooser.jpg"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vendor.jpg"))); // NOI18N
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jButton2.setMaximumSize(new java.awt.Dimension(200, 300));
         jButton2.setMinimumSize(new java.awt.Dimension(200, 300));
         jButton2.setPreferredSize(new java.awt.Dimension(200, 300));
-        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Part Chooser Hover.jpg"))); // NOI18N
+        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vendor Hover.jpg"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
