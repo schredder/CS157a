@@ -204,8 +204,11 @@ public class partsDB {
 //        HashMap<String, String> partNums = partsList.get(0);
         //for(String vendorColumn : (String[]) partNums.keySet().toArray()) {
         String[] columnArray = new String[partsList.get(0).size()];
+       // vendorcolumn=null;
+//        HashMap<String, String> vendorcolumn =  new HashMap<String,String>();
         for (HashMap<String, String> vendorcolumn : partsList) 
           {
+   //           vendorcolumn=null;
             int i = 0;
             Iterator column = vendorcolumn.entrySet().iterator();
             while (column.hasNext()) {
@@ -215,11 +218,11 @@ public class partsDB {
                     continue;
               String p_number = vendorcolumn.get(columnArray[i]);
               String vendorDB = columnArray[i].substring(0, columnArray[i].length()-1);
-                parts.addAll(this.select("SELECT * FROM RDIM"+vendorDB+" WHERE P_NUMBER='"+p_number+"'"));                
+                //parts.addAll(this.select("SELECT * FROM RDIM"+vendorDB+" WHERE P_NUMBER='"+p_number+"'"));                
                 i++;
             
           }
-          }
+          //}
             System.out.println(parts);
 /*            String p_number = partNums.get(vendorColumn);
             // i.e. vendorColumn = MOD5
@@ -231,7 +234,8 @@ public class partsDB {
             // So for each key, select("select * from RDIM"+key+"where p_number="+partNums.get(key));
             // and combine somehow. =\
         }
-  */     
-        return parts;
-    }  
+  */     }
+        return new ArrayList<HashMap>();
+      
 }
+ }
