@@ -181,35 +181,52 @@ public class partsDB {
         return engines;
     }
     
-    public ArrayList<HashMap> getParts() {
-        
+ public ArrayList<HashMap> getParts() {
+       
         this.maker="CHE";
         this.model="CAMARO";
         this.year="86";
         this.engine="L4";
         this.litres="2.5";
         this.cubicIn="151";
-        ArrayList<HashMap> resultList = 
+        ArrayList<HashMap> partsList =
                 this.select("SELECT * FROM RADCRX "
                 + "WHERE RLINK=(SELECT RLINK FROM APL" + this.maker
                             + " WHERE MODEL='" + this.model
                             + "' AND YEAR='" + this.year
                             + "' AND ENGINE_TYPE='" + this.engine
-                            + "' AND (LITRES='" + this.litres 
+                            + "' AND (LITRES='" + this.litres
                             + "' OR CUBIC_INCHES=" + this.cubicIn
                             + "))");
-        
+       
         // List of part nums is in the first index of resultList
-        HashMap<String, String> partNums = resultList.get(1);
-        for(String key : (String[]) partNums.keySet().toArray()) {
+        ArrayList<HashMap> parts = new ArrayList<HashMap>();
+//        HashMap<String, String> partNums = partsList.get(0);
+        //for(String vendorColumn : (String[]) partNums.keySet().toArray()) {
+        String[] columnArray = new String[partsList.get(0).size()];
+        for (HashMap<String, String> vendorcolumn : partsList) 
+          {
+            int i = 0;
+            Iterator column = vendorcolumn.entrySet().iterator();
+            while (column.hasNext()) {
+                Map.Entry current = (Map.Entry) column.next();
+                columnArray[i] = current.getKey().toString();
+                i++;
             
-            System.out.println(key);
+          }
+          }
+            System.out.println(columnArray.toString());
+/*            String p_number = partNums.get(vendorColumn);
+            // i.e. vendorColumn = MOD5
+            String vendorDB = vendorColumn.substring(0, vendorColumn.length()-1);
+            // i.e. vendorDB = MOD
+            this.select("SELECT * FROM RDIM" + vendorDB + " WHERE P_NUMBER=" + p_number);
             // TODO:
             // Database for parts = "RDIM"+key (i.e. RDIMMOD RDIMARS, etc.)
             // So for each key, select("select * from RDIM"+key+"where p_number="+partNums.get(key));
             // and combine somehow. =\
         }
-        
+  */     
         return new ArrayList<HashMap>();
-    }
+    }  
 }
