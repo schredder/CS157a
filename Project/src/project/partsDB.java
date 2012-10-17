@@ -183,22 +183,23 @@ public class partsDB {
     
  public ArrayList<HashMap> getParts() {
        
-        this.maker="CHE";
+        /*this.maker="CHE";
         this.model="CAMARO";
         this.year="86";
         this.engine="L4";
         this.litres="2.5";
-        this.cubicIn="151";
+        this.cubicIn="151";*/
         ArrayList<HashMap> partsList =
                 this.select("SELECT * FROM RADCRX "
-                + "WHERE RLINK=(SELECT RLINK FROM APL" + this.maker
+//For testing purposes: using "IN" due to "single-row subquery returns more than one row"                
+                + "WHERE RLINK IN(SELECT RLINK FROM APL" + this.maker
                             + " WHERE MODEL='" + this.model
                             + "' AND YEAR='" + this.year
                             + "' AND ENGINE_TYPE='" + this.engine
                             + "' AND (LITRES='" + this.litres
                             + "' OR CUBIC_INCHES=" + this.cubicIn
                             + "))");
-       
+ 
         // List of part nums is in the first index of resultList
         ArrayList<HashMap> parts = new ArrayList<HashMap>();
 //        HashMap<String, String> partNums = partsList.get(0);
@@ -223,7 +224,7 @@ public class partsDB {
             
           }
           //}
-            System.out.println(parts);
+          //  System.out.println(parts);
 /*            String p_number = partNums.get(vendorColumn);
             // i.e. vendorColumn = MOD5
             String vendorDB = vendorColumn.substring(0, vendorColumn.length()-1);
@@ -235,7 +236,7 @@ public class partsDB {
             // and combine somehow. =\
         }
   */     }
-        return new ArrayList<HashMap>();
+        return parts; //placeholder
       
 }
  }
