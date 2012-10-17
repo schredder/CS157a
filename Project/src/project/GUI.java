@@ -892,7 +892,7 @@ public class GUI extends javax.swing.JFrame {
     private void carModelDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carModelDropdownActionPerformed
 
         String[] years = db.getYear();
-        yearDropdown.removeAllItems();
+        //yearDropdown.removeAllItems();
         for (String year : years) {
             yearDropdown.addItem(year);
         }
@@ -905,6 +905,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void carMakerDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carMakerDropdownActionPerformed
+        //carModelDropdown.removeAllItems();
         try {
             // TODO add your handling code here:
             db = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
@@ -914,7 +915,7 @@ public class GUI extends javax.swing.JFrame {
         String maker = carMakerDropdown.getSelectedItem().toString().substring(0, 3);
         db.setMaker(maker);
         String[] models = db.getModel();
-        carModelDropdown.removeAllItems();
+        
         for (String model : models) {
             carModelDropdown.addItem(model.toString());
         }
