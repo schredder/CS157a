@@ -9,9 +9,13 @@ import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,7 +24,9 @@ import javax.swing.table.DefaultTableModel;
  * @author Yous
  */
 public class GUI extends javax.swing.JFrame {
-private static partsDB db;
+
+    private static partsDB db;
+
     /**
      * Creates new form GUI
      */
@@ -451,28 +457,45 @@ private static partsDB db;
         selectPartPanel.setVisible(true);
         chooseByCarPanel.setVisible(false);
         DefaultTableModel model = new DefaultTableModel();
+
+        this.jTable1 = new JTable(model);
+        ArrayList<HashMap> parts = new ArrayList<HashMap>();
+
+        for (HashMap<String, String> row : parts) {
+            String[] rowArray = null;
+            int i = 0;
+            Iterator column = row.entrySet().iterator();
+            while (column.hasNext()) {
+                Entry current = (Map.Entry) column.next();
+                rowArray[i] = current.getValue().toString();
+                i++;
+            }
+            model.addRow(rowArray);
+        }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void engineDropDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_engineDropDownActionPerformed
         jButton4.setEnabled(true);
-        db.setYear(yearDropdown.getSelectedItem().toString());
-        // What do we after they select the year?
+        db.setEngine(engineDropDown.getSelectedItem().toString());
+
     }//GEN-LAST:event_engineDropDownActionPerformed
 
     private void yearDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearDropdownActionPerformed
         engineDropDown.setEnabled(true);
+        db.setYear(yearDropdown.getSelectedItem().toString());
     }//GEN-LAST:event_yearDropdownActionPerformed
 
     private void carModelDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carModelDropdownActionPerformed
-        
-        String[] years =  db.getYear();
+
+        String[] years = db.getYear();
         yearDropdown.removeAllItems();
-        for (String year : years){
+        for (String year : years) {
             yearDropdown.addItem(year);
         }
         yearDropdown.setEnabled(true);
-        
+
     }//GEN-LAST:event_carModelDropdownActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
@@ -490,7 +513,7 @@ private static partsDB db;
         db.setMaker(maker);
         String[] models = db.getModel();
         carModelDropdown.removeAllItems();
-        for(String model : models){
+        for (String model : models) {
             carModelDropdown.addItem(model.toString());
         }
         carModelDropdown.setEnabled(true);
@@ -525,12 +548,13 @@ private static partsDB db;
          * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
-           /* for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            } */
+            /*
+             * for (javax.swing.UIManager.LookAndFeelInfo info :
+             * javax.swing.UIManager.getInstalledLookAndFeels()) { if
+             * ("Nimbus".equals(info.getName())) {
+             * javax.swing.UIManager.setLookAndFeel(info.getClassName()); break;
+             * } }
+             */
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
