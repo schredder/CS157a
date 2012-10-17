@@ -861,10 +861,10 @@ public class GUI extends javax.swing.JFrame {
         DefaultTableModel model = new DefaultTableModel();
 
         this.jTable1 = new JTable(model);
-        ArrayList<HashMap> parts = new ArrayList<HashMap>();
+        ArrayList<HashMap> parts = db.getParts();
 
         for (HashMap<String, String> row : parts) {
-            String[] rowArray = null;
+            String[] rowArray = new String[row.size()];
             int i = 0;
             Iterator column = row.entrySet().iterator();
             while (column.hasNext()) {
