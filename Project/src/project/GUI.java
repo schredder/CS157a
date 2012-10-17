@@ -104,8 +104,6 @@ public class GUI extends javax.swing.JFrame {
         ViewPartsByVendor = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        panel10 = new java.awt.Panel();
-        jButton7 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
 
@@ -786,43 +784,6 @@ public class GUI extends javax.swing.JFrame {
         });
         ViewPartsByVendor.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 11, -1, -1));
 
-        panel10.setBackground(new java.awt.Color(247, 149, 62));
-        panel10.setPreferredSize(new java.awt.Dimension(650, 25));
-
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/next icon.jpg"))); // NOI18N
-        jButton7.setAlignmentY(0.0F);
-        jButton7.setBorder(null);
-        jButton7.setBorderPainted(false);
-        jButton7.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/images/next icon hover.jpg"))); // NOI18N
-        jButton7.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jButton7.setMaximumSize(new java.awt.Dimension(80, 25));
-        jButton7.setMinimumSize(new java.awt.Dimension(80, 25));
-        jButton7.setPreferredSize(new java.awt.Dimension(80, 25));
-        jButton7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/next icon hover.jpg"))); // NOI18N
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panel10Layout = new javax.swing.GroupLayout(panel10);
-        panel10.setLayout(panel10Layout);
-        panel10Layout.setHorizontalGroup(
-            panel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel10Layout.createSequentialGroup()
-                .addContainerGap(550, Short.MAX_VALUE)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-        );
-        panel10Layout.setVerticalGroup(
-            panel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel10Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        ViewPartsByVendor.add(panel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, -1, -1));
-
         jScrollPane2.setAutoscrolls(true);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -1024,10 +985,6 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel26MouseClicked
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -1096,7 +1053,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1127,7 +1083,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private java.awt.Panel panel1;
-    private java.awt.Panel panel10;
     private java.awt.Panel panel2;
     private java.awt.Panel panel3;
     private java.awt.Panel panel4;
