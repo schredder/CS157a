@@ -17,7 +17,7 @@ public class partsDBTester {
         
         try{
         partsDB dbc = new partsDB("jdbc:oracle:thin:@localhost:1521:orcl","system","Password17");
-        dbc.select("Select * from APLBUK");
+        dbc.getParts();
         dbc.disconnectFromDB();
         }
         catch(SQLException ex)

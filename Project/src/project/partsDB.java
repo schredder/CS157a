@@ -17,7 +17,7 @@ public class partsDB {
     private String year;
     private String engine;
     private String litres;
-    private string cubicIn;
+    private String cubicIn;
 
     public partsDB(String connectString, String user, String password) throws SQLException {
         try {
@@ -182,19 +182,28 @@ public class partsDB {
     }
     
     public ArrayList<HashMap> getParts() {
+        
+        this.maker="CHE";
+        this.model="CAMARO";
+        this.year="86";
+        this.engine="L4";
+        this.litres="2.5";
+        this.cubicIn="151";
         ArrayList<HashMap> resultList = 
                 this.select("SELECT * FROM RADCRX "
                 + "WHERE RLINK=(SELECT RLINK FROM APL" + this.maker
                             + " WHERE MODEL='" + this.model
-                            + "' AND YEAR=" + this.year
-                            + " AND ENGINE_TYPE='" + this.engine
-                            + " AND (LITRES='" + this.litres 
+                            + "' AND YEAR='" + this.year
+                            + "' AND ENGINE_TYPE='" + this.engine
+                            + "' AND (LITRES='" + this.litres 
                             + "' OR CUBIC_INCHES=" + this.cubicIn
                             + "))");
         
         // List of part nums is in the first index of resultList
         HashMap<String, String> partNums = resultList.get(1);
         for(String key : (String[]) partNums.keySet().toArray()) {
+            
+            System.out.println(key);
             // TODO:
             // Database for parts = "RDIM"+key (i.e. RDIMMOD RDIMARS, etc.)
             // So for each key, select("select * from RDIM"+key+"where p_number="+partNums.get(key));
