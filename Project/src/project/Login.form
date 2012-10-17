@@ -114,7 +114,10 @@
                               <Component id="pword" alignment="1" min="-2" pref="111" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jLabel3" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel3" min="-2" pref="57" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace pref="135" max="32767" attributes="0"/>
               </Group>
@@ -146,7 +149,10 @@
                       <Component id="pword" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="74" max="32767" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -198,6 +204,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="CS157A CAR STORE"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Quick Login"/>
+            <Property name="toolTipText" type="java.lang.String" value="Logs in with username&apos;scott&apos; and password &apos;tiger&apos;"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
