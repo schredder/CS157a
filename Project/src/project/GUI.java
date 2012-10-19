@@ -67,24 +67,28 @@ public class GUI extends javax.swing.JFrame {
         chooseByVendor = new javax.swing.JPanel();
         homeLabel = new javax.swing.JLabel();
         vendorLabel = new javax.swing.JLabel();
+        partnumberdropdownLabel = new javax.swing.JLabel();
+        vendordropdownLabel = new javax.swing.JLabel();
+        vendorDropdown = new javax.swing.JComboBox();
+        partNumberDropdown = new javax.swing.JComboBox();
+        vendorLeftPanel = new javax.swing.JPanel();
         partnumberLabel = new javax.swing.JLabel();
         coreLabel = new javax.swing.JLabel();
         inheadLabel = new javax.swing.JLabel();
         outheadLabel = new javax.swing.JLabel();
         inconLabel = new javax.swing.JLabel();
-        tmountLabel = new javax.swing.JLabel();
-        oilcoolLabel = new javax.swing.JLabel();
-        priceLabel = new javax.swing.JLabel();
-        amountLabel = new javax.swing.JLabel();
-        partnumberdropdownLabel = new javax.swing.JLabel();
-        vendordropdownLabel = new javax.swing.JLabel();
-        vendorDropdown = new javax.swing.JComboBox();
-        partNumberDropdown = new javax.swing.JComboBox();
         partnumberText = new javax.swing.JLabel();
         coreText = new javax.swing.JLabel();
         inheadText = new javax.swing.JLabel();
         outheadText = new javax.swing.JLabel();
         inconText = new javax.swing.JLabel();
+        vendorRightPanel = new javax.swing.JPanel();
+        ouconLabel = new javax.swing.JLabel();
+        amountLabel = new javax.swing.JLabel();
+        priceLabel = new javax.swing.JLabel();
+        oilcoolLabel = new javax.swing.JLabel();
+        tmountLabel = new javax.swing.JLabel();
+        ouconText = new javax.swing.JLabel();
         tmountText = new javax.swing.JLabel();
         oilcoolText = new javax.swing.JLabel();
         priceText = new javax.swing.JLabel();
@@ -93,18 +97,20 @@ public class GUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Car Store");
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(650, 320));
-        setMinimumSize(new java.awt.Dimension(650, 320));
-        setPreferredSize(new java.awt.Dimension(650, 320));
+        setMaximumSize(new java.awt.Dimension(736, 200));
+        setMinimumSize(new java.awt.Dimension(736, 320));
+        setPreferredSize(new java.awt.Dimension(720, 320));
 
         chooseByCarModel.setBackground(new java.awt.Color(255, 255, 255));
-        chooseByCarModel.setMaximumSize(new java.awt.Dimension(650, 320));
-        chooseByCarModel.setMinimumSize(new java.awt.Dimension(650, 320));
-        chooseByCarModel.setPreferredSize(new java.awt.Dimension(650, 320));
+        chooseByCarModel.setMaximumSize(new java.awt.Dimension(720, 320));
+        chooseByCarModel.setMinimumSize(new java.awt.Dimension(720, 320));
+        chooseByCarModel.setPreferredSize(new java.awt.Dimension(720, 320));
         chooseByCarModel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         choosecarPanel.setBackground(new java.awt.Color(255, 255, 255));
-        choosecarPanel.setPreferredSize(new java.awt.Dimension(650, 112));
+        choosecarPanel.setMaximumSize(new java.awt.Dimension(720, 200));
+        choosecarPanel.setMinimumSize(new java.awt.Dimension(720, 200));
+        choosecarPanel.setPreferredSize(new java.awt.Dimension(720, 200));
 
         makerLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         makerLabel.setForeground(new java.awt.Color(0, 153, 204));
@@ -203,7 +209,7 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(carpartnumberLabel)
                         .addGap(18, 18, 18)
                         .addComponent(partnumberdropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addContainerGap(362, Short.MAX_VALUE))
         );
         choosecarPanelLayout.setVerticalGroup(
             choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,7 +237,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        chooseByCarModel.add(choosecarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, 200));
+        chooseByCarModel.add(choosecarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 720, 200));
 
         carHomeLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         carHomeLabel.setForeground(new java.awt.Color(204, 204, 204));
@@ -249,7 +255,9 @@ public class GUI extends javax.swing.JFrame {
         chooseByCarModel.add(choosebycarmodelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 0, 280, 50));
 
         nextButtonPanel.setBackground(new java.awt.Color(247, 149, 62));
-        nextButtonPanel.setPreferredSize(new java.awt.Dimension(650, 25));
+        nextButtonPanel.setMaximumSize(new java.awt.Dimension(720, 25));
+        nextButtonPanel.setMinimumSize(new java.awt.Dimension(720, 25));
+        nextButtonPanel.setPreferredSize(new java.awt.Dimension(720, 25));
 
         nextButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/next icon.jpg"))); // NOI18N
         nextButton.setAlignmentY(0.0F);
@@ -272,7 +280,7 @@ public class GUI extends javax.swing.JFrame {
         nextButtonPanelLayout.setHorizontalGroup(
             nextButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nextButtonPanelLayout.createSequentialGroup()
-                .addContainerGap(560, Short.MAX_VALUE)
+                .addContainerGap(630, Short.MAX_VALUE)
                 .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -283,12 +291,12 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        chooseByCarModel.add(nextButtonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 295, -1, -1));
+        chooseByCarModel.add(nextButtonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 295, 720, -1));
 
         homeScreenPage.setBackground(new java.awt.Color(255, 255, 255));
-        homeScreenPage.setMaximumSize(new java.awt.Dimension(650, 320));
-        homeScreenPage.setMinimumSize(new java.awt.Dimension(650, 320));
-        homeScreenPage.setPreferredSize(new java.awt.Dimension(650, 320));
+        homeScreenPage.setMaximumSize(new java.awt.Dimension(720, 320));
+        homeScreenPage.setMinimumSize(new java.awt.Dimension(720, 320));
+        homeScreenPage.setPreferredSize(new java.awt.Dimension(720, 320));
         homeScreenPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         searchbyLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
@@ -327,9 +335,9 @@ public class GUI extends javax.swing.JFrame {
         homeScreenPage.add(vendorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(432, 11, -1, -1));
 
         chooseByVendor.setBackground(new java.awt.Color(255, 255, 255));
-        chooseByVendor.setMaximumSize(new java.awt.Dimension(650, 320));
-        chooseByVendor.setMinimumSize(new java.awt.Dimension(650, 320));
-        chooseByVendor.setPreferredSize(new java.awt.Dimension(650, 320));
+        chooseByVendor.setMaximumSize(new java.awt.Dimension(700, 320));
+        chooseByVendor.setMinimumSize(new java.awt.Dimension(700, 320));
+        chooseByVendor.setPreferredSize(new java.awt.Dimension(720, 320));
         chooseByVendor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         homeLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
@@ -347,55 +355,10 @@ public class GUI extends javax.swing.JFrame {
         vendorLabel.setText("Choose By Vendor");
         chooseByVendor.add(vendorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 0, 240, 50));
 
-        partnumberLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        partnumberLabel.setForeground(new java.awt.Color(0, 153, 204));
-        partnumberLabel.setText("Part number");
-        chooseByVendor.add(partnumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 100, -1));
-
-        coreLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        coreLabel.setForeground(new java.awt.Color(0, 153, 204));
-        coreLabel.setText("Core");
-        chooseByVendor.add(coreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
-
-        inheadLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        inheadLabel.setForeground(new java.awt.Color(0, 153, 204));
-        inheadLabel.setText("Inhead");
-        chooseByVendor.add(inheadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
-
-        outheadLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        outheadLabel.setForeground(new java.awt.Color(0, 153, 204));
-        outheadLabel.setText("Outhead");
-        chooseByVendor.add(outheadLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
-
-        inconLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        inconLabel.setForeground(new java.awt.Color(0, 153, 204));
-        inconLabel.setText("Incon");
-        chooseByVendor.add(inconLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
-
-        tmountLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        tmountLabel.setForeground(new java.awt.Color(0, 153, 204));
-        tmountLabel.setText("Tmount");
-        chooseByVendor.add(tmountLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, -1, -1));
-
-        oilcoolLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        oilcoolLabel.setForeground(new java.awt.Color(0, 153, 204));
-        oilcoolLabel.setText("Oilcool");
-        chooseByVendor.add(oilcoolLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, -1, -1));
-
-        priceLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        priceLabel.setForeground(new java.awt.Color(0, 153, 204));
-        priceLabel.setText("Price");
-        chooseByVendor.add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 50, -1));
-
-        amountLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        amountLabel.setForeground(new java.awt.Color(0, 153, 204));
-        amountLabel.setText("Amount");
-        chooseByVendor.add(amountLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, -1, 20));
-
         partnumberdropdownLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         partnumberdropdownLabel.setForeground(new java.awt.Color(0, 153, 204));
         partnumberdropdownLabel.setText("Part number");
-        chooseByVendor.add(partnumberdropdownLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, -1, -1));
+        chooseByVendor.add(partnumberdropdownLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
 
         vendordropdownLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         vendordropdownLabel.setForeground(new java.awt.Color(0, 153, 204));
@@ -423,52 +386,209 @@ public class GUI extends javax.swing.JFrame {
                 partNumberDropdownActionPerformed(evt);
             }
         });
-        chooseByVendor.add(partNumberDropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 150, -1));
+        chooseByVendor.add(partNumberDropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 150, -1));
+
+        vendorLeftPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        partnumberLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        partnumberLabel.setForeground(new java.awt.Color(0, 153, 204));
+        partnumberLabel.setText("Part number");
+
+        coreLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        coreLabel.setForeground(new java.awt.Color(0, 153, 204));
+        coreLabel.setText("Core");
+
+        inheadLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        inheadLabel.setForeground(new java.awt.Color(0, 153, 204));
+        inheadLabel.setText("Inhead");
+
+        outheadLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        outheadLabel.setForeground(new java.awt.Color(0, 153, 204));
+        outheadLabel.setText("Outhead");
+
+        inconLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        inconLabel.setForeground(new java.awt.Color(0, 153, 204));
+        inconLabel.setText("Incon");
 
         partnumberText.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         partnumberText.setForeground(new java.awt.Color(153, 153, 153));
         partnumberText.setText("          ");
-        chooseByVendor.add(partnumberText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, 20));
 
         coreText.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         coreText.setForeground(new java.awt.Color(153, 153, 153));
         coreText.setText("          ");
-        chooseByVendor.add(coreText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, 40));
 
         inheadText.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         inheadText.setForeground(new java.awt.Color(153, 153, 153));
         inheadText.setText("          ");
-        chooseByVendor.add(inheadText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, -1, -1));
 
         outheadText.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         outheadText.setForeground(new java.awt.Color(153, 153, 153));
         outheadText.setText("          ");
-        chooseByVendor.add(outheadText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, -1, -1));
 
         inconText.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         inconText.setForeground(new java.awt.Color(153, 153, 153));
         inconText.setText("          ");
-        chooseByVendor.add(inconText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, -1, -1));
+
+        javax.swing.GroupLayout vendorLeftPanelLayout = new javax.swing.GroupLayout(vendorLeftPanel);
+        vendorLeftPanel.setLayout(vendorLeftPanelLayout);
+        vendorLeftPanelLayout.setHorizontalGroup(
+            vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(vendorLeftPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(vendorLeftPanelLayout.createSequentialGroup()
+                        .addComponent(inheadLabel)
+                        .addGap(58, 58, 58)
+                        .addComponent(inheadText))
+                    .addGroup(vendorLeftPanelLayout.createSequentialGroup()
+                        .addComponent(outheadLabel)
+                        .addGap(43, 43, 43)
+                        .addComponent(outheadText))
+                    .addGroup(vendorLeftPanelLayout.createSequentialGroup()
+                        .addComponent(inconLabel)
+                        .addGap(68, 68, 68)
+                        .addComponent(inconText))
+                    .addGroup(vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(vendorLeftPanelLayout.createSequentialGroup()
+                            .addComponent(coreLabel)
+                            .addGap(74, 74, 74)
+                            .addComponent(coreText))
+                        .addGroup(vendorLeftPanelLayout.createSequentialGroup()
+                            .addComponent(partnumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(partnumberText))))
+                .addContainerGap(230, Short.MAX_VALUE))
+        );
+        vendorLeftPanelLayout.setVerticalGroup(
+            vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(vendorLeftPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(partnumberLabel)
+                    .addComponent(partnumberText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(coreText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(vendorLeftPanelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(coreLabel)))
+                .addGap(15, 15, 15)
+                .addGroup(vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(inheadLabel)
+                    .addComponent(inheadText))
+                .addGap(15, 15, 15)
+                .addGroup(vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(outheadLabel)
+                    .addComponent(outheadText))
+                .addGap(15, 15, 15)
+                .addGroup(vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(inconLabel)
+                    .addComponent(inconText))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        chooseByVendor.add(vendorLeftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 400, 210));
+
+        vendorRightPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        ouconLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        ouconLabel.setForeground(new java.awt.Color(0, 153, 204));
+        ouconLabel.setText("Oucon");
+
+        amountLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        amountLabel.setForeground(new java.awt.Color(0, 153, 204));
+        amountLabel.setText("Amount");
+
+        priceLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        priceLabel.setForeground(new java.awt.Color(0, 153, 204));
+        priceLabel.setText("Price");
+
+        oilcoolLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        oilcoolLabel.setForeground(new java.awt.Color(0, 153, 204));
+        oilcoolLabel.setText("Oilcool");
+
+        tmountLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        tmountLabel.setForeground(new java.awt.Color(0, 153, 204));
+        tmountLabel.setText("Tmount");
+
+        ouconText.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        ouconText.setForeground(new java.awt.Color(153, 153, 153));
+        ouconText.setText("          ");
 
         tmountText.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         tmountText.setForeground(new java.awt.Color(153, 153, 153));
         tmountText.setText("          ");
-        chooseByVendor.add(tmountText, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, -1, -1));
 
         oilcoolText.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         oilcoolText.setForeground(new java.awt.Color(153, 153, 153));
         oilcoolText.setText("          ");
-        chooseByVendor.add(oilcoolText, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, -1, -1));
 
         priceText.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         priceText.setForeground(new java.awt.Color(153, 153, 153));
         priceText.setText("          ");
-        chooseByVendor.add(priceText, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, -1, -1));
 
         amountText.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         amountText.setForeground(new java.awt.Color(153, 153, 153));
         amountText.setText("          ");
-        chooseByVendor.add(amountText, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, -1, -1));
+
+        javax.swing.GroupLayout vendorRightPanelLayout = new javax.swing.GroupLayout(vendorRightPanel);
+        vendorRightPanel.setLayout(vendorRightPanelLayout);
+        vendorRightPanelLayout.setHorizontalGroup(
+            vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(vendorRightPanelLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(vendorRightPanelLayout.createSequentialGroup()
+                        .addComponent(oilcoolLabel)
+                        .addGap(26, 26, 26)
+                        .addComponent(oilcoolText))
+                    .addGroup(vendorRightPanelLayout.createSequentialGroup()
+                        .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(priceText))
+                    .addGroup(vendorRightPanelLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(amountLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(amountText))
+                    .addGroup(vendorRightPanelLayout.createSequentialGroup()
+                        .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tmountLabel)
+                            .addComponent(ouconLabel))
+                        .addGap(21, 21, 21)
+                        .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ouconText)
+                            .addComponent(tmountText))))
+                .addContainerGap(180, Short.MAX_VALUE))
+        );
+        vendorRightPanelLayout.setVerticalGroup(
+            vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(vendorRightPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ouconLabel)
+                    .addComponent(ouconText))
+                .addGap(15, 15, 15)
+                .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tmountLabel)
+                    .addComponent(tmountText))
+                .addGap(19, 19, 19)
+                .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(oilcoolLabel)
+                    .addComponent(oilcoolText))
+                .addGap(15, 15, 15)
+                .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(priceLabel)
+                    .addComponent(priceText))
+                .addGap(14, 14, 14)
+                .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(amountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(amountText))
+                .addGap(11, 11, 11))
+        );
+
+        chooseByVendor.add(vendorRightPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 310, 210));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -564,10 +684,11 @@ public class GUI extends javax.swing.JFrame {
                     inheadText.setText(rs.getString(3));
                     outheadText.setText(rs.getString(4));
                     inconText.setText(rs.getString(5));
-                    tmountText.setText(rs.getString(6));
-                    oilcoolText.setText(rs.getString(7));
-                    priceText.setText(rs.getString(8));
-                    amountText.setText(rs.getString(9));
+                    ouconText.setText(rs.getString(6));
+                    tmountText.setText(rs.getString(7));
+                    oilcoolText.setText(rs.getString(8));
+                    priceText.setText(rs.getString(9));
+                    amountText.setText(rs.getString(10));
                 }
 
             } catch (SQLException e) {
@@ -788,6 +909,8 @@ public class GUI extends javax.swing.JFrame {
     private java.awt.Panel nextButtonPanel;
     private javax.swing.JLabel oilcoolLabel;
     private javax.swing.JLabel oilcoolText;
+    private javax.swing.JLabel ouconLabel;
+    private javax.swing.JLabel ouconText;
     private javax.swing.JLabel outheadLabel;
     private javax.swing.JLabel outheadText;
     private javax.swing.JComboBox partNumberDropdown;
@@ -803,6 +926,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton vendorButton;
     private javax.swing.JComboBox vendorDropdown;
     private javax.swing.JLabel vendorLabel;
+    private javax.swing.JPanel vendorLeftPanel;
+    private javax.swing.JPanel vendorRightPanel;
     private javax.swing.JLabel vendordropdownLabel;
     private javax.swing.JComboBox yearDropdown;
     private javax.swing.JLabel yearLabel;
