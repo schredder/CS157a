@@ -204,26 +204,27 @@
                 </Property>
                 <Property name="maximumRowCount" type="int" value="16"/>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="19">
-                    <StringItem index="0" value="BUK BUICK"/>
-                    <StringItem index="1" value="CAD CADILLAC"/>
-                    <StringItem index="2" value="CHE CHEVROLET"/>
-                    <StringItem index="3" value="CRY CHRYSLER"/>
-                    <StringItem index="4" value="FDT FORD LIGHT TRUCK AND VAN"/>
-                    <StringItem index="5" value="FOR FORD"/>
-                    <StringItem index="6" value="GMC CHEVROLET &amp; GMC TRUCK &amp; VAN"/>
-                    <StringItem index="7" value="INT INTERNATIONAL TRUCK (I.H.C.)"/>
-                    <StringItem index="8" value="ISU ISUZU"/>
-                    <StringItem index="9" value="LIN LINCOLN"/>
-                    <StringItem index="10" value="MZD MAZDA"/>
-                    <StringItem index="11" value="OLD OLDSMOBILE"/>
-                    <StringItem index="12" value="POR PORSCHE"/>
-                    <StringItem index="13" value="REN RENAULT"/>
-                    <StringItem index="14" value="SAB SAAB"/>
-                    <StringItem index="15" value="SUB SUBARU"/>
-                    <StringItem index="16" value="TOY TOYOTA"/>
-                    <StringItem index="17" value="UPS UPS"/>
-                    <StringItem index="18" value="VOL VOLKSWAGEN"/>
+                  <StringArray count="20">
+                    <StringItem index="0" value="- Select maker -"/>
+                    <StringItem index="1" value="BUK BUICK"/>
+                    <StringItem index="2" value="CAD CADILLAC"/>
+                    <StringItem index="3" value="CHE CHEVROLET"/>
+                    <StringItem index="4" value="CRY CHRYSLER"/>
+                    <StringItem index="5" value="FDT FORD LIGHT TRUCK AND VAN"/>
+                    <StringItem index="6" value="FOR FORD"/>
+                    <StringItem index="7" value="GMC CHEVROLET &amp; GMC TRUCK &amp; VAN"/>
+                    <StringItem index="8" value="INT INTERNATIONAL TRUCK (I.H.C.)"/>
+                    <StringItem index="9" value="ISU ISUZU"/>
+                    <StringItem index="10" value="LIN LINCOLN"/>
+                    <StringItem index="11" value="MZD MAZDA"/>
+                    <StringItem index="12" value="OLD OLDSMOBILE"/>
+                    <StringItem index="13" value="POR PORSCHE"/>
+                    <StringItem index="14" value="REN RENAULT"/>
+                    <StringItem index="15" value="SAB SAAB"/>
+                    <StringItem index="16" value="SUB SUBARU"/>
+                    <StringItem index="17" value="TOY TOYOTA"/>
+                    <StringItem index="18" value="UPS UPS"/>
+                    <StringItem index="19" value="VOL VOLKSWAGEN"/>
                   </StringArray>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -340,9 +341,8 @@
                   <Font name="Segoe UI Light" size="12" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="2">
+                  <StringArray count="1">
                     <StringItem index="0" value="- Select part number -"/>
-                    <StringItem index="1" value=" "/>
                   </StringArray>
                 </Property>
               </Properties>

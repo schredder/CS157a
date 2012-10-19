@@ -118,7 +118,7 @@ public class GUI extends javax.swing.JFrame {
 
         carMakerDropdown.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         carMakerDropdown.setMaximumRowCount(16);
-        carMakerDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "BUK BUICK", "CAD CADILLAC", "CHE CHEVROLET", "CRY CHRYSLER", "FDT FORD LIGHT TRUCK AND VAN", "FOR FORD", "GMC CHEVROLET & GMC TRUCK & VAN", "INT INTERNATIONAL TRUCK (I.H.C.)", "ISU ISUZU", "LIN LINCOLN", "MZD MAZDA", "OLD OLDSMOBILE", "POR PORSCHE", "REN RENAULT", "SAB SAAB", "SUB SUBARU", "TOY TOYOTA", "UPS UPS", "VOL VOLKSWAGEN" }));
+        carMakerDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select maker -", "BUK BUICK", "CAD CADILLAC", "CHE CHEVROLET", "CRY CHRYSLER", "FDT FORD LIGHT TRUCK AND VAN", "FOR FORD", "GMC CHEVROLET & GMC TRUCK & VAN", "INT INTERNATIONAL TRUCK (I.H.C.)", "ISU ISUZU", "LIN LINCOLN", "MZD MAZDA", "OLD OLDSMOBILE", "POR PORSCHE", "REN RENAULT", "SAB SAAB", "SUB SUBARU", "TOY TOYOTA", "UPS UPS", "VOL VOLKSWAGEN" }));
         carMakerDropdown.setToolTipText("");
         carMakerDropdown.setBorder(null);
         carMakerDropdown.addActionListener(new java.awt.event.ActionListener() {
@@ -176,7 +176,7 @@ public class GUI extends javax.swing.JFrame {
         });
 
         partnumberdropdown.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        partnumberdropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select part number -", " " }));
+        partnumberdropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select part number -" }));
         partnumberdropdown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 partnumberdropdownActionPerformed(evt);
@@ -712,7 +712,7 @@ public class GUI extends javax.swing.JFrame {
             String getPart = (String) carMakerDropdown.getSelectedItem();
             String getModel = (String) carModelDropdown.getSelectedItem();
             String getYear = (String) yearDropdown.getSelectedItem();
-            String sql = "select RLINK from apl" + getPart.substring(0, 3) + " where model = '" + getModel + "'"
+            String sql = "select distinct RLINK from apl" + getPart.substring(0, 3) + " where model = '" + getModel + "'"
             + "AND year ='" + getYear + "'";
             rs = stmnt.executeQuery(sql);
             while (rs.next()) {
@@ -740,7 +740,7 @@ public class GUI extends javax.swing.JFrame {
             String getPart = (String) carMakerDropdown.getSelectedItem();
             String getModel = (String) carModelDropdown.getSelectedItem();
             String getYear = (String) yearDropdown.getSelectedItem();
-            String sql = "select ENGINE_TYPE from apl" + getPart.substring(0, 3) + " where model = '" + getModel + "'"
+            String sql = "select distinct ENGINE_TYPE from apl" + getPart.substring(0, 3) + " where model = '" + getModel + "'"
             + "AND year ='" + getYear + "'";
             rs = stmnt.executeQuery(sql);
             while (rs.next()) {
@@ -774,7 +774,7 @@ public class GUI extends javax.swing.JFrame {
             ResultSet rs = null;
             String getPart = (String) carMakerDropdown.getSelectedItem();
             String getModel = (String) carModelDropdown.getSelectedItem();
-            String sql = "select year from apl" + getPart.substring(0, 3) + " where model = '" + getModel + "'";
+            String sql = "select distinct year from apl" + getPart.substring(0, 3) + " where model = '" + getModel + "'";
             rs = stmnt.executeQuery(sql);
             while (rs.next()) {
                 String name = rs.getString(1);
@@ -832,7 +832,7 @@ public class GUI extends javax.swing.JFrame {
             ResultSet rs = null;
             String getPart = (String) carMakerDropdown.getSelectedItem();
 
-            String sql = "select model from apl" + getPart.substring(0, 3);
+            String sql = "select distinct model from apl" + getPart.substring(0, 3);
             rs = stmnt.executeQuery(sql);
             while (rs.next()) {
                 String name = rs.getString(1);
