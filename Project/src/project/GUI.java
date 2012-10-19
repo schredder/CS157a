@@ -4,8 +4,6 @@
  */
 package project;
 
-import java.awt.Toolkit;
-import java.sql.SQLException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -112,9 +110,9 @@ public class GUI extends javax.swing.JFrame {
         makerLabel.setForeground(new java.awt.Color(0, 153, 204));
         makerLabel.setText("Maker");
 
-        carMakerDropdown.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        carMakerDropdown.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         carMakerDropdown.setMaximumRowCount(16);
-        carMakerDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "BUK BUICK", "CAD CADILLAC", "CHE CHEVROLET", "CRY CHRYSLER", "FDT FORD LIGHT TRUCK AND VAN", "FOR FORD", "GMC CHEVROLET & GMC TRUCK & VAN", "INT INTERNATIONAL TRUCK (I.H.C.)", "ISU ISUZU", "LIN LINCOLN", "MZD MAZDA", "OLD OLDSMOBILE", "POR PORSCHE", "REN RENAULT", "SAB SAAB", "SUB SUBARU", "TOY TOYOTA", "UPS UPS", "VOL VOLKSWAGEN", " " }));
+        carMakerDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "BUK BUICK", "CAD CADILLAC", "CHE CHEVROLET", "CRY CHRYSLER", "FDT FORD LIGHT TRUCK AND VAN", "FOR FORD", "GMC CHEVROLET & GMC TRUCK & VAN", "INT INTERNATIONAL TRUCK (I.H.C.)", "ISU ISUZU", "LIN LINCOLN", "MZD MAZDA", "OLD OLDSMOBILE", "POR PORSCHE", "REN RENAULT", "SAB SAAB", "SUB SUBARU", "TOY TOYOTA", "UPS UPS", "VOL VOLKSWAGEN" }));
         carMakerDropdown.setToolTipText("");
         carMakerDropdown.setBorder(null);
         carMakerDropdown.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +125,7 @@ public class GUI extends javax.swing.JFrame {
         modelLabel.setForeground(new java.awt.Color(0, 153, 204));
         modelLabel.setText("Model");
 
-        carModelDropdown.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        carModelDropdown.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         carModelDropdown.setMaximumRowCount(16);
         carModelDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select model -" }));
         carModelDropdown.setToolTipText("");
@@ -151,6 +149,7 @@ public class GUI extends javax.swing.JFrame {
         carpartnumberLabel.setForeground(new java.awt.Color(0, 153, 204));
         carpartnumberLabel.setText("Part number");
 
+        yearDropdown.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         yearDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select year -" }));
         yearDropdown.setToolTipText("");
         yearDropdown.setEnabled(false);
@@ -160,6 +159,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        engineDropDown.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         engineDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select engine -" }));
         engineDropDown.setToolTipText("");
         engineDropDown.setEnabled(false);
@@ -169,6 +169,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        partnumberdropdown.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         partnumberdropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select part number -", " " }));
         partnumberdropdown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -295,14 +296,14 @@ public class GUI extends javax.swing.JFrame {
         searchbyLabel.setText("Search by");
         homeScreenPage.add(searchbyLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
 
-        carmodelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Car Chooser.jpg"))); // NOI18N
+        carmodelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Car Model.jpg"))); // NOI18N
         carmodelButton.setBorder(null);
         carmodelButton.setBorderPainted(false);
         carmodelButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
         carmodelButton.setMaximumSize(new java.awt.Dimension(200, 300));
         carmodelButton.setMinimumSize(new java.awt.Dimension(200, 300));
         carmodelButton.setPreferredSize(new java.awt.Dimension(200, 300));
-        carmodelButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Car Chooser Hover.jpg"))); // NOI18N
+        carmodelButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Car Model Hover.jpg"))); // NOI18N
         carmodelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 carmodelButtonActionPerformed(evt);
@@ -344,11 +345,6 @@ public class GUI extends javax.swing.JFrame {
         vendorLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         vendorLabel.setForeground(new java.awt.Color(153, 153, 153));
         vendorLabel.setText("Choose By Vendor");
-        vendorLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                vendorLabelMouseClicked(evt);
-            }
-        });
         chooseByVendor.add(vendorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 0, 240, 50));
 
         partnumberLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
@@ -406,7 +402,7 @@ public class GUI extends javax.swing.JFrame {
         vendordropdownLabel.setText("Vendor");
         chooseByVendor.add(vendordropdownLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
-        vendorDropdown.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        vendorDropdown.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         vendorDropdown.setMaximumRowCount(16);
         vendorDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select vendor -", "RDIMARS", "RDIMBEH", "RDIMDAN", "RDIMMOD" }));
         vendorDropdown.setToolTipText("");
@@ -418,6 +414,7 @@ public class GUI extends javax.swing.JFrame {
         });
         chooseByVendor.add(vendorDropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 241, -1));
 
+        partNumberDropdown.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         partNumberDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select part number -" }));
         partNumberDropdown.setToolTipText("");
         partNumberDropdown.setEnabled(false);
@@ -578,9 +575,6 @@ public class GUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_partNumberDropdownActionPerformed
-
-    private void vendorLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vendorLabelMouseClicked
-    }//GEN-LAST:event_vendorLabelMouseClicked
 
     private void partnumberdropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partnumberdropdownActionPerformed
 
@@ -749,39 +743,13 @@ public class GUI extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-//        try {
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        /*
-         * Set the Nimbus look and feel
-         */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the
-         * default look and feel. For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
         try {
-            /*
-             * for (javax.swing.UIManager.LookAndFeelInfo info :
-             * javax.swing.UIManager.getInstalledLookAndFeels()) { if
-             * ("Nimbus".equals(info.getName())) {
-             * javax.swing.UIManager.setLookAndFeel(info.getClassName()); break;
-             * } }
-             */
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | 
+                IllegalAccessException | 
+                javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
         /*
          * Create and display the form
