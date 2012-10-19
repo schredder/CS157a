@@ -96,7 +96,6 @@ public class GUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Car Store");
         setBackground(new java.awt.Color(255, 255, 255));
-        setIconImage(Toolkit.getDefaultToolkit().getImage("images/bmw-mini-icon.png"));
         setMaximumSize(new java.awt.Dimension(650, 320));
         setMinimumSize(new java.awt.Dimension(650, 320));
         setPreferredSize(new java.awt.Dimension(650, 320));
@@ -310,10 +309,10 @@ public class GUI extends javax.swing.JFrame {
         homeScreenPage.setPreferredSize(new java.awt.Dimension(650, 320));
         homeScreenPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        searchbyLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        searchbyLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         searchbyLabel.setForeground(new java.awt.Color(153, 153, 153));
         searchbyLabel.setText("Search by");
-        homeScreenPage.add(searchbyLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+        homeScreenPage.add(searchbyLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
 
         carmodelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Car Chooser.jpg"))); // NOI18N
         carmodelButton.setBorder(null);
