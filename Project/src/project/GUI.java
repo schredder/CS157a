@@ -219,7 +219,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(carMakerDropdown, 0, 235, Short.MAX_VALUE)
                             .addComponent(yearDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(carModelDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(362, Short.MAX_VALUE))
+                .addContainerGap(349, Short.MAX_VALUE))
         );
         choosecarPanelLayout.setVerticalGroup(
             choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,7 +240,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(engineLabel)
                     .addComponent(engineDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         chooseByCarModel.add(choosecarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 720, 200));
@@ -271,10 +271,6 @@ public class GUI extends javax.swing.JFrame {
         nextButton.setBorderPainted(false);
         nextButton.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/images/next icon hover.jpg"))); // NOI18N
         nextButton.setEnabled(false);
-        nextButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        nextButton.setMaximumSize(new java.awt.Dimension(80, 25));
-        nextButton.setMinimumSize(new java.awt.Dimension(80, 25));
-        nextButton.setPreferredSize(new java.awt.Dimension(80, 25));
         nextButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/next icon hover.jpg"))); // NOI18N
         nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -287,15 +283,15 @@ public class GUI extends javax.swing.JFrame {
         nextButtonPanelLayout.setHorizontalGroup(
             nextButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nextButtonPanelLayout.createSequentialGroup()
-                .addContainerGap(630, Short.MAX_VALUE)
-                .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(628, Short.MAX_VALUE)
+                .addComponent(nextButton)
                 .addContainerGap())
         );
         nextButtonPanelLayout.setVerticalGroup(
             nextButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nextButtonPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(nextButton))
         );
 
         chooseByCarModel.add(nextButtonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 295, 720, -1));
@@ -413,7 +409,7 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(partslistPartnumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(partslistPartnumberText)))
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addContainerGap(206, Short.MAX_VALUE))
         );
         partslistLeftPanelLayout.setVerticalGroup(
             partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -440,7 +436,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(partslistInconLabel)
                     .addComponent(partslistInconText))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         carModelParts.add(partslistLeftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 400, 210));
@@ -515,7 +511,7 @@ public class GUI extends javax.swing.JFrame {
                         .addGroup(partslistRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(partslistOuconText)
                             .addComponent(partslistTmountText))))
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
         partslistRightPanelLayout.setVerticalGroup(
             partslistRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -577,10 +573,6 @@ public class GUI extends javax.swing.JFrame {
         carmodelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Car Model.jpg"))); // NOI18N
         carmodelButton.setBorder(null);
         carmodelButton.setBorderPainted(false);
-        carmodelButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        carmodelButton.setMaximumSize(new java.awt.Dimension(200, 300));
-        carmodelButton.setMinimumSize(new java.awt.Dimension(200, 300));
-        carmodelButton.setPreferredSize(new java.awt.Dimension(200, 300));
         carmodelButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Car Model Hover.jpg"))); // NOI18N
         carmodelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -592,10 +584,6 @@ public class GUI extends javax.swing.JFrame {
         vendorButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vendor.jpg"))); // NOI18N
         vendorButton.setBorder(null);
         vendorButton.setBorderPainted(false);
-        vendorButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        vendorButton.setMaximumSize(new java.awt.Dimension(200, 300));
-        vendorButton.setMinimumSize(new java.awt.Dimension(200, 300));
-        vendorButton.setPreferredSize(new java.awt.Dimension(200, 300));
         vendorButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vendor Hover.jpg"))); // NOI18N
         vendorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -727,7 +715,7 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(partnumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(partnumberText)))
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addContainerGap(206, Short.MAX_VALUE))
         );
         vendorLeftPanelLayout.setVerticalGroup(
             vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -754,7 +742,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(inconLabel)
                     .addComponent(inconText))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         chooseByVendor.add(vendorLeftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 400, 210));
@@ -829,7 +817,7 @@ public class GUI extends javax.swing.JFrame {
                         .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ouconText)
                             .addComponent(tmountText))))
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
         vendorRightPanelLayout.setVerticalGroup(
             vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -871,9 +859,9 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(chooseByVendor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 10, Short.MAX_VALUE)))
+                    .addGap(0, 12, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(carModelParts, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE))
+                .addComponent(carModelParts, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -925,7 +913,7 @@ public class GUI extends javax.swing.JFrame {
         vendorPartNumberDropdown.setEnabled(true);
 
         try {
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
+            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:XE", "scott", "tiger");
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs = null;
@@ -948,7 +936,7 @@ public class GUI extends javax.swing.JFrame {
         ResultSet rs = null;
         if (vendorDropdown.getSelectedItem() != null && vendorPartNumberDropdown.getSelectedItem() != null) {
             try {
-                partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
+                partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:XE", "scott", "tiger");
                 String getNumber = vendorPartNumberDropdown.getSelectedItem().toString();
                 String getPart = vendorDropdown.getSelectedItem().toString();
                 Statement stmnt = DBC.getDBConnection().createStatement();
@@ -978,7 +966,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void engineDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_engineDropdownActionPerformed
         try {
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
+            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:XE", "scott", "tiger");
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs = null;
@@ -999,7 +987,7 @@ public class GUI extends javax.swing.JFrame {
             rs.next();
             ResultSetMetaData metaData = rs.getMetaData();
             for (int i = 2; i < metaData.getColumnCount(); i++) {
-                System.out.println(rs.getString(i));
+//                System.out.println(rs.getString(i));
                 partNumbers[i - 2] = rs.getString(i);
             }
 
@@ -1036,7 +1024,7 @@ public class GUI extends javax.swing.JFrame {
         engineDropdown.setEnabled(true);
 
         try {
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
+            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:XE", "scott", "tiger");
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs = null;
@@ -1064,7 +1052,7 @@ public class GUI extends javax.swing.JFrame {
         yearDropdown.setEnabled(true);
 
         try {
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
+            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:XE", "scott", "tiger");
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs = null;
@@ -1102,7 +1090,7 @@ public class GUI extends javax.swing.JFrame {
         carModelDropdown.setEnabled(true);
 
         try {
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
+            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:XE", "scott", "tiger");
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs = null;
@@ -1158,7 +1146,8 @@ public class GUI extends javax.swing.JFrame {
 
     private void partslistNextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partslistNextButtonActionPerformed
         try {
-            // TODO add your handling code here:
+            index++;
+            
             if (index > 16) {
                 index--;
                 return;
@@ -1166,7 +1155,7 @@ public class GUI extends javax.swing.JFrame {
             while (partNumbers[index] == null) {
                 index++;
             }
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
+            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:XE", "scott", "tiger");
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             String currentPartNumb = partNumbers[index];
@@ -1196,6 +1185,7 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
+            System.out.println(index);
             if (index < 0) {
                 index++;
                 return;
@@ -1203,7 +1193,7 @@ public class GUI extends javax.swing.JFrame {
             while (partNumbers[index] == null) {
                 index--;
             }
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
+            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:XE", "scott", "tiger");
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             String currentPartNumb = partNumbers[index];
