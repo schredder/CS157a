@@ -19,10 +19,14 @@ import javax.swing.UIManager;
  */
 public class GUI extends javax.swing.JFrame {
 
+    private static final String con = "jdbc:oracle:thin:@localhost:1521:orcl";
+    private static final String user = "scott";
+    private static final String password = "tiger";
     private static partsDB db;
     private String[] partNumbers;
     private int index;
     private Hashtable<Object, Object> subItems = new Hashtable<Object, Object>();
+    private int nullCounter;
 
     /**
      * Creates new form GUI
@@ -34,7 +38,7 @@ public class GUI extends javax.swing.JFrame {
         chooseByCarModel.setVisible(false);
         carModelParts.setVisible(false);
         chooseByVendor.setVisible(false);
-
+        nullCounter = 0;
     }
 
     /**
@@ -149,7 +153,7 @@ public class GUI extends javax.swing.JFrame {
 
         carMakerDropdown.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         carMakerDropdown.setMaximumRowCount(16);
-        carMakerDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select maker -", "BUK BUICK", "CAD CADILLAC", "CHE CHEVROLET", "CRY CHRYSLER", "FDT FORD LIGHT TRUCK AND VAN", "FOR FORD", "GMC CHEVROLET & GMC TRUCK & VAN", "INT INTERNATIONAL TRUCK (I.H.C.)", "ISU ISUZU", "LIN LINCOLN", "MZD MAZDA", "OLD OLDSMOBILE", "POR PORSCHE", "REN RENAULT", "SAB SAAB", "SUB SUBARU", "TOY TOYOTA", "UPS UPS", "VOL VOLKSWAGEN" }));
+        carMakerDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"- Select maker -", "BUK BUICK", "CAD CADILLAC", "CHE CHEVROLET", "CRY CHRYSLER", "FDT FORD LIGHT TRUCK AND VAN", "FOR FORD", "GMC CHEVROLET & GMC TRUCK & VAN", "INT INTERNATIONAL TRUCK (I.H.C.)", "ISU ISUZU", "LIN LINCOLN", "MZD MAZDA", "OLD OLDSMOBILE", "POR PORSCHE", "REN RENAULT", "SAB SAAB", "SUB SUBARU", "TOY TOYOTA", "UPS UPS", "VOL VOLKSWAGEN"}));
         carMakerDropdown.setToolTipText("");
         carMakerDropdown.setBorder(null);
         carMakerDropdown.addActionListener(new java.awt.event.ActionListener() {
@@ -164,7 +168,7 @@ public class GUI extends javax.swing.JFrame {
 
         carModelDropdown.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         carModelDropdown.setMaximumRowCount(16);
-        carModelDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select model -" }));
+        carModelDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"- Select model -"}));
         carModelDropdown.setToolTipText("");
         carModelDropdown.setBorder(null);
         carModelDropdown.setEnabled(false);
@@ -183,7 +187,7 @@ public class GUI extends javax.swing.JFrame {
         engineLabel.setText("Engine");
 
         yearDropdown.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        yearDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select year -" }));
+        yearDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"- Select year -"}));
         yearDropdown.setToolTipText("");
         yearDropdown.setEnabled(false);
         yearDropdown.addActionListener(new java.awt.event.ActionListener() {
@@ -193,7 +197,7 @@ public class GUI extends javax.swing.JFrame {
         });
 
         engineDropdown.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        engineDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select engine -" }));
+        engineDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"- Select engine -"}));
         engineDropdown.setToolTipText("");
         engineDropdown.setEnabled(false);
         engineDropdown.addActionListener(new java.awt.event.ActionListener() {
@@ -205,47 +209,45 @@ public class GUI extends javax.swing.JFrame {
         javax.swing.GroupLayout choosecarPanelLayout = new javax.swing.GroupLayout(choosecarPanel);
         choosecarPanel.setLayout(choosecarPanelLayout);
         choosecarPanelLayout.setHorizontalGroup(
-            choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(choosecarPanelLayout.createSequentialGroup()
+                choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(choosecarPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(choosecarPanelLayout.createSequentialGroup()
-                        .addComponent(engineLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                        .addComponent(engineDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, choosecarPanelLayout.createSequentialGroup()
-                        .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(modelLabel)
-                            .addComponent(yearLabel)
-                            .addComponent(makerLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(carMakerDropdown, 0, 235, Short.MAX_VALUE)
-                            .addComponent(yearDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(carModelDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(362, Short.MAX_VALUE))
-        );
+                .addGroup(choosecarPanelLayout.createSequentialGroup()
+                .addComponent(engineLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(engineDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, choosecarPanelLayout.createSequentialGroup()
+                .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(modelLabel)
+                .addComponent(yearLabel)
+                .addComponent(makerLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(carMakerDropdown, 0, 235, Short.MAX_VALUE)
+                .addComponent(yearDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(carModelDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(362, Short.MAX_VALUE)));
         choosecarPanelLayout.setVerticalGroup(
-            choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(choosecarPanelLayout.createSequentialGroup()
+                choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(choosecarPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(makerLabel)
-                    .addComponent(carMakerDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(makerLabel)
+                .addComponent(carMakerDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(modelLabel)
-                    .addComponent(carModelDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(modelLabel)
+                .addComponent(carModelDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(yearLabel)
-                    .addComponent(yearDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(yearLabel)
+                .addComponent(yearDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(engineLabel)
-                    .addComponent(engineDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(54, Short.MAX_VALUE))
-        );
+                .addComponent(engineLabel)
+                .addComponent(engineDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE)));
 
         chooseByCarModel.add(choosecarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 720, 200));
 
@@ -289,18 +291,16 @@ public class GUI extends javax.swing.JFrame {
         javax.swing.GroupLayout nextButtonPanelLayout = new javax.swing.GroupLayout(nextButtonPanel);
         nextButtonPanel.setLayout(nextButtonPanelLayout);
         nextButtonPanelLayout.setHorizontalGroup(
-            nextButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nextButtonPanelLayout.createSequentialGroup()
+                nextButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nextButtonPanelLayout.createSequentialGroup()
                 .addContainerGap(630, Short.MAX_VALUE)
                 .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+                .addContainerGap()));
         nextButtonPanelLayout.setVerticalGroup(
-            nextButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nextButtonPanelLayout.createSequentialGroup()
+                nextButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nextButtonPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+                .addComponent(nextButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)));
 
         chooseByCarModel.add(nextButtonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 295, 720, -1));
 
@@ -335,7 +335,7 @@ public class GUI extends javax.swing.JFrame {
 
         firstNumLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         firstNumLabel.setForeground(new java.awt.Color(0, 153, 204));
-        firstNumLabel.setText("##");
+        firstNumLabel.setText("0");
         carModelParts.add(firstNumLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, -1, -1));
 
         ofLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
@@ -393,59 +393,57 @@ public class GUI extends javax.swing.JFrame {
         javax.swing.GroupLayout partslistLeftPanelLayout = new javax.swing.GroupLayout(partslistLeftPanel);
         partslistLeftPanel.setLayout(partslistLeftPanelLayout);
         partslistLeftPanelLayout.setHorizontalGroup(
-            partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(partslistLeftPanelLayout.createSequentialGroup()
+                partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(partslistLeftPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(partslistLeftPanelLayout.createSequentialGroup()
-                        .addComponent(partslistInheadLabel)
-                        .addGap(58, 58, 58)
-                        .addComponent(partslistInheadText))
-                    .addGroup(partslistLeftPanelLayout.createSequentialGroup()
-                        .addComponent(partslistOutheadLabel)
-                        .addGap(43, 43, 43)
-                        .addComponent(partslistOutheadText))
-                    .addGroup(partslistLeftPanelLayout.createSequentialGroup()
-                        .addComponent(partslistInconLabel)
-                        .addGap(68, 68, 68)
-                        .addComponent(partslistInconText))
-                    .addGroup(partslistLeftPanelLayout.createSequentialGroup()
-                        .addComponent(partslistCoreLabel)
-                        .addGap(74, 74, 74)
-                        .addComponent(partslistCoreText))
-                    .addGroup(partslistLeftPanelLayout.createSequentialGroup()
-                        .addComponent(partslistPartnumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(partslistPartnumberText)))
-                .addContainerGap(230, Short.MAX_VALUE))
-        );
+                .addGroup(partslistLeftPanelLayout.createSequentialGroup()
+                .addComponent(partslistInheadLabel)
+                .addGap(58, 58, 58)
+                .addComponent(partslistInheadText))
+                .addGroup(partslistLeftPanelLayout.createSequentialGroup()
+                .addComponent(partslistOutheadLabel)
+                .addGap(43, 43, 43)
+                .addComponent(partslistOutheadText))
+                .addGroup(partslistLeftPanelLayout.createSequentialGroup()
+                .addComponent(partslistInconLabel)
+                .addGap(68, 68, 68)
+                .addComponent(partslistInconText))
+                .addGroup(partslistLeftPanelLayout.createSequentialGroup()
+                .addComponent(partslistCoreLabel)
+                .addGap(74, 74, 74)
+                .addComponent(partslistCoreText))
+                .addGroup(partslistLeftPanelLayout.createSequentialGroup()
+                .addComponent(partslistPartnumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(partslistPartnumberText)))
+                .addContainerGap(230, Short.MAX_VALUE)));
         partslistLeftPanelLayout.setVerticalGroup(
-            partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(partslistLeftPanelLayout.createSequentialGroup()
+                partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(partslistLeftPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partslistPartnumberLabel)
-                    .addComponent(partslistPartnumberText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(partslistPartnumberLabel)
+                .addComponent(partslistPartnumberText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
                 .addGroup(partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(partslistCoreText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(partslistLeftPanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(partslistCoreLabel)))
+                .addComponent(partslistCoreText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(partslistLeftPanelLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(partslistCoreLabel)))
                 .addGap(15, 15, 15)
                 .addGroup(partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(partslistInheadLabel)
-                    .addComponent(partslistInheadText))
+                .addComponent(partslistInheadLabel)
+                .addComponent(partslistInheadText))
                 .addGap(15, 15, 15)
                 .addGroup(partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(partslistOutheadLabel)
-                    .addComponent(partslistOutheadText))
+                .addComponent(partslistOutheadLabel)
+                .addComponent(partslistOutheadText))
                 .addGap(15, 15, 15)
                 .addGroup(partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(partslistInconLabel)
-                    .addComponent(partslistInconText))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                .addComponent(partslistInconLabel)
+                .addComponent(partslistInconText))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         carModelParts.add(partslistLeftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 400, 210));
 
@@ -494,58 +492,56 @@ public class GUI extends javax.swing.JFrame {
         javax.swing.GroupLayout partslistRightPanelLayout = new javax.swing.GroupLayout(partslistRightPanel);
         partslistRightPanel.setLayout(partslistRightPanelLayout);
         partslistRightPanelLayout.setHorizontalGroup(
-            partslistRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(partslistRightPanelLayout.createSequentialGroup()
+                partslistRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(partslistRightPanelLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addGroup(partslistRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(partslistRightPanelLayout.createSequentialGroup()
-                        .addComponent(partslistOilcoolLabel)
-                        .addGap(26, 26, 26)
-                        .addComponent(partslistOilcoolText))
-                    .addGroup(partslistRightPanelLayout.createSequentialGroup()
-                        .addComponent(partslistPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(partslistPriceText))
-                    .addGroup(partslistRightPanelLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(partslistAmountLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(partslistAmountText))
-                    .addGroup(partslistRightPanelLayout.createSequentialGroup()
-                        .addGroup(partslistRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(partslistTmountLabel)
-                            .addComponent(partslistOuconLabel))
-                        .addGap(21, 21, 21)
-                        .addGroup(partslistRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(partslistOuconText)
-                            .addComponent(partslistTmountText))))
-                .addContainerGap(180, Short.MAX_VALUE))
-        );
+                .addGroup(partslistRightPanelLayout.createSequentialGroup()
+                .addComponent(partslistOilcoolLabel)
+                .addGap(26, 26, 26)
+                .addComponent(partslistOilcoolText))
+                .addGroup(partslistRightPanelLayout.createSequentialGroup()
+                .addComponent(partslistPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(partslistPriceText))
+                .addGroup(partslistRightPanelLayout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(partslistAmountLabel)
+                .addGap(18, 18, 18)
+                .addComponent(partslistAmountText))
+                .addGroup(partslistRightPanelLayout.createSequentialGroup()
+                .addGroup(partslistRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(partslistTmountLabel)
+                .addComponent(partslistOuconLabel))
+                .addGap(21, 21, 21)
+                .addGroup(partslistRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(partslistOuconText)
+                .addComponent(partslistTmountText))))
+                .addContainerGap(180, Short.MAX_VALUE)));
         partslistRightPanelLayout.setVerticalGroup(
-            partslistRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(partslistRightPanelLayout.createSequentialGroup()
+                partslistRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(partslistRightPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(partslistRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partslistOuconLabel)
-                    .addComponent(partslistOuconText))
+                .addComponent(partslistOuconLabel)
+                .addComponent(partslistOuconText))
                 .addGap(15, 15, 15)
                 .addGroup(partslistRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(partslistTmountLabel)
-                    .addComponent(partslistTmountText))
+                .addComponent(partslistTmountLabel)
+                .addComponent(partslistTmountText))
                 .addGap(19, 19, 19)
                 .addGroup(partslistRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partslistOilcoolLabel)
-                    .addComponent(partslistOilcoolText))
+                .addComponent(partslistOilcoolLabel)
+                .addComponent(partslistOilcoolText))
                 .addGap(15, 15, 15)
                 .addGroup(partslistRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partslistPriceLabel)
-                    .addComponent(partslistPriceText))
+                .addComponent(partslistPriceLabel)
+                .addComponent(partslistPriceText))
                 .addGap(14, 14, 14)
                 .addGroup(partslistRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partslistAmountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(partslistAmountText))
-                .addGap(11, 11, 11))
-        );
+                .addComponent(partslistAmountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(partslistAmountText))
+                .addGap(11, 11, 11)));
 
         carModelParts.add(partslistRightPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 310, 210));
 
@@ -641,7 +637,7 @@ public class GUI extends javax.swing.JFrame {
 
         vendorDropdown.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         vendorDropdown.setMaximumRowCount(16);
-        vendorDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select vendor -", "RDIMARS", "RDIMBEH", "RDIMDAN", "RDIMMOD" }));
+        vendorDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"- Select vendor -", "RDIMARS", "RDIMBEH", "RDIMDAN", "RDIMMOD"}));
         vendorDropdown.setToolTipText("");
         vendorDropdown.setBorder(null);
         vendorDropdown.addActionListener(new java.awt.event.ActionListener() {
@@ -652,7 +648,7 @@ public class GUI extends javax.swing.JFrame {
         chooseByVendor.add(vendorDropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 241, -1));
 
         vendorPartNumberDropdown.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        vendorPartNumberDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select part number -" }));
+        vendorPartNumberDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"- Select part number -"}));
         vendorPartNumberDropdown.setToolTipText("");
         vendorPartNumberDropdown.setEnabled(false);
         vendorPartNumberDropdown.addActionListener(new java.awt.event.ActionListener() {
@@ -707,59 +703,57 @@ public class GUI extends javax.swing.JFrame {
         javax.swing.GroupLayout vendorLeftPanelLayout = new javax.swing.GroupLayout(vendorLeftPanel);
         vendorLeftPanel.setLayout(vendorLeftPanelLayout);
         vendorLeftPanelLayout.setHorizontalGroup(
-            vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(vendorLeftPanelLayout.createSequentialGroup()
+                vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(vendorLeftPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(vendorLeftPanelLayout.createSequentialGroup()
-                        .addComponent(inheadLabel)
-                        .addGap(58, 58, 58)
-                        .addComponent(inheadText))
-                    .addGroup(vendorLeftPanelLayout.createSequentialGroup()
-                        .addComponent(outheadLabel)
-                        .addGap(43, 43, 43)
-                        .addComponent(outheadText))
-                    .addGroup(vendorLeftPanelLayout.createSequentialGroup()
-                        .addComponent(inconLabel)
-                        .addGap(68, 68, 68)
-                        .addComponent(inconText))
-                    .addGroup(vendorLeftPanelLayout.createSequentialGroup()
-                        .addComponent(coreLabel)
-                        .addGap(74, 74, 74)
-                        .addComponent(coreText))
-                    .addGroup(vendorLeftPanelLayout.createSequentialGroup()
-                        .addComponent(partnumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(partnumberText)))
-                .addContainerGap(230, Short.MAX_VALUE))
-        );
+                .addGroup(vendorLeftPanelLayout.createSequentialGroup()
+                .addComponent(inheadLabel)
+                .addGap(58, 58, 58)
+                .addComponent(inheadText))
+                .addGroup(vendorLeftPanelLayout.createSequentialGroup()
+                .addComponent(outheadLabel)
+                .addGap(43, 43, 43)
+                .addComponent(outheadText))
+                .addGroup(vendorLeftPanelLayout.createSequentialGroup()
+                .addComponent(inconLabel)
+                .addGap(68, 68, 68)
+                .addComponent(inconText))
+                .addGroup(vendorLeftPanelLayout.createSequentialGroup()
+                .addComponent(coreLabel)
+                .addGap(74, 74, 74)
+                .addComponent(coreText))
+                .addGroup(vendorLeftPanelLayout.createSequentialGroup()
+                .addComponent(partnumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(partnumberText)))
+                .addContainerGap(230, Short.MAX_VALUE)));
         vendorLeftPanelLayout.setVerticalGroup(
-            vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(vendorLeftPanelLayout.createSequentialGroup()
+                vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(vendorLeftPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partnumberLabel)
-                    .addComponent(partnumberText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(partnumberLabel)
+                .addComponent(partnumberText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
                 .addGroup(vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(coreText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(vendorLeftPanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(coreLabel)))
+                .addComponent(coreText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(vendorLeftPanelLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(coreLabel)))
                 .addGap(15, 15, 15)
                 .addGroup(vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inheadLabel)
-                    .addComponent(inheadText))
+                .addComponent(inheadLabel)
+                .addComponent(inheadText))
                 .addGap(15, 15, 15)
                 .addGroup(vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(outheadLabel)
-                    .addComponent(outheadText))
+                .addComponent(outheadLabel)
+                .addComponent(outheadText))
                 .addGap(15, 15, 15)
                 .addGroup(vendorLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inconLabel)
-                    .addComponent(inconText))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                .addComponent(inconLabel)
+                .addComponent(inconText))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         chooseByVendor.add(vendorLeftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 400, 210));
 
@@ -808,127 +802,124 @@ public class GUI extends javax.swing.JFrame {
         javax.swing.GroupLayout vendorRightPanelLayout = new javax.swing.GroupLayout(vendorRightPanel);
         vendorRightPanel.setLayout(vendorRightPanelLayout);
         vendorRightPanelLayout.setHorizontalGroup(
-            vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(vendorRightPanelLayout.createSequentialGroup()
+                vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(vendorRightPanelLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(vendorRightPanelLayout.createSequentialGroup()
-                        .addComponent(oilcoolLabel)
-                        .addGap(26, 26, 26)
-                        .addComponent(oilcoolText))
-                    .addGroup(vendorRightPanelLayout.createSequentialGroup()
-                        .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(priceText))
-                    .addGroup(vendorRightPanelLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(amountLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(amountText))
-                    .addGroup(vendorRightPanelLayout.createSequentialGroup()
-                        .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tmountLabel)
-                            .addComponent(ouconLabel))
-                        .addGap(21, 21, 21)
-                        .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ouconText)
-                            .addComponent(tmountText))))
-                .addContainerGap(180, Short.MAX_VALUE))
-        );
+                .addGroup(vendorRightPanelLayout.createSequentialGroup()
+                .addComponent(oilcoolLabel)
+                .addGap(26, 26, 26)
+                .addComponent(oilcoolText))
+                .addGroup(vendorRightPanelLayout.createSequentialGroup()
+                .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(priceText))
+                .addGroup(vendorRightPanelLayout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(amountLabel)
+                .addGap(18, 18, 18)
+                .addComponent(amountText))
+                .addGroup(vendorRightPanelLayout.createSequentialGroup()
+                .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(tmountLabel)
+                .addComponent(ouconLabel))
+                .addGap(21, 21, 21)
+                .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(ouconText)
+                .addComponent(tmountText))))
+                .addContainerGap(180, Short.MAX_VALUE)));
         vendorRightPanelLayout.setVerticalGroup(
-            vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(vendorRightPanelLayout.createSequentialGroup()
+                vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(vendorRightPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ouconLabel)
-                    .addComponent(ouconText))
+                .addComponent(ouconLabel)
+                .addComponent(ouconText))
                 .addGap(15, 15, 15)
                 .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tmountLabel)
-                    .addComponent(tmountText))
+                .addComponent(tmountLabel)
+                .addComponent(tmountText))
                 .addGap(19, 19, 19)
                 .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(oilcoolLabel)
-                    .addComponent(oilcoolText))
+                .addComponent(oilcoolLabel)
+                .addComponent(oilcoolText))
                 .addGap(15, 15, 15)
                 .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(priceLabel)
-                    .addComponent(priceText))
+                .addComponent(priceLabel)
+                .addComponent(priceText))
                 .addGap(14, 14, 14)
                 .addGroup(vendorRightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(amountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(amountText))
-                .addGap(11, 11, 11))
-        );
+                .addComponent(amountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(amountText))
+                .addGap(11, 11, 11)));
 
         chooseByVendor.add(vendorRightPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 310, 210));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
                 .addComponent(homeScreenPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(chooseByCarModel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(chooseByVendor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 10, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(carModelParts, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE))
-        );
+                .addComponent(chooseByVendor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 10, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(carModelParts, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
                 .addComponent(homeScreenPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(752, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(chooseByCarModel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(752, 752, 752)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(chooseByCarModel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(752, 752, 752)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(chooseByVendor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 752, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(chooseByVendor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 752, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(carModelParts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 752, Short.MAX_VALUE)))
-        );
+                .addComponent(carModelParts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 752, Short.MAX_VALUE))));
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-736)/2, (screenSize.height-358)/2, 736, 358);
+        setBounds((screenSize.width - 736) / 2, (screenSize.height - 358) / 2, 736, 358);
     }// </editor-fold>                        
 
-    private void vendorButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
+    private void vendorButtonActionPerformed(java.awt.event.ActionEvent evt) {
         homeScreenPage.setVisible(false);
         chooseByCarModel.setVisible(false);
         chooseByVendor.setVisible(true);
         carModelParts.setVisible(false);
-    }                                            
+    }
 
-    private void carmodelButtonActionPerformed(java.awt.event.ActionEvent evt) {                                               
+    private void carmodelButtonActionPerformed(java.awt.event.ActionEvent evt) {
         homeScreenPage.setVisible(false);
         chooseByCarModel.setVisible(true);
         chooseByVendor.setVisible(false);
         carModelParts.setVisible(false);
-    }                                              
+    }
 
-    private void homeLabelMouseClicked(java.awt.event.MouseEvent evt) {                                       
+    private void homeLabelMouseClicked(java.awt.event.MouseEvent evt) {
         switchVisibility(chooseByVendor, homeScreenPage);
         initComponents();
         index = 1;
+        nullCounter = 0;
         chooseByCarModel.setVisible(false);
         chooseByVendor.setVisible(false);
         carModelParts.setVisible(false);
-    }                                      
+    }
 
-    private void vendorDropdownActionPerformed(java.awt.event.ActionEvent evt) {                                               
+    private void vendorDropdownActionPerformed(java.awt.event.ActionEvent evt) {
         vendorPartNumberDropdown.setEnabled(true);
         try {
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:orcl", "system", "Password17");
+            partsDB DBC = new partsDB(con, user, password);
             Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs = null;
             String getPart = (String) vendorDropdown.getSelectedItem();
@@ -950,13 +941,13 @@ public class GUI extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }                                              
+    }
 
-    private void vendorPartNumberDropdownActionPerformed(java.awt.event.ActionEvent evt) {                                                         
+    private void vendorPartNumberDropdownActionPerformed(java.awt.event.ActionEvent evt) {
         ResultSet rs = null;
         if (vendorDropdown.getSelectedItem() != null && vendorPartNumberDropdown.getSelectedItem() != null) {
             try {
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:orcl", "system", "Password17");
+                partsDB DBC = new partsDB(con, user, password);
                 String getNumber = vendorPartNumberDropdown.getSelectedItem().toString();
                 String getPart = vendorDropdown.getSelectedItem().toString();
                 Statement stmnt = DBC.getDBConnection().createStatement();
@@ -982,11 +973,11 @@ public class GUI extends javax.swing.JFrame {
                 e.printStackTrace();
             }
         }
-    }                                                        
+    }
 
-    private void engineDropdownActionPerformed(java.awt.event.ActionEvent evt) {                                               
+    private void engineDropdownActionPerformed(java.awt.event.ActionEvent evt) {
         try {
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:orcl", "system", "Password17");
+            partsDB DBC = new partsDB(con, user, password);
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs = null;
@@ -1006,9 +997,14 @@ public class GUI extends javax.swing.JFrame {
             rs = stmnt.executeQuery(sql);
             rs.next();
             ResultSetMetaData metaData = rs.getMetaData();
-            for (int i = 2; i < metaData.getColumnCount(); i++) {
+            for (int i = 2; i <= metaData.getColumnCount(); i++) {
                 System.out.println(rs.getString(i));
                 partNumbers[i - 2] = rs.getString(i);
+                if (partNumbers[i - 2] == null || 
+                        partNumbers[i - 2].equalsIgnoreCase("NS") ||
+                        partNumbers[i - 2].equalsIgnoreCase("NA")) {
+                    nullCounter++;
+                }
             }
 
 
@@ -1032,19 +1028,23 @@ public class GUI extends javax.swing.JFrame {
                 partslistPriceText.setText(rs.getString(9));
                 partslistAmountText.setText(rs.getString(10));
             }
-
+            Integer numOfParts = partNumbers.length - nullCounter;
+            if (numOfParts != 0) {
+                firstNumLabel.setText("1");
+            }
+            lastNumLabel.setText(numOfParts.toString());
 
         } catch (Exception e) {
             e.printStackTrace();
         }
         nextButton.setEnabled(true);
-    }                                              
+    }
 
-    private void yearDropdownActionPerformed(java.awt.event.ActionEvent evt) {                                             
+    private void yearDropdownActionPerformed(java.awt.event.ActionEvent evt) {
         engineDropdown.setEnabled(true);
 
         try {
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:orcl", "system", "Password17");
+            partsDB DBC = new partsDB(con, user, password);
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs = null;
@@ -1077,15 +1077,15 @@ public class GUI extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }                                            
+    }
 
-    private void carModelDropdownActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+    private void carModelDropdownActionPerformed(java.awt.event.ActionEvent evt) {
 
         yearDropdown.setEnabled(true);
 
 
         try {
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:orcl", "system", "Password17");
+            partsDB DBC = new partsDB(con, user, password);
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs = null;
@@ -1110,28 +1110,28 @@ public class GUI extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }                                                
+    }
 
-    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {
         chooseByCarModel.setVisible(false);
         carModelParts.setVisible(true);
-    }                                          
+    }
 
-    private void carHomeLabelMouseClicked(java.awt.event.MouseEvent evt) {                                          
+    private void carHomeLabelMouseClicked(java.awt.event.MouseEvent evt) {
         switchVisibility(chooseByCarModel, homeScreenPage);
         initComponents();
-        partNumbers = new String[20];
+        partNumbers = new String[16];
         chooseByCarModel.setVisible(false);
         chooseByVendor.setVisible(false);
         carModelParts.setVisible(false);
-    }                                         
+    }
 
-    private void carMakerDropdownActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+    private void carMakerDropdownActionPerformed(java.awt.event.ActionEvent evt) {
 
         carModelDropdown.setEnabled(true);
 
         try {
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:orcl", "system", "Password17");
+            partsDB DBC = new partsDB(con, user, password);
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs = null;
@@ -1156,29 +1156,33 @@ public class GUI extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }                                                
+    }
 
-    private void partslistCarHomeLabelMouseClicked(java.awt.event.MouseEvent evt) {                                                   
+    private void partslistCarHomeLabelMouseClicked(java.awt.event.MouseEvent evt) {
         switchVisibility(carModelParts, homeScreenPage);
         initComponents();
         index = 1;
-        partNumbers = new String[20];
+        nullCounter = 0;
+        partNumbers = new String[16];
         chooseByCarModel.setVisible(false);
         chooseByVendor.setVisible(false);
         carModelParts.setVisible(false);
-    }                                                  
+    }
 
-    private void partslistChoosebycarmodelLabelMouseClicked(java.awt.event.MouseEvent evt) {                                                            
+    private void partslistChoosebycarmodelLabelMouseClicked(java.awt.event.MouseEvent evt) {
         switchVisibility(carModelParts, chooseByCarModel);
         initComponents();
         index = 1;
-        partNumbers = new String[20];
+        nullCounter = 0;
+        partNumbers = new String[16];
         homeScreenPage.setVisible(false);
         chooseByVendor.setVisible(false);
         carModelParts.setVisible(false);
-    }                                                           
+    }
 
-    private void partslistNextButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+    private void partslistNextButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        Integer partNumPlusOne = Integer.parseInt(firstNumLabel.getText()) + 1;
+        firstNumLabel.setText(partNumPlusOne.toString());
         try {
             // TODO add your handling code here:
             if (index > 16) {
@@ -1188,12 +1192,13 @@ public class GUI extends javax.swing.JFrame {
             while (partNumbers[index] == null) {
                 index++;
             }
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:orcl", "system", "Password17");
+            partsDB DBC = new partsDB(con, user, password);
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             String currentPartNumb = partNumbers[index];
-            String sql = "SELECT * from RDIMARS where p_number = '" + currentPartNumb
-                    + "' ";
+            String table = partsTable(index);
+            String sql = "SELECT * from " + table + " where p_number = '" + 
+                    currentPartNumb + "' ";
             ResultSet rs = stmnt.executeQuery(sql);
             if (rs.next()) {
                 partslistPartnumberText.setText(rs.getString(1));
@@ -1212,10 +1217,11 @@ public class GUI extends javax.swing.JFrame {
         }
 
 
-    }                                                   
+    }
 
-    private void partslistPreviousButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                        
-        // TODO add your handling code here:
+    private void partslistPreviousButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        Integer partNumPlusOne = Integer.parseInt(firstNumLabel.getText()) - 1;
+        firstNumLabel.setText(partNumPlusOne.toString());
         try {
             // TODO add your handling code here:
             if (index < 0) {
@@ -1225,12 +1231,13 @@ public class GUI extends javax.swing.JFrame {
             while (partNumbers[index] == null) {
                 index--;
             }
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:orcl", "system", "Password17");
+            partsDB DBC = new partsDB(con, user, password);
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             String currentPartNumb = partNumbers[index];
-            String sql = "SELECT * from RDIMARS where p_number = '" + currentPartNumb
-                    + "' ";
+            String table = partsTable(index);
+            String sql = "SELECT * from " + table + " where p_number = '" + 
+                    currentPartNumb + "' ";
             ResultSet rs = stmnt.executeQuery(sql);
             if (rs.next()) {
                 partslistPartnumberText.setText(rs.getString(1));
@@ -1247,7 +1254,7 @@ public class GUI extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }                                                       
+    }
 
     /**
      * @param args the command line arguments
@@ -1265,7 +1272,6 @@ public class GUI extends javax.swing.JFrame {
          * Create and display the form
          */
         java.awt.EventQueue.invokeLater(new Runnable() {
-
             public void run() {
                 new GUI().setVisible(true);
             }
@@ -1351,7 +1357,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox yearDropdown;
     private javax.swing.JLabel yearLabel;
     // End of variables declaration                   
-    private String[] partsArray;
 
     private void switchVisibility(JPanel componentToHide, JPanel componentToShow) {
         componentToHide.setVisible(false);
