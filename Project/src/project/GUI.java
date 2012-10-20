@@ -5,6 +5,8 @@
 package project;
 
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
@@ -15,11 +17,15 @@ import javax.swing.UIManager;
 public class GUI extends javax.swing.JFrame {
 
     private static partsDB db;
+    private String[] partNumbers;
+    private int index;
 
     /**
      * Creates new form GUI
      */
     public GUI() {
+        partNumbers = new String[16];
+        index = 0;
         initComponents();
         chooseByCarModel.setVisible(false);
         carModelParts.setVisible(false);
@@ -44,10 +50,8 @@ public class GUI extends javax.swing.JFrame {
         carModelDropdown = new javax.swing.JComboBox();
         yearLabel = new javax.swing.JLabel();
         engineLabel = new javax.swing.JLabel();
-        carpartnumberLabel = new javax.swing.JLabel();
         yearDropdown = new javax.swing.JComboBox();
         engineDropdown = new javax.swing.JComboBox();
-        partnumberDropdown = new javax.swing.JComboBox();
         carHomeLabel = new javax.swing.JLabel();
         choosebycarmodelLabel = new javax.swing.JLabel();
         nextButtonPanel = new java.awt.Panel();
@@ -174,10 +178,6 @@ public class GUI extends javax.swing.JFrame {
         engineLabel.setForeground(new java.awt.Color(0, 153, 204));
         engineLabel.setText("Engine");
 
-        carpartnumberLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        carpartnumberLabel.setForeground(new java.awt.Color(0, 153, 204));
-        carpartnumberLabel.setText("Part number");
-
         yearDropdown.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         yearDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select year -" }));
         yearDropdown.setToolTipText("");
@@ -198,41 +198,27 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        partnumberDropdown.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        partnumberDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select part number -" }));
-        partnumberDropdown.setEnabled(false);
-        partnumberDropdown.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                partnumberDropdownActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout choosecarPanelLayout = new javax.swing.GroupLayout(choosecarPanel);
         choosecarPanel.setLayout(choosecarPanelLayout);
         choosecarPanelLayout.setHorizontalGroup(
             choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(choosecarPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(choosecarPanelLayout.createSequentialGroup()
-                            .addComponent(engineLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                            .addComponent(engineDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, choosecarPanelLayout.createSequentialGroup()
-                            .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(modelLabel)
-                                .addComponent(yearLabel)
-                                .addComponent(makerLabel))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(carMakerDropdown, 0, 235, Short.MAX_VALUE)
-                                .addComponent(yearDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(carModelDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(choosecarPanelLayout.createSequentialGroup()
-                        .addComponent(carpartnumberLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(partnumberDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(engineLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                        .addComponent(engineDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, choosecarPanelLayout.createSequentialGroup()
+                        .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(modelLabel)
+                            .addComponent(yearLabel)
+                            .addComponent(makerLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(carMakerDropdown, 0, 235, Short.MAX_VALUE)
+                            .addComponent(yearDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(carModelDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(362, Short.MAX_VALUE))
         );
         choosecarPanelLayout.setVerticalGroup(
@@ -254,11 +240,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(engineLabel)
                     .addComponent(engineDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(carpartnumberLabel)
-                    .addComponent(partnumberDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         chooseByCarModel.add(choosecarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 720, 200));
@@ -565,10 +547,20 @@ public class GUI extends javax.swing.JFrame {
 
         partslistNextButton.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         partslistNextButton.setText("Next");
+        partslistNextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                partslistNextButtonActionPerformed(evt);
+            }
+        });
         carModelParts.add(partslistNextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, -1, -1));
 
         partslistPreviousButton.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         partslistPreviousButton.setText("Previous");
+        partslistPreviousButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                partslistPreviousButtonActionPerformed(evt);
+            }
+        });
         carModelParts.add(partslistPreviousButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, -1, -1));
 
         homeScreenPage.setBackground(new java.awt.Color(255, 255, 255));
@@ -923,6 +915,7 @@ public class GUI extends javax.swing.JFrame {
     private void homeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeLabelMouseClicked
         switchVisibility(chooseByVendor, homeScreenPage);
         initComponents();
+        index = 1;
         chooseByCarModel.setVisible(false);
         chooseByVendor.setVisible(false);
         carModelParts.setVisible(false);
@@ -932,7 +925,7 @@ public class GUI extends javax.swing.JFrame {
         vendorPartNumberDropdown.setEnabled(true);
 
         try {
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:ORCL", "scott", "tiger");
+            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs = null;
@@ -955,7 +948,7 @@ public class GUI extends javax.swing.JFrame {
         ResultSet rs = null;
         if (vendorDropdown.getSelectedItem() != null && vendorPartNumberDropdown.getSelectedItem() != null) {
             try {
-                partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:ORCL", "scott", "tiger");
+                partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
                 String getNumber = vendorPartNumberDropdown.getSelectedItem().toString();
                 String getPart = vendorDropdown.getSelectedItem().toString();
                 Statement stmnt = DBC.getDBConnection().createStatement();
@@ -983,51 +976,80 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_vendorPartNumberDropdownActionPerformed
 
-    private void partnumberDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partnumberDropdownActionPerformed
-        nextButton.setEnabled(true);
-    }//GEN-LAST:event_partnumberDropdownActionPerformed
-
     private void engineDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_engineDropdownActionPerformed
-        partnumberDropdown.setEnabled(true);
-
         try {
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:ORCL", "scott", "tiger");
+            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs = null;
             String getPart = (String) carMakerDropdown.getSelectedItem();
             String getModel = (String) carModelDropdown.getSelectedItem();
             String getYear = (String) yearDropdown.getSelectedItem();
-            String sql = "select distinct RLINK from apl" + getPart.substring(0, 3) + " where model = '" + getModel + "'"
-            + "AND year ='" + getYear + "'";
+            String getEngine = engineDropdown.getSelectedItem().toString(); //much better
+            String sql = "select RLINK from apl" + getPart.substring(0, 3) + " where model = '" + getModel + "'"
+                    + "AND year ='" + getYear + "'" + "AND engine_type = '" + getEngine.split(" ")[0]
+                    + "' AND cubic_inches = '" + getEngine.split(" ")[1] + "' AND litres = '"
+                    + getEngine.split(" ")[2] + "'";
             rs = stmnt.executeQuery(sql);
-            while (rs.next()) {
-                String name = rs.getString(1);
-                partnumberDropdown.addItem(name);
+            rs.next();
+            String RLinkNumber = rs.getString(1);
 
+            sql = "SELECT * FROM RADCRX WHERE RLINK='" + RLinkNumber + "'";
+            rs = stmnt.executeQuery(sql);
+            rs.next();
+            ResultSetMetaData metaData = rs.getMetaData();
+            for (int i = 2; i < metaData.getColumnCount(); i++) {
+                System.out.println(rs.getString(i));
+                partNumbers[i - 2] = rs.getString(i);
             }
+
+
+            while (partNumbers[index] == null) {
+                index++;
+            }
+            String currentPartNumb = partNumbers[index];
+            String table = partsTable(index);
+            sql = "SELECT * from " + table + " where p_number = '" + currentPartNumb
+                    + "' ";
+            rs = stmnt.executeQuery(sql);
+            if (rs.next()) {
+                partslistPartnumberText.setText(rs.getString(1));
+                partslistCoreText.setText(rs.getString(2));
+                partslistInheadText.setText(rs.getString(3));
+                partslistOutheadText.setText(rs.getString(4));
+                partslistInconText.setText(rs.getString(5));
+                partslistOuconText.setText(rs.getString(6));
+                partslistTmountText.setText(rs.getString(7));
+                partslistOilcoolText.setText(rs.getString(8));
+                partslistPriceText.setText(rs.getString(9));
+                partslistAmountText.setText(rs.getString(10));
+            }
+
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+        nextButton.setEnabled(true);
     }//GEN-LAST:event_engineDropdownActionPerformed
 
     private void yearDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearDropdownActionPerformed
         engineDropdown.setEnabled(true);
 
         try {
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:ORCL", "scott", "tiger");
+            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs = null;
             String getPart = (String) carMakerDropdown.getSelectedItem();
             String getModel = (String) carModelDropdown.getSelectedItem();
             String getYear = (String) yearDropdown.getSelectedItem();
-            String sql = "select distinct ENGINE_TYPE from apl" + getPart.substring(0, 3) + " where model = '" + getModel + "'"
-            + "AND year ='" + getYear + "'";
+            String sql = "select ENGINE_TYPE, CUBIC_INCHES, LITRES from apl" + getPart.substring(0, 3) + " where model = '" + getModel + "'"
+                    + "AND year ='" + getYear + "'" + "order by ENGINE_TYPE asc";
             rs = stmnt.executeQuery(sql);
             while (rs.next()) {
-                String name = rs.getString(1);
+                String name = rs.getString(1) + " " + rs.getString(2)
+                        + " " + rs.getString(3);
+                name.replaceAll(" NA", "");
                 engineDropdown.addItem(name);
 
             }
@@ -1042,7 +1064,7 @@ public class GUI extends javax.swing.JFrame {
         yearDropdown.setEnabled(true);
 
         try {
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:ORCL", "scott", "tiger");
+            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs = null;
@@ -1064,44 +1086,12 @@ public class GUI extends javax.swing.JFrame {
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         chooseByCarModel.setVisible(false);
         carModelParts.setVisible(true);
-        
-        try {
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:ORCL", "scott", "tiger");
-
-            Statement stmnt = DBC.getDBConnection().createStatement();
-            ResultSet rs;
-            String partNumber = partnumberDropdown.getSelectedItem().toString();
-
-            String sql = "select * from radcrx where rlink=" + partNumber;
-            rs = stmnt.executeQuery(sql);
-            
-            while (rs.next()) {
-                //Get each part from the result set and place into an array
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }        
-        /*DefaultTableModel model = new DefaultTableModel();
-
-        ArrayList<HashMap> parts = db.getParts();
-
-        for (HashMap<String, String> row : parts) {
-            String[] rowArray = new String[row.size()];
-            int i = 0;
-            Iterator column = row.entrySet().iterator();
-            while (column.hasNext()) {
-                Entry current = (Map.Entry) column.next();
-                rowArray[i] = current.getValue().toString();
-                i++;
-            }
-            model.addRow(rowArray);
-        }*/
     }//GEN-LAST:event_nextButtonActionPerformed
 
     private void carHomeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carHomeLabelMouseClicked
         switchVisibility(chooseByCarModel, homeScreenPage);
         initComponents();
+        partNumbers = new String[20];
         chooseByCarModel.setVisible(false);
         chooseByVendor.setVisible(false);
         carModelParts.setVisible(false);
@@ -1112,7 +1102,7 @@ public class GUI extends javax.swing.JFrame {
         carModelDropdown.setEnabled(true);
 
         try {
-            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:ORCL", "scott", "tiger");
+            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs = null;
@@ -1131,24 +1121,26 @@ public class GUI extends javax.swing.JFrame {
         }
         //        carModelDropdown.removeAllItems();
         //        try {
-            //             TODO add your handling code here:
-            //            db = new partsDB("jdbc:oracle:thin:@localhost:1521:orcl", "scott", "tiger");
-            //        } catch (SQLException ex) {
-            //            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-            //        }
+        //             TODO add your handling code here:
+        //            db = new partsDB("jdbc:oracle:thin:@localhost:1521:orcl", "scott", "tiger");
+        //        } catch (SQLException ex) {
+        //            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        //        }
         //        String maker = carMakerDropdown.getSelectedItem().toString().substring(0, 3);
         //        db.setMaker(maker);
         //        String[] models = db.getModel();
         //
         //        for (String model : models) {
-            //            carModelDropdown.addItem(model.toString());
-            //        }
+        //            carModelDropdown.addItem(model.toString());
+        //        }
         //        carModelDropdown.setEnabled(true);
     }//GEN-LAST:event_carMakerDropdownActionPerformed
 
     private void partslistCarHomeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partslistCarHomeLabelMouseClicked
         switchVisibility(carModelParts, homeScreenPage);
         initComponents();
+        index = 1;
+        partNumbers = new String[20];
         chooseByCarModel.setVisible(false);
         chooseByVendor.setVisible(false);
         carModelParts.setVisible(false);
@@ -1157,10 +1149,83 @@ public class GUI extends javax.swing.JFrame {
     private void partslistChoosebycarmodelLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partslistChoosebycarmodelLabelMouseClicked
         switchVisibility(carModelParts, chooseByCarModel);
         initComponents();
+        index = 1;
+        partNumbers = new String[20];
         homeScreenPage.setVisible(false);
         chooseByVendor.setVisible(false);
         carModelParts.setVisible(false);
     }//GEN-LAST:event_partslistChoosebycarmodelLabelMouseClicked
+
+    private void partslistNextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partslistNextButtonActionPerformed
+        try {
+            // TODO add your handling code here:
+            if (index > 16) {
+                index--;
+                return;
+            }
+            while (partNumbers[index] == null) {
+                index++;
+            }
+            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
+
+            Statement stmnt = DBC.getDBConnection().createStatement();
+            String currentPartNumb = partNumbers[index];
+            String sql = "SELECT * from RDIMARS where p_number = '" + currentPartNumb
+                    + "' ";
+            ResultSet rs = stmnt.executeQuery(sql);
+            if (rs.next()) {
+                partslistPartnumberText.setText(rs.getString(1));
+                partslistCoreText.setText(rs.getString(2));
+                partslistInheadText.setText(rs.getString(3));
+                partslistOutheadText.setText(rs.getString(4));
+                partslistInconText.setText(rs.getString(5));
+                partslistOuconText.setText(rs.getString(6));
+                partslistTmountText.setText(rs.getString(7));
+                partslistOilcoolText.setText(rs.getString(8));
+                partslistPriceText.setText(rs.getString(9));
+                partslistAmountText.setText(rs.getString(10));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_partslistNextButtonActionPerformed
+
+    private void partslistPreviousButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partslistPreviousButtonActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            if (index < 0) {
+                index++;
+                return;
+            }
+            while (partNumbers[index] == null) {
+                index--;
+            }
+            partsDB DBC = new partsDB("jdbc:oracle:thin:@localhost:1521:mydatabase", "scott", "tiger");
+
+            Statement stmnt = DBC.getDBConnection().createStatement();
+            String currentPartNumb = partNumbers[index];
+            String sql = "SELECT * from RDIMARS where p_number = '" + currentPartNumb
+                    + "' ";
+            ResultSet rs = stmnt.executeQuery(sql);
+            if (rs.next()) {
+                partslistPartnumberText.setText(rs.getString(1));
+                partslistCoreText.setText(rs.getString(2));
+                partslistInheadText.setText(rs.getString(3));
+                partslistOutheadText.setText(rs.getString(4));
+                partslistInconText.setText(rs.getString(5));
+                partslistOuconText.setText(rs.getString(6));
+                partslistTmountText.setText(rs.getString(7));
+                partslistOilcoolText.setText(rs.getString(8));
+                partslistPriceText.setText(rs.getString(9));
+                partslistAmountText.setText(rs.getString(10));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_partslistPreviousButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1168,8 +1233,8 @@ public class GUI extends javax.swing.JFrame {
     public static void main(String args[]) {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException | InstantiationException | 
-                IllegalAccessException | 
+        } catch (ClassNotFoundException | InstantiationException |
+                IllegalAccessException |
                 javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
@@ -1178,6 +1243,7 @@ public class GUI extends javax.swing.JFrame {
          * Create and display the form
          */
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 new GUI().setVisible(true);
             }
@@ -1191,7 +1257,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox carModelDropdown;
     private javax.swing.JPanel carModelParts;
     private javax.swing.JButton carmodelButton;
-    private javax.swing.JLabel carpartnumberLabel;
     private javax.swing.JPanel chooseByCarModel;
     private javax.swing.JPanel chooseByVendor;
     private javax.swing.JLabel choosebycarmodelLabel;
@@ -1219,7 +1284,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel ouconText;
     private javax.swing.JLabel outheadLabel;
     private javax.swing.JLabel outheadText;
-    private javax.swing.JComboBox partnumberDropdown;
     private javax.swing.JLabel partnumberLabel;
     private javax.swing.JLabel partnumberText;
     private javax.swing.JLabel partnumberdropdownLabel;
@@ -1266,9 +1330,21 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel yearLabel;
     // End of variables declaration//GEN-END:variables
     private String[] partsArray;
-    
+
     private void switchVisibility(JPanel componentToHide, JPanel componentToShow) {
         componentToHide.setVisible(false);
         componentToShow.setVisible(true);
+    }
+
+    private String partsTable(int index) {
+        if (index < 4) {
+            return "RDIMARS";
+        } else if (index < 8) {
+            return "RDIMMOD";
+        } else if (index < 12) {
+            return "RDIMBEH";
+        } else {
+            return "RDIMDAN";
+        }
     }
 }
