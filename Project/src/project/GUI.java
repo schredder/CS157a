@@ -19,26 +19,27 @@ import javax.swing.UIManager;
  */
 public class GUI extends javax.swing.JFrame {
 
-    private static final String con = "jdbc:oracle:thin:@localhost:1521:orcl";
-    private static final String user = "scott";
-    private static final String password = "tiger";
-    private static partsDB db;
-    private String[] partNumbers;
-    private int index;
-    private Hashtable<Object, Object> subItems = new Hashtable<Object, Object>();
-    private int nullCounter;
+    private static final String con = "jdbc:oracle:thin:@localhost:1521:orcl"; //connection string
+    private static final String user = "scott"; //database user
+    private static final String password = "tiger"; //database password
+    private static final int SIZE = 16; //number of vendor types
+    private String[] partNumbers; //part numbers from RADCRX
+    private int index; //index in partNumbers array
+    private int nullCounter; //number of NULL, NS, and NA values in partNumbers
+    private Integer numOfParts;
+    private Hashtable<Object, Object> subItems = new Hashtable<>(); //dropdown lists
 
     /**
      * Creates new form GUI
      */
     public GUI() {
-        partNumbers = new String[16];
+        partNumbers = new String[SIZE];
         index = 0;
+        nullCounter = 0;
         initComponents();
         chooseByCarModel.setVisible(false);
         carModelParts.setVisible(false);
         chooseByVendor.setVisible(false);
-        nullCounter = 0;
     }
 
     /**
@@ -928,9 +929,9 @@ public class GUI extends javax.swing.JFrame {
         try {
             partsDB DBC = new partsDB(con, user, password);
             Statement stmnt = DBC.getDBConnection().createStatement();
-            ResultSet rs = null;
+            ResultSet rs;
             String getPart = (String) vendorDropdown.getSelectedItem();
-            ArrayList<String> name1 = new ArrayList<String>();
+            ArrayList<String> name1 = new ArrayList<>();
             String sql = "select distinct p_number from " + getPart;
             rs = stmnt.executeQuery(sql);
             while (rs.next()) {
@@ -951,8 +952,9 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_vendorDropdownActionPerformed
 
     private void vendorPartNumberDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendorPartNumberDropdownActionPerformed
-        ResultSet rs = null;
-        if (vendorDropdown.getSelectedItem() != null && vendorPartNumberDropdown.getSelectedItem() != null) {
+        ResultSet rs;
+        if (vendorDropdown.getSelectedItem() != null
+                && vendorPartNumberDropdown.getSelectedItem() != null) {
             try {
                 partsDB DBC = new partsDB(con, user, password);
                 String getNumber = vendorPartNumberDropdown.getSelectedItem().toString();
@@ -987,15 +989,16 @@ public class GUI extends javax.swing.JFrame {
             partsDB DBC = new partsDB(con, user, password);
 
             Statement stmnt = DBC.getDBConnection().createStatement();
-            ResultSet rs = null;
-            String getPart = (String) carMakerDropdown.getSelectedItem();
-            String getModel = (String) carModelDropdown.getSelectedItem();
-            String getYear = (String) yearDropdown.getSelectedItem();
-            String getEngine = engineDropdown.getSelectedItem().toString(); //much better
-            String sql = "select RLINK from apl" + getPart.substring(0, 3) + " where model = '" + getModel + "'"
-                    + "AND year ='" + getYear + "'" + "AND engine_type = '" + getEngine.split(" ")[0]
-                    + "' AND cubic_inches = '" + getEngine.split(" ")[1] + "' AND litres = '"
-                    + getEngine.split(" ")[2] + "'";
+            ResultSet rs;
+            String getPart = carMakerDropdown.getSelectedItem().toString();
+            String getModel = carModelDropdown.getSelectedItem().toString();
+            String getYear = yearDropdown.getSelectedItem().toString();
+            String getEngine = engineDropdown.getSelectedItem().toString();
+            String sql = "select RLINK from apl" + getPart.substring(0, 3)
+                    + " where model = '" + getModel + "'" + "AND year ='" + getYear
+                    + "'" + "AND engine_type = '" + getEngine.split(" ")[0]
+                    + "' AND cubic_inches = '" + getEngine.split(" ")[1]
+                    + "' AND litres = '" + getEngine.split(" ")[2] + "'";
             rs = stmnt.executeQuery(sql);
             rs.next();
             String RLinkNumber = rs.getString(1);
@@ -1004,22 +1007,24 @@ public class GUI extends javax.swing.JFrame {
             rs = stmnt.executeQuery(sql);
             rs.next();
             ResultSetMetaData metaData = rs.getMetaData();
+            //index begins at 1 and we ignore RLINK so i=2
             for (int i = 2; i <= metaData.getColumnCount(); i++) {
                 System.out.println(rs.getString(i));
                 partNumbers[i - 2] = rs.getString(i);
-                if (partNumbers[i - 2] == null || 
-                        partNumbers[i - 2].equalsIgnoreCase("NS") ||
-                        partNumbers[i - 2].equalsIgnoreCase("NA")) {
+                if (partNumbers[i - 2] == null
+                        || partNumbers[i - 2].equalsIgnoreCase("NS")
+                        || partNumbers[i - 2].equalsIgnoreCase("NA")) {
                     nullCounter++;
                 }
             }
 
 
-            while (partNumbers[index] == null) {
+            while (partNumbers[index] == null || partNumbers[index].equalsIgnoreCase("NS")
+                    || partNumbers[index].equalsIgnoreCase("NA")) {
                 index++;
             }
             String currentPartNumb = partNumbers[index];
-            String table = partsTable(index);
+            String table = partsTable();
             sql = "SELECT * from " + table + " where p_number = '" + currentPartNumb
                     + "' ";
             rs = stmnt.executeQuery(sql);
@@ -1035,12 +1040,12 @@ public class GUI extends javax.swing.JFrame {
                 partslistPriceText.setText(rs.getString(9));
                 partslistAmountText.setText(rs.getString(10));
             }
-            Integer numOfParts = partNumbers.length - nullCounter;
+            numOfParts = partNumbers.length - nullCounter;
             if (numOfParts != 0) {
                 firstNumLabel.setText("1");
             }
             lastNumLabel.setText(numOfParts.toString());
-
+            buttonVisibility();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1054,13 +1059,14 @@ public class GUI extends javax.swing.JFrame {
             partsDB DBC = new partsDB(con, user, password);
 
             Statement stmnt = DBC.getDBConnection().createStatement();
-            ResultSet rs = null;
+            ResultSet rs;
             String getPart = (String) carMakerDropdown.getSelectedItem();
             String getModel = (String) carModelDropdown.getSelectedItem();
             String getYear = (String) yearDropdown.getSelectedItem();
-            String sql = "select ENGINE_TYPE, CUBIC_INCHES, LITRES from apl" + getPart.substring(0, 3) + " where model = '" + getModel + "'"
+            String sql = "select ENGINE_TYPE, CUBIC_INCHES, LITRES from apl"
+                    + getPart.substring(0, 3) + " where model = '" + getModel + "'"
                     + "AND year ='" + getYear + "'" + "order by ENGINE_TYPE asc";
-            ArrayList<String> name1 = new ArrayList<String>();
+            ArrayList<String> name1 = new ArrayList<>();
 
             rs = stmnt.executeQuery(sql);
             while (rs.next()) {
@@ -1087,19 +1093,18 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_yearDropdownActionPerformed
 
     private void carModelDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carModelDropdownActionPerformed
-
         yearDropdown.setEnabled(true);
-
 
         try {
             partsDB DBC = new partsDB(con, user, password);
 
             Statement stmnt = DBC.getDBConnection().createStatement();
-            ResultSet rs = null;
+            ResultSet rs;
             String getPart = (String) carMakerDropdown.getSelectedItem();
             String getModel = (String) carModelDropdown.getSelectedItem();
-            String sql = "select distinct year from apl" + getPart.substring(0, 3) + " where model = '" + getModel + "'";
-            ArrayList<String> name1 = new ArrayList<String>();
+            String sql = "select distinct year from apl" + getPart.substring(0, 3)
+                    + " where model = '" + getModel + "'";
+            ArrayList<String> name1 = new ArrayList<>();
 
             rs = stmnt.executeQuery(sql);
             while (rs.next()) {
@@ -1127,23 +1132,22 @@ public class GUI extends javax.swing.JFrame {
     private void carHomeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carHomeLabelMouseClicked
         switchVisibility(chooseByCarModel, homeScreenPage);
         initComponents();
-        partNumbers = new String[16];
+        partNumbers = new String[SIZE];
         chooseByCarModel.setVisible(false);
         chooseByVendor.setVisible(false);
         carModelParts.setVisible(false);
     }//GEN-LAST:event_carHomeLabelMouseClicked
 
     private void carMakerDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carMakerDropdownActionPerformed
-
         carModelDropdown.setEnabled(true);
 
         try {
             partsDB DBC = new partsDB(con, user, password);
 
             Statement stmnt = DBC.getDBConnection().createStatement();
-            ResultSet rs = null;
+            ResultSet rs;
             String getPart = (String) carMakerDropdown.getSelectedItem();
-            ArrayList<String> name1 = new ArrayList<String>();
+            ArrayList<String> name1 = new ArrayList<>();
 
             String sql = "select distinct model from apl" + getPart.substring(0, 3);
             rs = stmnt.executeQuery(sql);
@@ -1170,7 +1174,7 @@ public class GUI extends javax.swing.JFrame {
         initComponents();
         index = 1;
         nullCounter = 0;
-        partNumbers = new String[16];
+        partNumbers = new String[SIZE];
         chooseByCarModel.setVisible(false);
         chooseByVendor.setVisible(false);
         carModelParts.setVisible(false);
@@ -1181,7 +1185,7 @@ public class GUI extends javax.swing.JFrame {
         initComponents();
         index = 1;
         nullCounter = 0;
-        partNumbers = new String[16];
+        partNumbers = new String[SIZE];
         homeScreenPage.setVisible(false);
         chooseByVendor.setVisible(false);
         carModelParts.setVisible(false);
@@ -1190,22 +1194,25 @@ public class GUI extends javax.swing.JFrame {
     private void partslistNextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partslistNextButtonActionPerformed
         Integer partNumPlusOne = Integer.parseInt(firstNumLabel.getText()) + 1;
         firstNumLabel.setText(partNumPlusOne.toString());
+        buttonVisibility();
+        
         try {
             // TODO add your handling code here:
-            if (index > 16) {
-                index--;
-                return;
-            }
-            while (partNumbers[index] == null) {
+            //if (index > SIZE) {
+            //    index--;
+            //    return;
+            //}
+            while (partNumbers[index] == null || partNumbers[index].equalsIgnoreCase("NS")
+                    || partNumbers[index].equalsIgnoreCase("NA")) {
                 index++;
             }
             partsDB DBC = new partsDB(con, user, password);
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             String currentPartNumb = partNumbers[index];
-            String table = partsTable(index);
-            String sql = "SELECT * from " + table + " where p_number = '" + 
-                    currentPartNumb + "' ";
+            String table = partsTable();
+            String sql = "SELECT * from " + table + " where p_number = '"
+                    + currentPartNumb + "' ";
             ResultSet rs = stmnt.executeQuery(sql);
             if (rs.next()) {
                 partslistPartnumberText.setText(rs.getString(1));
@@ -1222,29 +1229,30 @@ public class GUI extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
     }//GEN-LAST:event_partslistNextButtonActionPerformed
 
     private void partslistPreviousButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partslistPreviousButtonActionPerformed
         Integer partNumPlusOne = Integer.parseInt(firstNumLabel.getText()) - 1;
         firstNumLabel.setText(partNumPlusOne.toString());
+        buttonVisibility();
+        
         try {
             // TODO add your handling code here:
-            if (index < 0) {
-                index++;
-                return;
-            }
-            while (partNumbers[index] == null) {
+            //if (index < 0) {
+            //    index++;
+            //    return;
+            //}
+            while (partNumbers[index] == null || partNumbers[index].equalsIgnoreCase("NS")
+                    || partNumbers[index].equalsIgnoreCase("NA")) {
                 index--;
             }
             partsDB DBC = new partsDB(con, user, password);
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             String currentPartNumb = partNumbers[index];
-            String table = partsTable(index);
-            String sql = "SELECT * from " + table + " where p_number = '" + 
-                    currentPartNumb + "' ";
+            String table = partsTable();
+            String sql = "SELECT * from " + table + " where p_number = '"
+                    + currentPartNumb + "' ";
             ResultSet rs = stmnt.executeQuery(sql);
             if (rs.next()) {
                 partslistPartnumberText.setText(rs.getString(1));
@@ -1263,6 +1271,39 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_partslistPreviousButtonActionPerformed
 
+    private void switchVisibility(JPanel componentToHide, JPanel componentToShow) {
+        componentToHide.setVisible(false);
+        componentToShow.setVisible(true);
+    }
+
+    private String partsTable() {
+        if (index < 4) {
+            return "RDIMARS";
+        } else if (index < 8) {
+            return "RDIMMOD";
+        } else if (index < 12) {
+            return "RDIMBEH";
+        } else {
+            return "RDIMDAN";
+        }
+    }
+    
+    private void buttonVisibility() {
+        if (Integer.parseInt(firstNumLabel.getText()) == numOfParts) {
+            partslistNextButton.setVisible(false);
+        }
+        else {
+            partslistNextButton.setVisible(true);
+        }
+        if (Integer.parseInt(firstNumLabel.getText()) == 0 || 
+                Integer.parseInt(firstNumLabel.getText()) == 1) {
+            partslistPreviousButton.setVisible(false);
+        }
+        else {
+            partslistPreviousButton.setVisible(true);
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -1279,6 +1320,7 @@ public class GUI extends javax.swing.JFrame {
          * Create and display the form
          */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new GUI().setVisible(true);
             }
@@ -1364,21 +1406,4 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox yearDropdown;
     private javax.swing.JLabel yearLabel;
     // End of variables declaration//GEN-END:variables
-
-    private void switchVisibility(JPanel componentToHide, JPanel componentToShow) {
-        componentToHide.setVisible(false);
-        componentToShow.setVisible(true);
-    }
-
-    private String partsTable(int index) {
-        if (index < 4) {
-            return "RDIMARS";
-        } else if (index < 8) {
-            return "RDIMMOD";
-        } else if (index < 12) {
-            return "RDIMBEH";
-        } else {
-            return "RDIMDAN";
-        }
-    }
 }
