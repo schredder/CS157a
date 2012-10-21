@@ -24,7 +24,7 @@ public class partsDB {
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
             oracleConn = DriverManager.getConnection(connectString, user, password);
             oracleStmt = oracleConn.createStatement();
-            System.out.println("Connected to DB!");
+            //System.out.println("Connected to DB!");
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }

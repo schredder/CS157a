@@ -351,7 +351,7 @@ public class GUI extends javax.swing.JFrame {
         lastNumLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         lastNumLabel.setForeground(new java.awt.Color(0, 153, 204));
         lastNumLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lastNumLabel.setText("  ");
+        lastNumLabel.setText("0");
         carModelParts.add(lastNumLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, -1, -1));
 
         partslistLeftPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -985,11 +985,14 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_vendorPartNumberDropdownActionPerformed
 
     private void engineDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_engineDropdownActionPerformed
+        nullCounter = 0; //reset null counter
+        
         try {
             partsDB DBC = new partsDB(con, user, password);
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs;
+            String RLinkNumber = "";
             String getPart = carMakerDropdown.getSelectedItem().toString();
             String getModel = carModelDropdown.getSelectedItem().toString();
             String getYear = yearDropdown.getSelectedItem().toString();
@@ -997,12 +1000,12 @@ public class GUI extends javax.swing.JFrame {
             String sql = "select RLINK from apl" + getPart.substring(0, 3)
                     + " where model = '" + getModel + "'" + "AND year ='" + getYear
                     + "'" + "AND engine_type = '" + getEngine.split(" ")[0]
-                    + "' AND cubic_inches = '" + getEngine.split(" ")[1]
-                    + "' AND litres = '" + getEngine.split(" ")[2] + "'";
+                    + "' OR cubic_inches = '" + getEngine.split(" ")[1]
+                    + "' OR litres = '" + getEngine.split(" ")[2] + "'";
             rs = stmnt.executeQuery(sql);
-            rs.next();
-            String RLinkNumber = rs.getString(1);
-
+            if (rs.next()) {
+                RLinkNumber = rs.getString(1);
+            }
             sql = "SELECT * FROM RADCRX WHERE RLINK='" + RLinkNumber + "'";
             rs = stmnt.executeQuery(sql);
             rs.next();
@@ -1019,36 +1022,40 @@ public class GUI extends javax.swing.JFrame {
             }
 
 
-            while (partNumbers[index] == null || partNumbers[index].equalsIgnoreCase("NS")
-                    || partNumbers[index].equalsIgnoreCase("NA")) {
+            while (index < SIZE && (partNumbers[index] == null || 
+                    partNumbers[index].equalsIgnoreCase("NS")
+                    || partNumbers[index].equalsIgnoreCase("NA"))) {
                 index++;
-            }
-            String currentPartNumb = partNumbers[index];
-            String table = partsTable();
-            sql = "SELECT * from " + table + " where p_number = '" + currentPartNumb
-                    + "' ";
-            rs = stmnt.executeQuery(sql);
-            if (rs.next()) {
-                partslistPartnumberText.setText(rs.getString(1));
-                partslistCoreText.setText(rs.getString(2));
-                partslistInheadText.setText(rs.getString(3));
-                partslistOutheadText.setText(rs.getString(4));
-                partslistInconText.setText(rs.getString(5));
-                partslistOuconText.setText(rs.getString(6));
-                partslistTmountText.setText(rs.getString(7));
-                partslistOilcoolText.setText(rs.getString(8));
-                partslistPriceText.setText(rs.getString(9));
-                partslistAmountText.setText(rs.getString(10));
             }
             numOfParts = partNumbers.length - nullCounter;
             if (numOfParts != 0) {
                 firstNumLabel.setText("1");
+                String currentPartNumb = partNumbers[index];
+                String table = partsTable();
+                sql = "SELECT * from " + table + " where p_number = '" + 
+                        currentPartNumb + "' ";
+                rs = stmnt.executeQuery(sql);
+                if (rs.next()) {
+                    partslistPartnumberText.setText(rs.getString(1));
+                    partslistCoreText.setText(rs.getString(2));
+                    partslistInheadText.setText(rs.getString(3));
+                    partslistOutheadText.setText(rs.getString(4));
+                    partslistInconText.setText(rs.getString(5));
+                    partslistOuconText.setText(rs.getString(6));
+                    partslistTmountText.setText(rs.getString(7));
+                    partslistOilcoolText.setText(rs.getString(8));
+                    partslistPriceText.setText(rs.getString(9));
+                    partslistAmountText.setText(rs.getString(10));
+                }
+                index++;
             }
             lastNumLabel.setText(numOfParts.toString());
             buttonVisibility();
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
+        engineDropdown.setEnabled(false);
         nextButton.setEnabled(true);
     }//GEN-LAST:event_engineDropdownActionPerformed
 
@@ -1140,7 +1147,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void carMakerDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carMakerDropdownActionPerformed
         carModelDropdown.setEnabled(true);
-
+        
         try {
             partsDB DBC = new partsDB(con, user, password);
 
@@ -1162,8 +1169,6 @@ public class GUI extends javax.swing.JFrame {
             } else {
                 carModelDropdown.setModel(new DefaultComboBoxModel((String[]) o));
             }
-
-            System.out.println(carModelDropdown.getItemCount());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1197,34 +1202,35 @@ public class GUI extends javax.swing.JFrame {
         buttonVisibility();
         
         try {
-            // TODO add your handling code here:
-            //if (index > SIZE) {
-            //    index--;
-            //    return;
-            //}
-            while (partNumbers[index] == null || partNumbers[index].equalsIgnoreCase("NS")
-                    || partNumbers[index].equalsIgnoreCase("NA")) {
+            while (index > 0 && (partNumbers[index] == null 
+                    || partNumbers[index].equalsIgnoreCase("NS")
+                    || partNumbers[index].equalsIgnoreCase("NA"))) {
                 index++;
             }
-            partsDB DBC = new partsDB(con, user, password);
+            if (index > 0) {
+                partsDB DBC = new partsDB(con, user, password);
 
-            Statement stmnt = DBC.getDBConnection().createStatement();
-            String currentPartNumb = partNumbers[index];
-            String table = partsTable();
-            String sql = "SELECT * from " + table + " where p_number = '"
-                    + currentPartNumb + "' ";
-            ResultSet rs = stmnt.executeQuery(sql);
-            if (rs.next()) {
-                partslistPartnumberText.setText(rs.getString(1));
-                partslistCoreText.setText(rs.getString(2));
-                partslistInheadText.setText(rs.getString(3));
-                partslistOutheadText.setText(rs.getString(4));
-                partslistInconText.setText(rs.getString(5));
-                partslistOuconText.setText(rs.getString(6));
-                partslistTmountText.setText(rs.getString(7));
-                partslistOilcoolText.setText(rs.getString(8));
-                partslistPriceText.setText(rs.getString(9));
-                partslistAmountText.setText(rs.getString(10));
+                Statement stmnt = DBC.getDBConnection().createStatement();
+                String currentPartNumb = partNumbers[index];
+                String table = partsTable();
+                String sql = "SELECT * from " + table + " where p_number = '"
+                        + currentPartNumb + "' ";
+                ResultSet rs = stmnt.executeQuery(sql);
+                if (rs.next()) {
+                    partslistPartnumberText.setText(rs.getString(1));
+                    partslistCoreText.setText(rs.getString(2));
+                    partslistInheadText.setText(rs.getString(3));
+                    partslistOutheadText.setText(rs.getString(4));
+                    partslistInconText.setText(rs.getString(5));
+                    partslistOuconText.setText(rs.getString(6));
+                    partslistTmountText.setText(rs.getString(7));
+                    partslistOilcoolText.setText(rs.getString(8));
+                    partslistPriceText.setText(rs.getString(9));
+                    partslistAmountText.setText(rs.getString(10));
+                }
+            }
+            if (index < numOfParts - 1) {
+                index++;
             }
         } catch (SQLException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -1235,36 +1241,35 @@ public class GUI extends javax.swing.JFrame {
         Integer partNumPlusOne = Integer.parseInt(firstNumLabel.getText()) - 1;
         firstNumLabel.setText(partNumPlusOne.toString());
         buttonVisibility();
+        index--;
         
         try {
-            // TODO add your handling code here:
-            //if (index < 0) {
-            //    index++;
-            //    return;
-            //}
-            while (partNumbers[index] == null || partNumbers[index].equalsIgnoreCase("NS")
-                    || partNumbers[index].equalsIgnoreCase("NA")) {
+            while (index > 0 && (partNumbers[index] == null || 
+                    partNumbers[index].equalsIgnoreCase("NS")
+                    || partNumbers[index].equalsIgnoreCase("NA"))) {
                 index--;
             }
-            partsDB DBC = new partsDB(con, user, password);
+            if (index > 0) {
+                partsDB DBC = new partsDB(con, user, password);
 
-            Statement stmnt = DBC.getDBConnection().createStatement();
-            String currentPartNumb = partNumbers[index];
-            String table = partsTable();
-            String sql = "SELECT * from " + table + " where p_number = '"
-                    + currentPartNumb + "' ";
-            ResultSet rs = stmnt.executeQuery(sql);
-            if (rs.next()) {
-                partslistPartnumberText.setText(rs.getString(1));
-                partslistCoreText.setText(rs.getString(2));
-                partslistInheadText.setText(rs.getString(3));
-                partslistOutheadText.setText(rs.getString(4));
-                partslistInconText.setText(rs.getString(5));
-                partslistOuconText.setText(rs.getString(6));
-                partslistTmountText.setText(rs.getString(7));
-                partslistOilcoolText.setText(rs.getString(8));
-                partslistPriceText.setText(rs.getString(9));
-                partslistAmountText.setText(rs.getString(10));
+                Statement stmnt = DBC.getDBConnection().createStatement();
+                String currentPartNumb = partNumbers[index];
+                String table = partsTable();
+                String sql = "SELECT * from " + table + " where p_number = '"
+                        + currentPartNumb + "' ";
+                ResultSet rs = stmnt.executeQuery(sql);
+                if (rs.next()) {
+                    partslistPartnumberText.setText(rs.getString(1));
+                    partslistCoreText.setText(rs.getString(2));
+                    partslistInheadText.setText(rs.getString(3));
+                    partslistOutheadText.setText(rs.getString(4));
+                    partslistInconText.setText(rs.getString(5));
+                    partslistOuconText.setText(rs.getString(6));
+                    partslistTmountText.setText(rs.getString(7));
+                    partslistOilcoolText.setText(rs.getString(8));
+                    partslistPriceText.setText(rs.getString(9));
+                    partslistAmountText.setText(rs.getString(10));
+                }
             }
         } catch (SQLException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
