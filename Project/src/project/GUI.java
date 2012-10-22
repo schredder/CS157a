@@ -1200,17 +1200,13 @@ public class GUI extends javax.swing.JFrame {
         buttonVisibility();
       
         try {
-            if (partNumbers[index] == null
+            index++;
+            while (index < SIZE && (partNumbers[index] == null
                     || partNumbers[index].equalsIgnoreCase("NS")
-                    || partNumbers[index].equalsIgnoreCase("NA")) {
-                while (partNumbers[index] == null
-                        || partNumbers[index].equalsIgnoreCase("NS")
-                        || partNumbers[index].equalsIgnoreCase("NA")) {
-                    index++;
-                }
-            } else {
+                    || partNumbers[index].equalsIgnoreCase("NA"))) {
                 index++;
             }
+                
 System.out.println(index);            
             if (index >= 0) {
                 partsDB DBC = new partsDB(con, user, password);
@@ -1245,17 +1241,13 @@ System.out.println(index);
         buttonVisibility();
         
         try {
-            if (partNumbers[index] == null
+            index--;
+            while (index > 0 && (partNumbers[index] == null
                     || partNumbers[index].equalsIgnoreCase("NS")
-                    || partNumbers[index].equalsIgnoreCase("NA")) {
-                while (partNumbers[index] == null
-                        || partNumbers[index].equalsIgnoreCase("NS")
-                        || partNumbers[index].equalsIgnoreCase("NA")) {
-                    index--;
-                }
-            } else {
+                    || partNumbers[index].equalsIgnoreCase("NA"))) {
                 index--;
             }
+                
 System.out.println(index);            
             if (index >= 0) {
                 partsDB DBC = new partsDB(con, user, password);
