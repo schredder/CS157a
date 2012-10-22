@@ -992,22 +992,21 @@ public class GUI extends javax.swing.JFrame {
 
             Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs;
-            String RLinkNumber = "";
             String getPart = carMakerDropdown.getSelectedItem().toString();
             String getModel = carModelDropdown.getSelectedItem().toString();
             String getYear = yearDropdown.getSelectedItem().toString();
             String getEngine = engineDropdown.getSelectedItem().toString();
             String sql = "select RLINK from apl" + getPart.substring(0, 3)
                     + " where model = '" + getModel + "'" + "AND year ='" + getYear
-                    + "'" + "AND engine_type = '" + getEngine.split(" ")[0]
-                    + "' OR cubic_inches = '" + getEngine.split(" ")[1]
-                    + "' OR litres = '" + getEngine.split(" ")[2] + "'";
+                    + "'" + "AND engine_type = '" + getEngine.split("-")[0]
+                    + "' AND cubic_inches = '" + getEngine.split("-")[1] 
+                    + "' AND litres = '" + getEngine.split("-")[2] + "'";
             rs = stmnt.executeQuery(sql);
-            if (rs.next()) {
-                RLinkNumber = rs.getString(1);
-            }
+            rs.next();
+            String RLinkNumber = rs.getString(1);
+            
             sql = "SELECT * FROM RADCRX WHERE RLINK='" + RLinkNumber + "'";
-            rs = stmnt.executeQuery(sql);
+            rs = stmnt.executeQuery(sql);           
             rs.next();
             ResultSetMetaData metaData = rs.getMetaData();
             //index begins at 1 and we ignore RLINK so i=2
@@ -1020,7 +1019,6 @@ public class GUI extends javax.swing.JFrame {
                     nullCounter++;
                 }
             }
-
 
             while (index < SIZE && (partNumbers[index] == null || 
                     partNumbers[index].equalsIgnoreCase("NS")
@@ -1047,7 +1045,6 @@ public class GUI extends javax.swing.JFrame {
                     partslistPriceText.setText(rs.getString(9));
                     partslistAmountText.setText(rs.getString(10));
                 }
-                index++;
             }
             lastNumLabel.setText(numOfParts.toString());
             buttonVisibility();
@@ -1077,8 +1074,8 @@ public class GUI extends javax.swing.JFrame {
 
             rs = stmnt.executeQuery(sql);
             while (rs.next()) {
-                String name = rs.getString(1) + " " + rs.getString(2)
-                        + " " + rs.getString(3);
+                String name = rs.getString(1) + "-" + rs.getString(2)
+                        + "-" + rs.getString(3);
                 name.replaceAll(" NA", "");
                 name1.add(name);
             }
@@ -1156,7 +1153,8 @@ public class GUI extends javax.swing.JFrame {
             String getPart = (String) carMakerDropdown.getSelectedItem();
             ArrayList<String> name1 = new ArrayList<>();
 
-            String sql = "select distinct model from apl" + getPart.substring(0, 3);
+            String sql = "select distinct model from apl" + 
+                    getPart.substring(0, 3) + " order by model asc";
             rs = stmnt.executeQuery(sql);
             while (rs.next()) {
                 name1.add(rs.getString(1));
@@ -1200,14 +1198,21 @@ public class GUI extends javax.swing.JFrame {
         Integer partNumPlusOne = Integer.parseInt(firstNumLabel.getText()) + 1;
         firstNumLabel.setText(partNumPlusOne.toString());
         buttonVisibility();
-        
+      
         try {
-            while (index > 0 && (partNumbers[index] == null 
+            if (partNumbers[index] == null
                     || partNumbers[index].equalsIgnoreCase("NS")
-                    || partNumbers[index].equalsIgnoreCase("NA"))) {
+                    || partNumbers[index].equalsIgnoreCase("NA")) {
+                while (partNumbers[index] == null
+                        || partNumbers[index].equalsIgnoreCase("NS")
+                        || partNumbers[index].equalsIgnoreCase("NA")) {
+                    index++;
+                }
+            } else {
                 index++;
             }
-            if (index > 0) {
+System.out.println(index);            
+            if (index >= 0) {
                 partsDB DBC = new partsDB(con, user, password);
 
                 Statement stmnt = DBC.getDBConnection().createStatement();
@@ -1229,27 +1234,30 @@ public class GUI extends javax.swing.JFrame {
                     partslistAmountText.setText(rs.getString(10));
                 }
             }
-            if (index < numOfParts - 1) {
-                index++;
-            }
         } catch (SQLException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }    
     }//GEN-LAST:event_partslistNextButtonActionPerformed
 
     private void partslistPreviousButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partslistPreviousButtonActionPerformed
-        Integer partNumPlusOne = Integer.parseInt(firstNumLabel.getText()) - 1;
-        firstNumLabel.setText(partNumPlusOne.toString());
+        Integer partNumMinusOne = Integer.parseInt(firstNumLabel.getText()) - 1;
+        firstNumLabel.setText(partNumMinusOne.toString());
         buttonVisibility();
-        index--;
         
         try {
-            while (index > 0 && (partNumbers[index] == null || 
-                    partNumbers[index].equalsIgnoreCase("NS")
-                    || partNumbers[index].equalsIgnoreCase("NA"))) {
+            if (partNumbers[index] == null
+                    || partNumbers[index].equalsIgnoreCase("NS")
+                    || partNumbers[index].equalsIgnoreCase("NA")) {
+                while (partNumbers[index] == null
+                        || partNumbers[index].equalsIgnoreCase("NS")
+                        || partNumbers[index].equalsIgnoreCase("NA")) {
+                    index--;
+                }
+            } else {
                 index--;
             }
-            if (index > 0) {
+System.out.println(index);            
+            if (index >= 0) {
                 partsDB DBC = new partsDB(con, user, password);
 
                 Statement stmnt = DBC.getDBConnection().createStatement();
