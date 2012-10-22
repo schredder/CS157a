@@ -985,7 +985,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_vendorPartNumberDropdownActionPerformed
 
     private void engineDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_engineDropdownActionPerformed
-        nullCounter = 0; //reset null counter
+        engineDropdownReset();
         
         try {
             partsDB DBC = new partsDB(con, user, password);
@@ -1057,6 +1057,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_engineDropdownActionPerformed
 
     private void yearDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearDropdownActionPerformed
+        nextButton.setEnabled(false);
         engineDropdown.setEnabled(true);
 
         try {
@@ -1097,6 +1098,8 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_yearDropdownActionPerformed
 
     private void carModelDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carModelDropdownActionPerformed
+        engineDropdown.setEnabled(false);
+        nextButton.setEnabled(false);
         yearDropdown.setEnabled(true);
 
         try {
@@ -1143,6 +1146,8 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_carHomeLabelMouseClicked
 
     private void carMakerDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carMakerDropdownActionPerformed
+        yearDropdown.setEnabled(false);
+        nextButton.setEnabled(false);
         carModelDropdown.setEnabled(true);
         
         try {
@@ -1201,7 +1206,7 @@ public class GUI extends javax.swing.JFrame {
       
         try {
             index++;
-            while (index < SIZE && (partNumbers[index] == null
+            while (index < (SIZE - 1) && (partNumbers[index] == null
                     || partNumbers[index].equalsIgnoreCase("NS")
                     || partNumbers[index].equalsIgnoreCase("NA"))) {
                 index++;
@@ -1307,6 +1312,23 @@ System.out.println(index);
         else {
             partslistPreviousButton.setVisible(true);
         }
+    }
+    
+    private void engineDropdownReset() {
+        firstNumLabel.setText("0"); //reset first number label
+        nullCounter = 0; //reset null counter
+        index = 0; //reset index        
+        
+        partslistPartnumberText.setText("");
+        partslistCoreText.setText("");
+        partslistInheadText.setText("");
+        partslistOutheadText.setText("");
+        partslistInconText.setText("");
+        partslistOuconText.setText("");
+        partslistTmountText.setText("");
+        partslistOilcoolText.setText("");
+        partslistPriceText.setText("");
+        partslistAmountText.setText("");
     }
 
     /**
