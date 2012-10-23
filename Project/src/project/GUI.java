@@ -96,6 +96,7 @@ public class GUI extends javax.swing.JFrame {
         partslistOilcoolText = new javax.swing.JLabel();
         partslistPriceText = new javax.swing.JLabel();
         partslistAmountText = new javax.swing.JLabel();
+        navigationPanel = new javax.swing.JPanel();
         partslistNextButton = new javax.swing.JButton();
         partslistPreviousButton = new javax.swing.JButton();
         homeScreenPage = new javax.swing.JPanel();
@@ -276,21 +277,21 @@ public class GUI extends javax.swing.JFrame {
         choosebycarmodelLabel.setText("Choose by Car Model");
         chooseByCarModel.add(choosebycarmodelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 0, 280, 50));
 
-        nextButtonPanel.setBackground(new java.awt.Color(247, 149, 62));
+        nextButtonPanel.setBackground(new java.awt.Color(43, 181, 228));
         nextButtonPanel.setMaximumSize(new java.awt.Dimension(720, 25));
         nextButtonPanel.setMinimumSize(new java.awt.Dimension(720, 25));
         nextButtonPanel.setPreferredSize(new java.awt.Dimension(720, 25));
 
-        nextButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/next icon.jpg"))); // NOI18N
+        nextButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Next Button.jpg"))); // NOI18N
         nextButton.setAlignmentY(0.0F);
         nextButton.setBorder(null);
         nextButton.setBorderPainted(false);
-        nextButton.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/images/next icon hover.jpg"))); // NOI18N
+        nextButton.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Next Button Disabled.jpg"))); // NOI18N
         nextButton.setEnabled(false);
         nextButton.setMaximumSize(new java.awt.Dimension(80, 25));
         nextButton.setMinimumSize(new java.awt.Dimension(80, 25));
         nextButton.setPreferredSize(new java.awt.Dimension(80, 25));
-        nextButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/next icon hover.jpg"))); // NOI18N
+        nextButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Next Button Hover.jpg"))); // NOI18N
         nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextButtonActionPerformed(evt);
@@ -562,23 +563,59 @@ public class GUI extends javax.swing.JFrame {
 
         carModelParts.add(partslistRightPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 310, 210));
 
+        navigationPanel.setBackground(new java.awt.Color(43, 181, 228));
+        navigationPanel.setMaximumSize(new java.awt.Dimension(720, 25));
+        navigationPanel.setMinimumSize(new java.awt.Dimension(720, 25));
+        navigationPanel.setPreferredSize(new java.awt.Dimension(720, 25));
+
         partslistNextButton.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        partslistNextButton.setText("Next");
+        partslistNextButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Next Button.jpg"))); // NOI18N
+        partslistNextButton.setBorder(null);
+        partslistNextButton.setIconTextGap(0);
+        partslistNextButton.setMaximumSize(new java.awt.Dimension(80, 25));
+        partslistNextButton.setMinimumSize(new java.awt.Dimension(80, 25));
+        partslistNextButton.setPreferredSize(new java.awt.Dimension(80, 25));
+        partslistNextButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Next Button Hover.jpg"))); // NOI18N
         partslistNextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 partslistNextButtonActionPerformed(evt);
             }
         });
-        carModelParts.add(partslistNextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, -1, -1));
 
         partslistPreviousButton.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        partslistPreviousButton.setText("Previous");
+        partslistPreviousButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Previous Button.jpg"))); // NOI18N
+        partslistPreviousButton.setBorder(null);
+        partslistPreviousButton.setMaximumSize(new java.awt.Dimension(80, 25));
+        partslistPreviousButton.setMinimumSize(new java.awt.Dimension(80, 25));
+        partslistPreviousButton.setPreferredSize(new java.awt.Dimension(80, 25));
+        partslistPreviousButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Previous Button Hover.jpg"))); // NOI18N
         partslistPreviousButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 partslistPreviousButtonActionPerformed(evt);
             }
         });
-        carModelParts.add(partslistPreviousButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, -1, -1));
+
+        javax.swing.GroupLayout navigationPanelLayout = new javax.swing.GroupLayout(navigationPanel);
+        navigationPanel.setLayout(navigationPanelLayout);
+        navigationPanelLayout.setHorizontalGroup(
+            navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navigationPanelLayout.createSequentialGroup()
+                .addContainerGap(550, Short.MAX_VALUE)
+                .addComponent(partslistPreviousButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(partslistNextButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        navigationPanelLayout.setVerticalGroup(
+            navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navigationPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(partslistNextButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(partslistPreviousButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        carModelParts.add(navigationPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 295, 720, -1));
 
         homeScreenPage.setBackground(new java.awt.Color(255, 255, 255));
         homeScreenPage.setMaximumSize(new java.awt.Dimension(720, 320));
@@ -1331,7 +1368,7 @@ public class GUI extends javax.swing.JFrame {
     public static void main(String args[]) throws SQLException {
         try {
             DBC = new partsDB(con, user, password);
-            stmnt = DBC.getDBConnection().createStatement();
+            //stmnt = DBC.getDBConnection().createStatement();
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException |
                 IllegalAccessException |
@@ -1375,6 +1412,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lastNumLabel;
     private javax.swing.JLabel makerLabel;
     private javax.swing.JLabel modelLabel;
+    private javax.swing.JPanel navigationPanel;
     private javax.swing.JButton nextButton;
     private java.awt.Panel nextButtonPanel;
     private javax.swing.JLabel ofLabel;
