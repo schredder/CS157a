@@ -28,6 +28,8 @@ public class GUI extends javax.swing.JFrame {
     private int nullCounter; //number of NULL, NS, and NA values in partNumbers
     private Integer numOfParts;
     private Hashtable<Object, Object> subItems = new Hashtable<>(); //dropdown lists
+    private static partsDB DBC;
+    private static Statement stmnt;
 
     /**
      * Creates new form GUI
@@ -133,9 +135,14 @@ public class GUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Car Store");
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(736, 200));
+        setMaximumSize(new java.awt.Dimension(736, 320));
         setMinimumSize(new java.awt.Dimension(736, 320));
         setPreferredSize(new java.awt.Dimension(720, 320));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         chooseByCarModel.setBackground(new java.awt.Color(255, 255, 255));
         chooseByCarModel.setMaximumSize(new java.awt.Dimension(720, 320));
@@ -925,14 +932,14 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_homeLabelMouseClicked
 
     private void vendorDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendorDropdownActionPerformed
-        vendorPartNumberDropdown.setEnabled(true);
+        vendorPartNumberDropdown.setEnabled(false);
         try {
-            partsDB DBC = new partsDB(con, user, password);
-            Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs;
             String getPart = (String) vendorDropdown.getSelectedItem();
             ArrayList<String> name1 = new ArrayList<>();
             String sql = "select distinct p_number from " + getPart;
+            if (!getPart.endsWith("-")) {
+                vendorPartNumberDropdown.setEnabled(true);
             rs = stmnt.executeQuery(sql);
             while (rs.next()) {
                 name1.add(rs.getString(1));
@@ -946,6 +953,7 @@ public class GUI extends javax.swing.JFrame {
             } else {
                 vendorPartNumberDropdown.setModel(new DefaultComboBoxModel((String[]) o));
             }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -956,10 +964,8 @@ public class GUI extends javax.swing.JFrame {
         if (vendorDropdown.getSelectedItem() != null
                 && vendorPartNumberDropdown.getSelectedItem() != null) {
             try {
-                partsDB DBC = new partsDB(con, user, password);
                 String getNumber = vendorPartNumberDropdown.getSelectedItem().toString();
                 String getPart = vendorDropdown.getSelectedItem().toString();
-                Statement stmnt = DBC.getDBConnection().createStatement();
 
 
                 rs = stmnt.executeQuery("select * from " + getPart + " where "
@@ -988,9 +994,6 @@ public class GUI extends javax.swing.JFrame {
         engineDropdownReset();
         
         try {
-            partsDB DBC = new partsDB(con, user, password);
-
-            Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs;
             String getPart = carMakerDropdown.getSelectedItem().toString();
             String getModel = carModelDropdown.getSelectedItem().toString();
@@ -1061,9 +1064,6 @@ public class GUI extends javax.swing.JFrame {
         engineDropdown.setEnabled(true);
 
         try {
-            partsDB DBC = new partsDB(con, user, password);
-
-            Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs;
             String getPart = (String) carMakerDropdown.getSelectedItem();
             String getModel = (String) carModelDropdown.getSelectedItem();
@@ -1103,9 +1103,6 @@ public class GUI extends javax.swing.JFrame {
         yearDropdown.setEnabled(true);
 
         try {
-            partsDB DBC = new partsDB(con, user, password);
-
-            Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs;
             String getPart = (String) carMakerDropdown.getSelectedItem();
             String getModel = (String) carModelDropdown.getSelectedItem();
@@ -1151,9 +1148,6 @@ public class GUI extends javax.swing.JFrame {
         carModelDropdown.setEnabled(true);
         
         try {
-            partsDB DBC = new partsDB(con, user, password);
-
-            Statement stmnt = DBC.getDBConnection().createStatement();
             ResultSet rs;
             String getPart = (String) carMakerDropdown.getSelectedItem();
             ArrayList<String> name1 = new ArrayList<>();
@@ -1211,12 +1205,8 @@ public class GUI extends javax.swing.JFrame {
                     || partNumbers[index].equalsIgnoreCase("NA"))) {
                 index++;
             }
-                
-System.out.println(index);            
+          
             if (index >= 0) {
-                partsDB DBC = new partsDB(con, user, password);
-
-                Statement stmnt = DBC.getDBConnection().createStatement();
                 String currentPartNumb = partNumbers[index];
                 String table = partsTable();
                 String sql = "SELECT * from " + table + " where p_number = '"
@@ -1252,12 +1242,8 @@ System.out.println(index);
                     || partNumbers[index].equalsIgnoreCase("NA"))) {
                 index--;
             }
-                
-System.out.println(index);            
+           
             if (index >= 0) {
-                partsDB DBC = new partsDB(con, user, password);
-
-                Statement stmnt = DBC.getDBConnection().createStatement();
                 String currentPartNumb = partNumbers[index];
                 String table = partsTable();
                 String sql = "SELECT * from " + table + " where p_number = '"
@@ -1280,6 +1266,14 @@ System.out.println(index);
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_partslistPreviousButtonActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        try {
+            DBC.disconnectFromDB();
+        } catch (SQLException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     private void switchVisibility(JPanel componentToHide, JPanel componentToShow) {
         componentToHide.setVisible(false);
@@ -1334,8 +1328,10 @@ System.out.println(index);
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws SQLException {
         try {
+            DBC = new partsDB(con, user, password);
+            stmnt = DBC.getDBConnection().createStatement();
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException |
                 IllegalAccessException |
