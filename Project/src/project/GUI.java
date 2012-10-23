@@ -1368,7 +1368,7 @@ public class GUI extends javax.swing.JFrame {
     public static void main(String args[]) throws SQLException {
         try {
             DBC = new partsDB(con, user, password);
-            //stmnt = DBC.getDBConnection().createStatement();
+            stmnt = DBC.getDBConnection().createStatement();
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException |
                 IllegalAccessException |
