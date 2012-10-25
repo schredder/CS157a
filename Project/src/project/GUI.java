@@ -85,6 +85,8 @@ public class GUI extends javax.swing.JFrame {
         partslistInheadText = new javax.swing.JLabel();
         partslistOutheadText = new javax.swing.JLabel();
         partslistInconText = new javax.swing.JLabel();
+        partslistVendorLabel = new javax.swing.JLabel();
+        partslistVendorText = new javax.swing.JLabel();
         partslistRightPanel = new javax.swing.JPanel();
         partslistOuconLabel = new javax.swing.JLabel();
         partslistAmountLabel = new javax.swing.JLabel();
@@ -404,6 +406,14 @@ public class GUI extends javax.swing.JFrame {
         partslistInconText.setForeground(new java.awt.Color(153, 153, 153));
         partslistInconText.setText("          ");
 
+        partslistVendorLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        partslistVendorLabel.setForeground(new java.awt.Color(0, 153, 204));
+        partslistVendorLabel.setText("Vendor");
+
+        partslistVendorText.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        partslistVendorText.setForeground(new java.awt.Color(153, 153, 153));
+        partslistVendorText.setText("          ");
+
         javax.swing.GroupLayout partslistLeftPanelLayout = new javax.swing.GroupLayout(partslistLeftPanel);
         partslistLeftPanel.setLayout(partslistLeftPanelLayout);
         partslistLeftPanelLayout.setHorizontalGroup(
@@ -420,17 +430,21 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(43, 43, 43)
                         .addComponent(partslistOutheadText))
                     .addGroup(partslistLeftPanelLayout.createSequentialGroup()
-                        .addComponent(partslistInconLabel)
-                        .addGap(68, 68, 68)
-                        .addComponent(partslistInconText))
-                    .addGroup(partslistLeftPanelLayout.createSequentialGroup()
                         .addComponent(partslistCoreLabel)
                         .addGap(74, 74, 74)
                         .addComponent(partslistCoreText))
                     .addGroup(partslistLeftPanelLayout.createSequentialGroup()
                         .addComponent(partslistPartnumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(partslistPartnumberText)))
+                        .addComponent(partslistPartnumberText))
+                    .addGroup(partslistLeftPanelLayout.createSequentialGroup()
+                        .addGroup(partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(partslistInconLabel)
+                            .addComponent(partslistVendorLabel))
+                        .addGap(54, 54, 54)
+                        .addGroup(partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(partslistVendorText)
+                            .addComponent(partslistInconText))))
                 .addContainerGap(230, Short.MAX_VALUE))
         );
         partslistLeftPanelLayout.setVerticalGroup(
@@ -440,12 +454,10 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(partslistPartnumberLabel)
                     .addComponent(partslistPartnumberText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(partslistCoreText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(partslistLeftPanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(partslistCoreLabel)))
+                .addGap(15, 15, 15)
+                .addGroup(partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(partslistCoreLabel)
+                    .addComponent(partslistCoreText))
                 .addGap(15, 15, 15)
                 .addGroup(partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(partslistInheadLabel)
@@ -458,10 +470,14 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(partslistInconLabel)
                     .addComponent(partslistInconText))
+                .addGap(15, 15, 15)
+                .addGroup(partslistLeftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(partslistVendorLabel)
+                    .addComponent(partslistVendorText))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        carModelParts.add(partslistLeftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 400, 210));
+        carModelParts.add(partslistLeftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 400, 240));
 
         partslistRightPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -561,7 +577,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(11, 11, 11))
         );
 
-        carModelParts.add(partslistRightPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 310, 210));
+        carModelParts.add(partslistRightPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 310, 210));
 
         navigationPanel.setBackground(new java.awt.Color(43, 181, 228));
         navigationPanel.setMaximumSize(new java.awt.Dimension(720, 25));
@@ -1084,6 +1100,7 @@ public class GUI extends javax.swing.JFrame {
                     partslistOilcoolText.setText(rs.getString(8));
                     partslistPriceText.setText(rs.getString(9));
                     partslistAmountText.setText(rs.getString(10));
+                    setVendorName();
                 }
             }
             lastNumLabel.setText(numOfParts.toString());
@@ -1260,6 +1277,7 @@ public class GUI extends javax.swing.JFrame {
                     partslistOilcoolText.setText(rs.getString(8));
                     partslistPriceText.setText(rs.getString(9));
                     partslistAmountText.setText(rs.getString(10));
+                    setVendorName();
                 }
             }
         } catch (SQLException ex) {
@@ -1297,6 +1315,7 @@ public class GUI extends javax.swing.JFrame {
                     partslistOilcoolText.setText(rs.getString(8));
                     partslistPriceText.setText(rs.getString(9));
                     partslistAmountText.setText(rs.getString(10));
+                    setVendorName();
                 }
             }
         } catch (SQLException ex) {
@@ -1355,11 +1374,31 @@ public class GUI extends javax.swing.JFrame {
         partslistInheadText.setText("");
         partslistOutheadText.setText("");
         partslistInconText.setText("");
+        partslistVendorText.setText("");        
         partslistOuconText.setText("");
         partslistTmountText.setText("");
         partslistOilcoolText.setText("");
         partslistPriceText.setText("");
         partslistAmountText.setText("");
+    }
+    
+    private void setVendorName() {
+        int currentIndex = index + 1; //makes modulus operations easier
+        String vendorText;
+        
+        if (currentIndex <= 4) {
+            vendorText = "A.R.S [ARS" + currentIndex % 4 + "]";
+        }
+        else if (currentIndex <= 8) {
+            vendorText = "Modine [MOD" + currentIndex % 4 + "]";
+        }
+        else if (currentIndex <= 12) {
+            vendorText = "Behr [BEH" + currentIndex % 4 + "]";
+        }
+        else {
+            vendorText = "Daniel [DAN" + currentIndex % 4 + "]";
+        }
+        partslistVendorText.setText(vendorText);
     }
 
     /**
@@ -1452,6 +1491,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel partslistRightPanel;
     private javax.swing.JLabel partslistTmountLabel;
     private javax.swing.JLabel partslistTmountText;
+    private javax.swing.JLabel partslistVendorLabel;
+    private javax.swing.JLabel partslistVendorText;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JLabel priceText;
     private javax.swing.JLabel searchbyLabel;
