@@ -1383,20 +1383,19 @@ public class GUI extends javax.swing.JFrame {
     }
     
     private void setVendorName() {
-        int currentIndex = index + 1; //makes modulus operations easier
         String vendorText;
         
-        if (currentIndex <= 4) {
-            vendorText = "A.R.S [ARS" + currentIndex % 4 + "]";
+        if (index < 4) {
+            vendorText = "A.R.S [ARS" + (index % 4 + 1) + "]";
         }
-        else if (currentIndex <= 8) {
-            vendorText = "Modine [MOD" + currentIndex % 4 + "]";
+        else if (index < 8) {
+            vendorText = "Modine [MOD" + (index % 4 + 1) + "]";
         }
-        else if (currentIndex <= 12) {
-            vendorText = "Behr [BEH" + currentIndex % 4 + "]";
+        else if (index < 12) {
+            vendorText = "Behr [BEH" + (index % 4 + 1) + "]";
         }
         else {
-            vendorText = "Daniel [DAN" + currentIndex % 4 + "]";
+            vendorText = "Daniel [DAN" + (index % 4 + 1) + "]";
         }
         partslistVendorText.setText(vendorText);
     }
