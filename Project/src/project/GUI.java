@@ -63,6 +63,8 @@ public class GUI extends javax.swing.JFrame {
         engineLabel = new javax.swing.JLabel();
         yearDropdown = new javax.swing.JComboBox();
         engineDropdown = new javax.swing.JComboBox();
+        descriptionDropdown = new javax.swing.JComboBox();
+        descriptionLabel = new javax.swing.JLabel();
         carHomeLabel = new javax.swing.JLabel();
         choosebycarmodelLabel = new javax.swing.JLabel();
         nextButtonPanel = new java.awt.Panel();
@@ -217,28 +219,45 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        descriptionDropdown.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        descriptionDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Select description -" }));
+        descriptionDropdown.setEnabled(false);
+        descriptionDropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                descriptionDropdownActionPerformed(evt);
+            }
+        });
+
+        descriptionLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        descriptionLabel.setForeground(new java.awt.Color(0, 153, 204));
+        descriptionLabel.setText("Description");
+
         javax.swing.GroupLayout choosecarPanelLayout = new javax.swing.GroupLayout(choosecarPanel);
         choosecarPanel.setLayout(choosecarPanelLayout);
         choosecarPanelLayout.setHorizontalGroup(
             choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(choosecarPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(choosecarPanelLayout.createSequentialGroup()
-                        .addComponent(engineLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                        .addComponent(engineDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, choosecarPanelLayout.createSequentialGroup()
+                .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, choosecarPanelLayout.createSequentialGroup()
                         .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(modelLabel)
                             .addComponent(yearLabel)
                             .addComponent(makerLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(65, 65, 65)
+                        .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(carModelDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(carMakerDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(yearDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, choosecarPanelLayout.createSequentialGroup()
+                        .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(descriptionLabel)
+                            .addComponent(engineLabel))
+                        .addGap(28, 28, 28)
                         .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(carMakerDropdown, 0, 235, Short.MAX_VALUE)
-                            .addComponent(yearDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(carModelDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(362, Short.MAX_VALUE))
+                            .addComponent(descriptionDropdown, 0, 270, Short.MAX_VALUE)
+                            .addComponent(engineDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(327, Short.MAX_VALUE))
         );
         choosecarPanelLayout.setVerticalGroup(
             choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,9 +276,13 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(yearDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(descriptionLabel)
+                    .addComponent(descriptionDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(choosecarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(engineLabel)
                     .addComponent(engineDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         chooseByCarModel.add(choosecarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 720, 200));
@@ -1051,10 +1074,12 @@ public class GUI extends javax.swing.JFrame {
             String getPart = carMakerDropdown.getSelectedItem().toString();
             String getModel = carModelDropdown.getSelectedItem().toString();
             String getYear = yearDropdown.getSelectedItem().toString();
+            String getDescription = descriptionDropdown.getSelectedItem().toString();
             String getEngine = engineDropdown.getSelectedItem().toString();
             String sql = "select RLINK from apl" + getPart.substring(0, 3)
-                    + " where model = '" + getModel + "'" + "AND year ='" + getYear
-                    + "'" + "AND engine_type = '" + getEngine.split("-")[0]
+                    + " where model = '" + getModel + "' AND year ='" 
+                    + getYear + "' AND description ='" + getDescription 
+                    + "' AND engine_type = '" + getEngine.split("-")[0]
                     + "' AND cubic_inches = '" + getEngine.split("-")[1] 
                     + "' AND litres = '" + getEngine.split("-")[2] + "'";
             rs = stmnt.executeQuery(sql);
@@ -1080,7 +1105,7 @@ public class GUI extends javax.swing.JFrame {
                     partNumbers[index].equalsIgnoreCase("NS")
                     || partNumbers[index].equalsIgnoreCase("NA"))) {
                 index++;
-            }
+            }          
             numOfParts = partNumbers.length - nullCounter;
             if (numOfParts != 0) {
                 firstNumLabel.setText("1");
@@ -1115,51 +1140,46 @@ public class GUI extends javax.swing.JFrame {
 
     private void yearDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearDropdownActionPerformed
         nextButton.setEnabled(false);
-        engineDropdown.setEnabled(true);
+        descriptionDropdown.setEnabled(true);
 
         try {
             ResultSet rs;
             String getPart = (String) carMakerDropdown.getSelectedItem();
             String getModel = (String) carModelDropdown.getSelectedItem();
             String getYear = (String) yearDropdown.getSelectedItem();
-            String sql = "select ENGINE_TYPE, CUBIC_INCHES, LITRES from apl"
-                    + getPart.substring(0, 3) + " where model = '" + getModel + "'"
-                    + "AND year ='" + getYear + "'" + "order by ENGINE_TYPE asc";
+            String sql = "select distinct DESCRIPTION from apl" 
+                    + getPart.substring(0, 3) + " where model = '" + getModel 
+                    + "' AND year = '" + getYear + "'";
             ArrayList<String> name1 = new ArrayList<>();
 
             rs = stmnt.executeQuery(sql);
             while (rs.next()) {
-                String name = rs.getString(1) + "-" + rs.getString(2)
-                        + "-" + rs.getString(3);
-                name.replaceAll(" NA", "");
-                name1.add(name);
+                name1.add(rs.getString(1));
             }
 
             String namearr[] = name1.toArray(new String[name1.size()]);
-            subItems.put("Engine", namearr);
-            Object o = subItems.get("Engine");
+            subItems.put("description", namearr);
+            Object o = subItems.get("description");
             if (o == null) {
-                engineDropdown.setModel(new DefaultComboBoxModel());
+                descriptionDropdown.setModel(new DefaultComboBoxModel());
             } else {
-                engineDropdown.setModel(new DefaultComboBoxModel((String[]) o));
+                descriptionDropdown.setModel(new DefaultComboBoxModel((String[]) o));
             }
-
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }//GEN-LAST:event_yearDropdownActionPerformed
 
     private void carModelDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carModelDropdownActionPerformed
+        descriptionDropdown.setEnabled(false);
         engineDropdown.setEnabled(false);
         nextButton.setEnabled(false);
         yearDropdown.setEnabled(true);
 
         try {
             ResultSet rs;
-            String getPart = (String) carMakerDropdown.getSelectedItem();
-            String getModel = (String) carModelDropdown.getSelectedItem();
+            String getPart = carMakerDropdown.getSelectedItem().toString();
+            String getModel = carModelDropdown.getSelectedItem().toString();
             String sql = "select distinct year from apl" + getPart.substring(0, 3)
                     + " where model = '" + getModel + "'";
             ArrayList<String> name1 = new ArrayList<>();
@@ -1197,6 +1217,8 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_carHomeLabelMouseClicked
 
     private void carMakerDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carMakerDropdownActionPerformed
+        descriptionDropdown.setEnabled(false);
+        engineDropdown.setEnabled(false);
         yearDropdown.setEnabled(false);
         nextButton.setEnabled(false);
         carModelDropdown.setEnabled(true);
@@ -1331,6 +1353,43 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosing
 
+    private void descriptionDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionDropdownActionPerformed
+        nextButton.setEnabled(false);
+        engineDropdown.setEnabled(true);
+
+        try {
+            ResultSet rs;
+            String getPart = carMakerDropdown.getSelectedItem().toString();
+            String getModel = carModelDropdown.getSelectedItem().toString();
+            String getYear = yearDropdown.getSelectedItem().toString();
+            String getDescription = descriptionDropdown.getSelectedItem().toString();
+            String sql = "select ENGINE_TYPE, CUBIC_INCHES, LITRES from apl"
+                    + getPart.substring(0, 3) + " where model = '" + getModel + "'"
+                    + "AND year ='" + getYear + "'" + "AND description ='" 
+                    + getDescription + "' order by ENGINE_TYPE asc";
+            ArrayList<String> name1 = new ArrayList<>();
+
+            rs = stmnt.executeQuery(sql);
+            while (rs.next()) {
+                String name = rs.getString(1) + "-" + rs.getString(2)
+                        + "-" + rs.getString(3);
+                name.replaceAll(" NA", "");
+                name1.add(name);
+            }
+
+            String namearr[] = name1.toArray(new String[name1.size()]);
+            subItems.put("Engine", namearr);
+            Object o = subItems.get("Engine");
+            if (o == null) {
+                engineDropdown.setModel(new DefaultComboBoxModel());
+            } else {
+                engineDropdown.setModel(new DefaultComboBoxModel((String[]) o));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_descriptionDropdownActionPerformed
+
     private void switchVisibility(JPanel componentToHide, JPanel componentToShow) {
         componentToHide.setVisible(false);
         componentToShow.setVisible(true);
@@ -1438,6 +1497,8 @@ public class GUI extends javax.swing.JFrame {
     private java.awt.Panel choosecarPanel;
     private javax.swing.JLabel coreLabel;
     private javax.swing.JLabel coreText;
+    private javax.swing.JComboBox descriptionDropdown;
+    private javax.swing.JLabel descriptionLabel;
     private javax.swing.JComboBox engineDropdown;
     private javax.swing.JLabel engineLabel;
     private javax.swing.JLabel firstNumLabel;
