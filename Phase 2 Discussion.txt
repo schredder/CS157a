@@ -12,6 +12,12 @@ Insert new part, delete old part, update part to existing vendors
 Change from vendor
 
 Change from car maker
+
+TRANSACTION MANAGEMENT:
+    http://docs.oracle.com/cd/B19306_01/server.102/b14220/transact.htm
+    Basically means remembering to excute "COMMIT", 
+        and using "SAVEPOINT" on longer transactions.
+
 =============================
 
 =============================
