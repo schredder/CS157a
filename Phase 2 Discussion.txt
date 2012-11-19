@@ -1,0 +1,82 @@
+CS157A Project Phase 2
+=============================
+NOTES FOR PHASE 2 FROM CLASS:
+=============================
+Create engine database
+Description, AT/MT, Cylinders, CID, Liters
+
+Create RLINK and RADCRX for new models
+
+Insert new part, delete old part, update part to existing vendors
+
+Change from vendor
+
+Change from car maker
+=============================
+
+=============================
+QUESTIONS FOR LIN:
+=============================
+How do we associate new cars with parts?
+How do we associate new parts with cars?
+    (i.e. do we let users fiddle with RLINK numbers?)
+Are PartNumbers user generated?
+=============================
+
+=============================
+PANE FIELDS:
+=============================
+Insert Car:
+    Maker: Dropdown
+    Model: Text Input
+    Year: Spinner
+    Description: Text Input
+    Engine: Text Input
+    CuInches: Spinner
+    Liters: Spinner
+    RLINK: Text Input
+
+Insert Part:
+    PartNumber: Text Input
+    Core: Text Input
+    Inhead: Text Input
+    Outhead: Text Input
+    Incon: Text Input
+    Vendor: Dropdown
+    Oucon: Text Input
+    Tmount: Text Input
+    Oilcool: Text Input
+    Price: Spinner
+    Amount: Spinner
+
+Update or Delete Car:
+    Search:
+        Maker: Dropdown
+        Model: Dropdown
+        Year: Spinner
+        Description: Dropdown
+        Engine: Dropdown
+        RLINK: Text Input
+    Update:
+        Maker: Dropdown
+        Model: Text Input
+        Year: Spinner
+        Description: Text Input
+        Engine: Text Input
+        RLINK: Text Input
+
+Update or Delete Part:
+// First select (vendor, PartNumber), 
+// then all other fields populate
+    Vendor: Dropdown
+    PartNumber: Dropdown
+    Core: Text Input
+    Inhead: Text Input
+    Outhead: Text Input
+    Incon: Text Input
+    Oucon: Text Input
+    Tmount: Text Input
+    Oilcool: Text Input
+    Price: Spinner
+    Amount: Spinner
+=============================
