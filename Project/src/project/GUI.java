@@ -107,6 +107,9 @@ public class GUI extends javax.swing.JFrame {
         searchbyLabel = new javax.swing.JLabel();
         carmodelButton = new javax.swing.JButton();
         vendorButton = new javax.swing.JButton();
+        insertButton = new javax.swing.JButton();
+        updateButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
         chooseByVendor = new javax.swing.JPanel();
         homeLabel = new javax.swing.JLabel();
         vendorLabel = new javax.swing.JLabel();
@@ -670,24 +673,44 @@ public class GUI extends javax.swing.JFrame {
         carmodelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Car Model.jpg"))); // NOI18N
         carmodelButton.setBorder(null);
         carmodelButton.setBorderPainted(false);
+        carmodelButton.setPreferredSize(new java.awt.Dimension(150, 150));
         carmodelButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Car Model Hover.jpg"))); // NOI18N
         carmodelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 carmodelButtonActionPerformed(evt);
             }
         });
-        homeScreenPage.add(carmodelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 11, -1, -1));
+        homeScreenPage.add(carmodelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 5, -1, -1));
 
         vendorButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vendor.jpg"))); // NOI18N
         vendorButton.setBorder(null);
         vendorButton.setBorderPainted(false);
+        vendorButton.setPreferredSize(new java.awt.Dimension(150, 150));
         vendorButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vendor Hover.jpg"))); // NOI18N
         vendorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vendorButtonActionPerformed(evt);
             }
         });
-        homeScreenPage.add(vendorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(432, 11, -1, -1));
+        homeScreenPage.add(vendorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 5, -1, -1));
+
+        insertButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Insert.jpg"))); // NOI18N
+        insertButton.setBorder(null);
+        insertButton.setPreferredSize(new java.awt.Dimension(150, 150));
+        insertButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Insert Hover.jpg"))); // NOI18N
+        homeScreenPage.add(insertButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 5, -1, -1));
+
+        updateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Update.jpg"))); // NOI18N
+        updateButton.setBorder(null);
+        updateButton.setPreferredSize(new java.awt.Dimension(150, 150));
+        updateButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Update Hover.jpg"))); // NOI18N
+        homeScreenPage.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
+
+        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Delete.jpg"))); // NOI18N
+        deleteButton.setBorder(null);
+        deleteButton.setPreferredSize(new java.awt.Dimension(150, 150));
+        deleteButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Delete Hover.jpg"))); // NOI18N
+        homeScreenPage.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 160, -1, -1));
 
         chooseByVendor.setBackground(new java.awt.Color(255, 255, 255));
         chooseByVendor.setMaximumSize(new java.awt.Dimension(700, 320));
@@ -979,8 +1002,8 @@ public class GUI extends javax.swing.JFrame {
                     .addGap(0, 752, Short.MAX_VALUE)))
         );
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-736)/2, (screenSize.height-358)/2, 736, 358);
+        setSize(new java.awt.Dimension(736, 358));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void vendorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendorButtonActionPerformed
@@ -1497,6 +1520,7 @@ public class GUI extends javax.swing.JFrame {
     private java.awt.Panel choosecarPanel;
     private javax.swing.JLabel coreLabel;
     private javax.swing.JLabel coreText;
+    private javax.swing.JButton deleteButton;
     private javax.swing.JComboBox descriptionDropdown;
     private javax.swing.JLabel descriptionLabel;
     private javax.swing.JComboBox engineDropdown;
@@ -1508,6 +1532,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel inconText;
     private javax.swing.JLabel inheadLabel;
     private javax.swing.JLabel inheadText;
+    private javax.swing.JButton insertButton;
     private javax.swing.JLabel lastNumLabel;
     private javax.swing.JLabel makerLabel;
     private javax.swing.JLabel modelLabel;
@@ -1558,6 +1583,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel searchbyLabel;
     private javax.swing.JLabel tmountLabel;
     private javax.swing.JLabel tmountText;
+    private javax.swing.JButton updateButton;
     private javax.swing.JButton vendorButton;
     private javax.swing.JComboBox vendorDropdown;
     private javax.swing.JLabel vendorLabel;
