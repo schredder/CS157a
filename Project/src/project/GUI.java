@@ -5,6 +5,7 @@
 package project;
 
 import java.awt.Component;
+import java.awt.Container;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -2133,8 +2134,9 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeLabelMouseClicked
+//        initComponents();
         switchVisibility(homeScreenPage);
-        initComponents();
+
         index = 1;
         nullCounter = 0;;
     }//GEN-LAST:event_homeLabelMouseClicked
@@ -2204,8 +2206,8 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_viewNextButtonActionPerformed
 
     private void carHomeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carHomeLabelMouseClicked
-        //switchVisibility(chooseByCarModel, homeScreenPage);
-        initComponents();
+        switchVisibility( homeScreenPage);
+        //initComponents();
         partNumbers = new String[SIZE];
         chooseByCarModel.setVisible(false);
         chooseByVendor.setVisible(false);
@@ -2215,7 +2217,7 @@ public class GUI extends javax.swing.JFrame {
     private void partslistCarHomeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partslistCarHomeLabelMouseClicked
 
         switchVisibility(homeScreenPage);
-        initComponents();
+        //initComponents();
         index = 1;
         nullCounter = 0;
         partNumbers = new String[SIZE];
@@ -2224,7 +2226,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void partslistChoosebycarmodelLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partslistChoosebycarmodelLabelMouseClicked
         switchVisibility(chooseByCarModel);
-        initComponents();
+        //initComponents();
         index = 1;
         nullCounter = 0;
         partNumbers = new String[SIZE];
@@ -2562,7 +2564,7 @@ public class GUI extends javax.swing.JFrame {
                     + insertoilcool + "'," + insertprice + "," + insertamount + ")";
             System.out.println(insertsql);
             stmnt.executeUpdate(insertsql);
-            
+
 
             popup("Successfully inserted " + choosevendor.substring(0, 3)
                     + " " + insertprice + " " + insertamount);
@@ -2633,8 +2635,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_vendorButton2ActionPerformed
 
     private void userButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userButtonActionPerformed
-        hideAllPanels();
-        userPage.setVisible(true);
+       switchVisibility(userPage);
     }//GEN-LAST:event_userButtonActionPerformed
 
     private void carButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carButtonActionPerformed
@@ -2788,6 +2789,15 @@ public class GUI extends javax.swing.JFrame {
         partslistOilcoolText.setText("");
         partslistPriceText.setText("");
         partslistAmountText.setText("");
+        partnumberText.setText("");
+        coreText.setText("");
+        inheadText.setText("");
+        outheadText.setText("");
+        inconText.setText("");
+        tmountText.setText("");
+        oilcoolText.setText("");
+        priceText.setText("");
+        amountText.setText("");
     }
 
     private void setVendorName() {
@@ -3040,5 +3050,8 @@ public class GUI extends javax.swing.JFrame {
         adminPage.setVisible(false);
         userPage.setVisible(false);
         fosterHome.setVisible(false);
+        engineDropdownReset();
+        // Component[] components = this.getComponents();
+
     }
 }
