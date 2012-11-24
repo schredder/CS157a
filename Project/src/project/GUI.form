@@ -91,7 +91,7 @@
           <Group type="103" rootIndex="10" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="insertCar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="80" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="70" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -2915,6 +2915,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Update"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="490" y="340" width="-1" height="-1"/>
@@ -3129,7 +3132,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="-9" y="10" width="70" height="-1"/>
+              <AbsoluteConstraints x="0" y="10" width="70" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -3141,11 +3144,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Choose by Car Model"/>
+            <Property name="text" type="java.lang.String" value="Update Car Model"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="53" y="0" width="280" height="50"/>
+              <AbsoluteConstraints x="60" y="0" width="280" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -3171,11 +3174,9 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="544" max="32767" attributes="0"/>
+                      <EmptySpace pref="607" max="32767" attributes="0"/>
                       <Component id="nextButton3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="nextButton2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3183,46 +3184,12 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="nextButton2" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="nextButton3" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="nextButton3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="nextButton2">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/images/Next Button.jpg"/>
-                </Property>
-                <Property name="alignmentY" type="float" value="0.0"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="null"/>
-                </Property>
-                <Property name="borderPainted" type="boolean" value="false"/>
-                <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/images/Next Button Disabled.jpg"/>
-                </Property>
-                <Property name="enabled" type="boolean" value="false"/>
-                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[80, 25]"/>
-                </Property>
-                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[80, 25]"/>
-                </Property>
-                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[80, 25]"/>
-                </Property>
-                <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/images/Next Button Hover.jpg"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextButton2ActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="nextButton3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -3399,7 +3366,7 @@
                       <Component id="partslistRightPanel1" min="-2" max="-2" attributes="0"/>
                       <Component id="partslistLeftPanel1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="12" max="32767" attributes="0"/>
                   <Component id="navigationPanel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
               </Group>
@@ -3425,20 +3392,18 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="partslistPartnumberLabel1" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
                           <Component id="partslistCoreLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="partslistInheadLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="partslistOutheadLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="partslistInconLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="partslistVendorLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="insertPartInconTextField" pref="193" max="32767" attributes="0"/>
                           <Component id="insertPartOutheadTextField" max="32767" attributes="0"/>
                           <Component id="insertPartInheadTextField" max="32767" attributes="0"/>
                           <Component id="insertPartCoreTextField" max="32767" attributes="0"/>
-                          <Component id="insertPartNumberTextField" max="32767" attributes="0"/>
                           <Component id="insertPartVendorDropdown" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -3448,12 +3413,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="partslistPartnumberLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="insertPartNumberTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="partslistCoreLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="insertPartCoreTextField" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -3484,17 +3444,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="partslistPartnumberLabel1">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI Light" size="18" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="cc" green="99" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Part number (?)"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="partslistCoreLabel1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -3550,11 +3499,6 @@
                 <Property name="text" type="java.lang.String" value="Vendor"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="insertPartNumberTextField">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField2"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JTextField" name="insertPartCoreTextField">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField3"/>
@@ -3579,13 +3523,16 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                    <StringItem index="0" value="BEH"/>
+                    <StringItem index="1" value="ARS"/>
+                    <StringItem index="2" value="BAN"/>
+                    <StringItem index="3" value="MOD"/>
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="insertPartVendorDropdownActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

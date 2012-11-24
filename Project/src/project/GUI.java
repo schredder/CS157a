@@ -219,7 +219,6 @@ public class GUI extends javax.swing.JFrame {
         carHomeLabel2 = new javax.swing.JLabel();
         choosebycarmodelLabel2 = new javax.swing.JLabel();
         nextButtonPanel2 = new java.awt.Panel();
-        nextButton2 = new javax.swing.JButton();
         nextButton3 = new javax.swing.JButton();
         adminPage = new javax.swing.JPanel();
         insertButton = new javax.swing.JButton();
@@ -229,13 +228,11 @@ public class GUI extends javax.swing.JFrame {
         insertPart = new javax.swing.JPanel();
         insertCarLabel1 = new javax.swing.JLabel();
         partslistLeftPanel1 = new javax.swing.JPanel();
-        partslistPartnumberLabel1 = new javax.swing.JLabel();
         partslistCoreLabel1 = new javax.swing.JLabel();
         partslistInheadLabel1 = new javax.swing.JLabel();
         partslistOutheadLabel1 = new javax.swing.JLabel();
         partslistInconLabel1 = new javax.swing.JLabel();
         partslistVendorLabel1 = new javax.swing.JLabel();
-        insertPartNumberTextField = new javax.swing.JTextField();
         insertPartCoreTextField = new javax.swing.JTextField();
         insertPartInheadTextField = new javax.swing.JTextField();
         insertPartOutheadTextField = new javax.swing.JTextField();
@@ -1602,6 +1599,11 @@ public class GUI extends javax.swing.JFrame {
         updatePart.add(deletePartButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 340, -1, -1));
 
         jButton3.setText("Update");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         updatePart.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, -1, -1));
 
         updateCar.setBackground(new java.awt.Color(255, 255, 255));
@@ -1712,32 +1714,16 @@ public class GUI extends javax.swing.JFrame {
                 carHomeLabel2MouseClicked(evt);
             }
         });
-        updateCar.add(carHomeLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-9, 10, 70, -1));
+        updateCar.add(carHomeLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 70, -1));
 
         choosebycarmodelLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         choosebycarmodelLabel2.setForeground(new java.awt.Color(153, 153, 153));
-        choosebycarmodelLabel2.setText("Choose by Car Model");
-        updateCar.add(choosebycarmodelLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 0, 280, 50));
+        choosebycarmodelLabel2.setText("Update Car Model");
+        updateCar.add(choosebycarmodelLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 280, 50));
 
         nextButtonPanel2.setBackground(new java.awt.Color(43, 181, 228));
         nextButtonPanel2.setMaximumSize(new java.awt.Dimension(720, 25));
         nextButtonPanel2.setMinimumSize(new java.awt.Dimension(720, 25));
-
-        nextButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Next Button.jpg"))); // NOI18N
-        nextButton2.setAlignmentY(0.0F);
-        nextButton2.setBorder(null);
-        nextButton2.setBorderPainted(false);
-        nextButton2.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Next Button Disabled.jpg"))); // NOI18N
-        nextButton2.setEnabled(false);
-        nextButton2.setMaximumSize(new java.awt.Dimension(80, 25));
-        nextButton2.setMinimumSize(new java.awt.Dimension(80, 25));
-        nextButton2.setPreferredSize(new java.awt.Dimension(80, 25));
-        nextButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Next Button Hover.jpg"))); // NOI18N
-        nextButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nextButton2ActionPerformed(evt);
-            }
-        });
 
         nextButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Next Button.jpg"))); // NOI18N
         nextButton3.setAlignmentY(0.0F);
@@ -1760,19 +1746,15 @@ public class GUI extends javax.swing.JFrame {
         nextButtonPanel2Layout.setHorizontalGroup(
             nextButtonPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nextButtonPanel2Layout.createSequentialGroup()
-                .addContainerGap(544, Short.MAX_VALUE)
+                .addContainerGap(607, Short.MAX_VALUE)
                 .addComponent(nextButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nextButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(33, 33, 33))
         );
         nextButtonPanel2Layout.setVerticalGroup(
             nextButtonPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nextButtonPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(nextButtonPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nextButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nextButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(nextButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         updateCar.add(nextButtonPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 295, 720, -1));
@@ -1823,10 +1805,6 @@ public class GUI extends javax.swing.JFrame {
 
         partslistLeftPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        partslistPartnumberLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        partslistPartnumberLabel1.setForeground(new java.awt.Color(0, 153, 204));
-        partslistPartnumberLabel1.setText("Part number (?)");
-
         partslistCoreLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         partslistCoreLabel1.setForeground(new java.awt.Color(0, 153, 204));
         partslistCoreLabel1.setText("Core");
@@ -1847,8 +1825,6 @@ public class GUI extends javax.swing.JFrame {
         partslistVendorLabel1.setForeground(new java.awt.Color(0, 153, 204));
         partslistVendorLabel1.setText("Vendor");
 
-        insertPartNumberTextField.setText("jTextField2");
-
         insertPartCoreTextField.setText("jTextField3");
 
         insertPartInheadTextField.setText("jTextField4");
@@ -1857,7 +1833,12 @@ public class GUI extends javax.swing.JFrame {
 
         insertPartInconTextField.setText("jTextField6");
 
-        insertPartVendorDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        insertPartVendorDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "BEH", "ARS", "BAN", "MOD" }));
+        insertPartVendorDropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertPartVendorDropdownActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout partslistLeftPanel1Layout = new javax.swing.GroupLayout(partslistLeftPanel1);
         partslistLeftPanel1.setLayout(partslistLeftPanel1Layout);
@@ -1866,30 +1847,24 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(partslistLeftPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(partslistPartnumberLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(partslistCoreLabel1)
                     .addComponent(partslistInheadLabel1)
                     .addComponent(partslistOutheadLabel1)
                     .addComponent(partslistInconLabel1)
                     .addComponent(partslistVendorLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(63, 63, 63)
                 .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(insertPartInconTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                     .addComponent(insertPartOutheadTextField)
                     .addComponent(insertPartInheadTextField)
                     .addComponent(insertPartCoreTextField)
-                    .addComponent(insertPartNumberTextField)
                     .addComponent(insertPartVendorDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         partslistLeftPanel1Layout.setVerticalGroup(
             partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(partslistLeftPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partslistPartnumberLabel1)
-                    .addComponent(insertPartNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
+                .addGap(45, 45, 45)
                 .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(partslistCoreLabel1)
                     .addComponent(insertPartCoreTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2055,7 +2030,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(insertPartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(partslistRightPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(partslistLeftPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(navigationPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(76, 76, 76))
         );
@@ -2103,7 +2078,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(insertCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 80, Short.MAX_VALUE)))
+                    .addGap(0, 70, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2158,13 +2133,10 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeLabelMouseClicked
-        switchVisibility(chooseByVendor, homeScreenPage);
+        switchVisibility(homeScreenPage);
         initComponents();
         index = 1;
-        nullCounter = 0;
-        chooseByCarModel.setVisible(false);
-        chooseByVendor.setVisible(false);
-        carModelParts.setVisible(false);
+        nullCounter = 0;;
     }//GEN-LAST:event_homeLabelMouseClicked
 
     private void vendorDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendorDropdownActionPerformed
@@ -2241,8 +2213,8 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_carHomeLabelMouseClicked
 
     private void partslistCarHomeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partslistCarHomeLabelMouseClicked
-        hideAllPanels();
-        switchVisibility(carModelParts, homeScreenPage);
+
+        switchVisibility(homeScreenPage);
         initComponents();
         index = 1;
         nullCounter = 0;
@@ -2251,7 +2223,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_partslistCarHomeLabelMouseClicked
 
     private void partslistChoosebycarmodelLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partslistChoosebycarmodelLabelMouseClicked
-        switchVisibility(carModelParts, chooseByCarModel);
+        switchVisibility(chooseByCarModel);
         initComponents();
         index = 1;
         nullCounter = 0;
@@ -2561,6 +2533,44 @@ public class GUI extends javax.swing.JFrame {
 
     private void partslistNextButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partslistNextButton1ActionPerformed
         // TODO add your handling code here:
+        String choosevendor = insertPartVendorDropdown.getSelectedItem().toString();
+        String insertpartcore = insertPartCoreTextField.getText();
+        String insertpartinhead = insertPartInheadTextField.getText();
+        String insertpartouthead = insertPartOutheadTextField.getText();
+        String insertpartincon = insertPartInconTextField.getText();
+        String insertpartoucon = insertPartOuconTextField.getText();
+        String inserttmount = insertPartTmountTextField.getText();
+        String insertoilcool = insertPartOilcoolTextField.getText();
+        String insertprice = insertPartPriceTextField.getValue().toString();
+        String insertamount = insertPartAmountTextField.getValue().toString();
+
+        ResultSet rs;
+        String sql = "SELECT MAX(P_NUMBER) FROM " + "RDIM" + choosevendor;
+        System.out.println(sql);
+        try {
+
+            rs = stmnt.executeQuery(sql);
+            rs.next();
+            String max = rs.getString(1);
+
+            Integer maxnum = Integer.parseInt(max);
+            maxnum = maxnum + 1;
+            String maxi = maxnum.toString();
+            String insertsql = "INSERT INTO RDIM" + choosevendor + " VALUES ('"
+                    + maxi + "','" + insertpartcore + "','" + insertpartinhead + "','" + insertpartouthead + "','"
+                    + insertpartincon + "','" + insertpartoucon + "','" + inserttmount + "','"
+                    + insertoilcool + "'," + insertprice + "," + insertamount + ")";
+            System.out.println(insertsql);
+            stmnt.executeUpdate(insertsql);
+            
+
+            popup("Successfully inserted " + choosevendor.substring(0, 3)
+                    + " " + insertprice + " " + insertamount);
+        } catch (Exception e) {
+            e.printStackTrace();
+            popup("Opps! Something went wrong."
+                    + "Check the system output for details.");
+        }
     }//GEN-LAST:event_partslistNextButton1ActionPerformed
 
     private void carHomeLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carHomeLabel2MouseClicked
@@ -2570,10 +2580,6 @@ public class GUI extends javax.swing.JFrame {
     private void editCarEngineTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCarEngineTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editCarEngineTextFieldActionPerformed
-
-    private void nextButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nextButton2ActionPerformed
 
     private void homeLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeLabel1MouseClicked
         // TODO add your handling code here:
@@ -2589,14 +2595,21 @@ public class GUI extends javax.swing.JFrame {
 
     private void deleteNextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteNextButtonActionPerformed
         // TODO add your handling code here:
+        popup("Successfully Deleted car " + carMakerDropdown.getSelectedItem().toString()
+                + " " + carModelDropdown.getSelectedItem()
+                + " " + yearDropdown.getSelectedItem().toString());
     }//GEN-LAST:event_deleteNextButtonActionPerformed
 
     private void nextButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButton3ActionPerformed
         // TODO add your handling code here:
+        popup("Successfull updated car " + EditCarMakerTextField.getText()
+                + " " + editCarModelTextField + " " + editCarYearTextField);
     }//GEN-LAST:event_nextButton3ActionPerformed
 
     private void deletePartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePartButtonActionPerformed
         // TODO add your handling code here:
+        String vendor = "";
+        popup("Deleted + " + editPartNumberTextField.getText() + " from " + vendor);
     }//GEN-LAST:event_deletePartButtonActionPerformed
 
     private void carmodelButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carmodelButton1ActionPerformed
@@ -2651,20 +2664,19 @@ public class GUI extends javax.swing.JFrame {
 
         String insertsql = "INSERT INTO APL" + choosecar.substring(0, 3) + " VALUES ('"
                 + insertcarmodel + "','" + insertcaryear + "','" + insertcardesc + "','" + insertcarlitres + "','"
-                + insertcarengine.substring(0,3) + "','" + insertcarcubic + "',1)";
-        System.err.println(insertsql); 
-        Component frame = null;
+                + insertcarengine.substring(0, 3) + "','" + insertcarcubic + "',1)";
+        System.err.println(insertsql);
+
         try {
             stmnt.executeUpdate(insertsql);
-           
-            JOptionPane.showMessageDialog(frame, "Successfully inserted " + choosecar.substring(0,3) 
+            popup("Successfully inserted " + choosecar.substring(0, 3)
                     + " " + insertcarmodel + " " + insertcaryear);
         } catch (Exception e) {
             e.printStackTrace();
-             JOptionPane.showMessageDialog(frame, "Opps! Something went wrong."
-                     + "Check the system output for details.");
+            popup("Opps! Something went wrong."
+                    + "Check the system output for details.");
         }
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void insertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertButtonActionPerformed
@@ -2690,7 +2702,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
-hideAllPanels();
+        hideAllPanels();
         if (cameFrom.equals("part")) {
             updatePart.setVisible(true);
         } else {
@@ -2701,6 +2713,7 @@ hideAllPanels();
 
     private void updateNextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateNextButtonActionPerformed
         // TODO add your handling code here:
+        switchVisibility(updateCar);
     }//GEN-LAST:event_updateNextButtonActionPerformed
 
     private void insertCarEngineTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertCarEngineTextFieldActionPerformed
@@ -2709,12 +2722,28 @@ hideAllPanels();
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here:
-        switchVisibility(insertCar, homeScreenPage);
+        switchVisibility(homeScreenPage);
     }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void switchVisibility(JPanel componentToHide, JPanel componentToShow) {
-        componentToHide.setVisible(false);
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        String vendor = "";
+        popup("Successfully updated part. Part Number: " + editPartNumberTextField.getText()
+                + "in vendor " + vendor);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void insertPartVendorDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertPartVendorDropdownActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_insertPartVendorDropdownActionPerformed
+
+    private void switchVisibility(JPanel componentToShow) {
+        hideAllPanels();
         componentToShow.setVisible(true);
+    }
+
+    private void popup(String message) {
+        Component frame = null;
+        JOptionPane.showMessageDialog(frame, message);
     }
 
     private String partsTable() {
@@ -2784,7 +2813,7 @@ hideAllPanels();
             DBC = new partsDB(con, user, password);
             stmnt = DBC.getDBConnection().createStatement();
             //DBC.getDBConnection().setAutoCommit(true);
-            
+
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException |
                 IllegalAccessException |
@@ -2883,7 +2912,6 @@ hideAllPanels();
     private javax.swing.JTextField insertPartCoreTextField;
     private javax.swing.JTextField insertPartInconTextField;
     private javax.swing.JTextField insertPartInheadTextField;
-    private javax.swing.JTextField insertPartNumberTextField;
     private javax.swing.JTextField insertPartOilcoolTextField;
     private javax.swing.JTextField insertPartOuconTextField;
     private javax.swing.JTextField insertPartOutheadTextField;
@@ -2905,7 +2933,6 @@ hideAllPanels();
     private javax.swing.JLabel modelLabel3;
     private javax.swing.JPanel navigationPanel;
     private javax.swing.JPanel navigationPanel1;
-    private javax.swing.JButton nextButton2;
     private javax.swing.JButton nextButton3;
     private java.awt.Panel nextButtonPanel;
     private java.awt.Panel nextButtonPanel2;
@@ -2954,7 +2981,6 @@ hideAllPanels();
     private javax.swing.JLabel partslistOutheadLabel1;
     private javax.swing.JLabel partslistOutheadText;
     private javax.swing.JLabel partslistPartnumberLabel;
-    private javax.swing.JLabel partslistPartnumberLabel1;
     private javax.swing.JLabel partslistPartnumberText;
     private javax.swing.JButton partslistPreviousButton;
     private javax.swing.JLabel partslistPriceLabel;
@@ -3006,7 +3032,6 @@ hideAllPanels();
         homeScreenPage.setVisible(false);
         chooseByCarModel.setVisible(false);
         carModelParts.setVisible(false);
-        homeScreenPage.setVisible(false);
         chooseByVendor.setVisible(false);
         insertPart.setVisible(false);
         updateCar.setVisible(false);
