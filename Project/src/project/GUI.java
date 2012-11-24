@@ -2206,7 +2206,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_viewNextButtonActionPerformed
 
     private void carHomeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carHomeLabelMouseClicked
-        switchVisibility( homeScreenPage);
+        switchVisibility(homeScreenPage);
         //initComponents();
         partNumbers = new String[SIZE];
         chooseByCarModel.setVisible(false);
@@ -2597,9 +2597,33 @@ public class GUI extends javax.swing.JFrame {
 
     private void deleteNextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteNextButtonActionPerformed
         // TODO add your handling code here:
-        popup("Successfully Deleted car " + carMakerDropdown.getSelectedItem().toString()
+
+        String deletecarmake = carMakerDropdown.getSelectedItem().toString();
+        String deletecarmodel = carModelDropdown.getSelectedItem().toString();
+        String deletecaryear = yearDropdown.getSelectedItem().toString();
+        String deletecardesc = descriptionDropdown.getSelectedItem().toString();
+        String deletecarengine = engineDropdown.getSelectedItem().toString();
+        try {
+            String sql = "DELETE FROM APL" + deletecarmake.substring(0, 3) + " WHERE MODEL='" + deletecarmodel + "' AND YEAR="
+                    + "'" + deletecaryear + "' AND DESCRIPTION='" + deletecardesc + "' AND ENGINE_TYPE = '" + deletecarengine.split("-")[0]
+                    + "' AND LITRES = '" + deletecarengine.split("-")[2] + "' AND CUBIC_INCHES=" + "'" + deletecarengine.split("-")[1]
+                    + "'";
+            System.out.println(sql);
+
+            int delete = stmnt.executeUpdate(sql);
+            if (delete == 1) {
+               popup("Successfully Deleted car " + carMakerDropdown.getSelectedItem().toString()
                 + " " + carModelDropdown.getSelectedItem()
                 + " " + yearDropdown.getSelectedItem().toString());
+            } else {
+                popup("Oops! Something went wrong."
+                    + "Check the system output for details.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            popup("Oops! Something went wrong."
+                    + "Check the system output for details.");
+        }
     }//GEN-LAST:event_deleteNextButtonActionPerformed
 
     private void nextButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButton3ActionPerformed
@@ -2635,7 +2659,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_vendorButton2ActionPerformed
 
     private void userButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userButtonActionPerformed
-       switchVisibility(userPage);
+        switchVisibility(userPage);
     }//GEN-LAST:event_userButtonActionPerformed
 
     private void carButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carButtonActionPerformed
