@@ -1168,6 +1168,11 @@ public class GUI extends javax.swing.JFrame {
 
         insertCarRLINKJspinner.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         insertCarRLINKJspinner.setEnabled(false);
+        insertCarRLINKJspinner.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertCarRLINKJspinnerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout InsertCarPanel2Layout = new javax.swing.GroupLayout(InsertCarPanel2);
         InsertCarPanel2.setLayout(InsertCarPanel2Layout);
@@ -2159,7 +2164,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(insertCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 691, Short.MAX_VALUE)))
+                    .addGap(0, 690, Short.MAX_VALUE)))
         );
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
@@ -2356,6 +2361,28 @@ public class GUI extends javax.swing.JFrame {
         // populate the RLINK dropdown
         insertCarRLINKJspinner.setEnabled(true);
         
+        try {
+            ResultSet rs;
+            String getPart = (String) InsertCarMakerDropdown.getSelectedItem();
+            ArrayList<String> insertrlink = new ArrayList<>();
+
+            String sql = "select distinct RLINK from apl"
+                    + getPart.substring(0, 3) + " order by RLINK asc";
+            rs = stmnt.executeQuery(sql);
+            while (rs.next()) {
+                insertrlink.add(rs.getString(1));
+            }
+            String insertr[] = insertrlink.toArray(new String[insertrlink.size()]);
+            subItems.put("insertrlink", insertr);
+            Object o = subItems.get("insertrlink");
+            if (o == null) {
+                insertCarRLINKJspinner.setModel(new DefaultComboBoxModel());
+            } else {
+                insertCarRLINKJspinner.setModel(new DefaultComboBoxModel((String[]) o));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_InsertCarMakerDropdownActionPerformed
 
     private void descriptionDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionDropdownActionPerformed
@@ -2795,12 +2822,13 @@ public class GUI extends javax.swing.JFrame {
         String insertcarengine = insertCarEngineTextField.getText();
         String insertcarcubic = insertCarCubicInchesSpinner.getValue().toString();
         String insertcarlitres = insertCarLitersSpinner.getValue().toString();
-
+        String insertrlink  = insertCarRLINKJspinner.getSelectedItem().toString();
+        int insertrlinkint = Integer.parseInt(insertrlink);
         System.out.println("Choose Car: " + choosecar);
 
         String insertsql = "INSERT INTO APL" + choosecar + " VALUES ('"
                 + insertcarmodel + "','" + insertcaryear + "','" + insertcardesc + "','" + insertcarlitres + "','"
-                + insertcarengine + "','" + insertcarcubic + "',1)";
+                + insertcarengine + "','" + insertcarcubic + "',"+insertrlinkint+")";
         System.out.println(insertsql);
 
         try {
@@ -2884,6 +2912,10 @@ public class GUI extends javax.swing.JFrame {
     private void insertPartVendorDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertPartVendorDropdownActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_insertPartVendorDropdownActionPerformed
+
+    private void insertCarRLINKJspinnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertCarRLINKJspinnerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_insertCarRLINKJspinnerActionPerformed
 
     private void switchVisibility(JPanel componentToShow) {
         hideAllPanels();
