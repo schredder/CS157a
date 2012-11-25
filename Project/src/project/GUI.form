@@ -1875,7 +1875,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                  <EmptySpace pref="21" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -1885,7 +1885,7 @@
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="InsertCarPanel2" min="-2" pref="404" max="-2" attributes="0"/>
+                              <Component id="InsertCarPanel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="316" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -1940,18 +1940,23 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="engineLabel4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                              <Component id="InsertCarRLINKSpinner" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <Component id="engineLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                               <Component id="insertCarLitersSpinner" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
+                              <Component id="engineLabel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="insertCarCubicInchesSpinner" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="engineLabel4" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                      <Component id="insertCarRLINKJspinner" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="modelLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="yearLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1964,7 +1969,7 @@
                                           <Component id="insertCarYearSpinner" alignment="1" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="descriptionLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="engineLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1977,11 +1982,6 @@
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="engineLabel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="insertCarCubicInchesSpinner" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -2029,9 +2029,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="engineLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="InsertCarRLINKSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="insertCarRLINKJspinner" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                      <EmptySpace pref="13" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2093,13 +2093,22 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="insertCarEngineTextField">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="NA"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="insertCarEngineTextFieldActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="InsertCarDescriptionTextField">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="NA"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="insertCarMakerTextField4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="NA"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="InsertCarMakerDropdown">
               <Properties>
@@ -2186,13 +2195,6 @@
                 <Property name="text" type="java.lang.String" value="Liters"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="InsertCarRLINKSpinner">
-              <Properties>
-                <Property name="editor" type="javax.swing.JComponent" editor="org.netbeans.modules.form.editors.SpinnerEditorEditor">
-                  <SpinnerEditor format="" type="3"/>
-                </Property>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="engineLabel4">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -2202,6 +2204,19 @@
                   <Color blue="cc" green="99" red="0" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="RLINK (?)"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="insertCarRLINKJspinner">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Item 1"/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
+                </Property>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -2952,7 +2967,7 @@
                               <EmptySpace min="65" pref="65" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="editCarMakerTextField" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="editCarModelTextField" alignment="0" pref="270" max="32767" attributes="0"/>
+                                  <Component id="editCarModelTextField" alignment="0" pref="276" max="32767" attributes="0"/>
                                   <Component id="editCarYearSpinner" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -2968,7 +2983,18 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="327" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="makerLabel4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jScrollPane1" min="-2" pref="228" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButton4" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2976,29 +3002,42 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="makerLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="editCarMakerTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="modelLabel3" min="-2" max="-2" attributes="0"/>
-                          <Component id="editCarModelTextField" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="yearLabel3" min="-2" max="-2" attributes="0"/>
-                          <Component id="editCarYearSpinner" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="descriptionLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="editCarDescriptionTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="engineLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="editCarEngineTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jScrollPane1" min="-2" pref="145" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="makerLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editCarMakerTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="makerLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="modelLabel3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editCarModelTextField" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="yearLabel3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editCarYearSpinner" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="descriptionLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editCarDescriptionTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="engineLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editCarEngineTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace pref="15" max="32767" attributes="0"/>
                   </Group>
@@ -3086,6 +3125,49 @@
               </Events>
             </Component>
             <Component class="javax.swing.JSpinner" name="editCarYearSpinner">
+            </Component>
+            <Component class="javax.swing.JLabel" name="makerLabel4">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI Light" size="18" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cc" green="99" red="0" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Parts:"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="jList1">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                      <StringArray count="5">
+                        <StringItem index="0" value="Item 1"/>
+                        <StringItem index="1" value="Item 2"/>
+                        <StringItem index="2" value="Item 3"/>
+                        <StringItem index="3" value="Item 4"/>
+                        <StringItem index="4" value="Item 5"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="jButton2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Update This Part"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Delete This Part"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -3313,7 +3395,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="insertCarLabel1" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="insertCarLabel1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="insertCarLabel2" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <Group type="102" attributes="0">
                                   <Component id="partslistLeftPanel1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
@@ -3331,7 +3417,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="insertCarLabel1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="insertCarLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="insertCarLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="partslistRightPanel1" min="-2" max="-2" attributes="0"/>
@@ -3347,7 +3436,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="insertCarLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Insert Part"/>
+            <Property name="text" type="java.lang.String" value="Home &gt;"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="partslistLeftPanel1">
@@ -3472,22 +3561,22 @@
             </Component>
             <Component class="javax.swing.JTextField" name="insertPartCoreTextField">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField3"/>
+                <Property name="text" type="java.lang.String" value="NA"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="insertPartInheadTextField">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField4"/>
+                <Property name="text" type="java.lang.String" value="NA"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="insertPartOutheadTextField">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField5"/>
+                <Property name="text" type="java.lang.String" value="NA"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="insertPartInconTextField">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField6"/>
+                <Property name="text" type="java.lang.String" value="NA"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="insertPartVendorDropdown">
@@ -3647,17 +3736,17 @@
             </Component>
             <Component class="javax.swing.JTextField" name="insertPartTmountTextField">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField8"/>
+                <Property name="text" type="java.lang.String" value="NA"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="insertPartOilcoolTextField">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField9"/>
+                <Property name="text" type="java.lang.String" value="NA"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="insertPartOuconTextField">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField2"/>
+                <Property name="text" type="java.lang.String" value="NA"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -3726,6 +3815,11 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="insertCarLabel2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Insert Part"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
