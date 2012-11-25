@@ -198,11 +198,11 @@ public class GUI extends javax.swing.JFrame {
         priceLabel1 = new javax.swing.JLabel();
         oilcoolLabel1 = new javax.swing.JLabel();
         tmountLabel1 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        editPartOuconTextField = new javax.swing.JTextField();
         editPartTmountTextField = new javax.swing.JTextField();
         editPartOilcoolTextField = new javax.swing.JTextField();
-        jSpinner1 = new javax.swing.JSpinner();
-        jSpinner2 = new javax.swing.JSpinner();
+        editPartAmountJspinner = new javax.swing.JSpinner();
+        editPartPriceTextField = new javax.swing.JTextField();
         deletePartButton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         updateCar = new javax.swing.JPanel();
@@ -212,11 +212,11 @@ public class GUI extends javax.swing.JFrame {
         yearLabel3 = new javax.swing.JLabel();
         engineLabel6 = new javax.swing.JLabel();
         descriptionLabel3 = new javax.swing.JLabel();
-        EditCarMakerTextField = new javax.swing.JTextField();
+        editCarMakerTextField = new javax.swing.JTextField();
         editCarModelTextField = new javax.swing.JTextField();
-        editCarYearTextField = new javax.swing.JTextField();
         editCarDescriptionTextField = new javax.swing.JTextField();
         editCarEngineTextField = new javax.swing.JTextField();
+        editCarYearSpinner = new javax.swing.JSpinner();
         carHomeLabel2 = new javax.swing.JLabel();
         choosebycarmodelLabel2 = new javax.swing.JLabel();
         nextButtonPanel2 = new java.awt.Panel();
@@ -1437,16 +1437,6 @@ public class GUI extends javax.swing.JFrame {
         inconLabel1.setForeground(new java.awt.Color(0, 153, 204));
         inconLabel1.setText("Incon");
 
-        editPartNumberTextField.setText("jTextField1");
-
-        editPartCoreTextField.setText("jTextField1");
-
-        editPartInheadTextField.setText("jTextField1");
-
-        editPartOutheadTextField.setText("jTextField1");
-
-        editPartInconTextField.setText("jTextField1");
-
         javax.swing.GroupLayout vendorLeftPanel1Layout = new javax.swing.GroupLayout(vendorLeftPanel1);
         vendorLeftPanel1.setLayout(vendorLeftPanel1Layout);
         vendorLeftPanel1Layout.setHorizontalGroup(
@@ -1524,12 +1514,6 @@ public class GUI extends javax.swing.JFrame {
         tmountLabel1.setForeground(new java.awt.Color(0, 153, 204));
         tmountLabel1.setText("Tmount");
 
-        jTextField6.setText("jTextField1");
-
-        editPartTmountTextField.setText("jTextField1");
-
-        editPartOilcoolTextField.setText("jTextField1");
-
         javax.swing.GroupLayout vendorRightPanel1Layout = new javax.swing.GroupLayout(vendorRightPanel1);
         vendorRightPanel1.setLayout(vendorRightPanel1Layout);
         vendorRightPanel1Layout.setHorizontalGroup(
@@ -1543,7 +1527,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(ouconLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(vendorRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editPartOuconTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(editPartTmountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(vendorRightPanel1Layout.createSequentialGroup()
                         .addGroup(vendorRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1555,12 +1539,12 @@ public class GUI extends javax.swing.JFrame {
                         .addGroup(vendorRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(vendorRightPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(editPartAmountJspinner, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(vendorRightPanel1Layout.createSequentialGroup()
                                 .addGap(7, 7, 7)
                                 .addGroup(vendorRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(editPartOilcoolTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-                                    .addComponent(jSpinner1))))))
+                                    .addComponent(editPartPriceTextField)
+                                    .addComponent(editPartOilcoolTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE))))))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         vendorRightPanel1Layout.setVerticalGroup(
@@ -1569,7 +1553,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(vendorRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ouconLabel1)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(editPartOuconTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(vendorRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tmountLabel1)
@@ -1581,11 +1565,11 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(vendorRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(priceLabel1)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(editPartPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(vendorRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(amountLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(editPartAmountJspinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10))
         );
 
@@ -1636,11 +1620,10 @@ public class GUI extends javax.swing.JFrame {
         descriptionLabel3.setForeground(new java.awt.Color(0, 153, 204));
         descriptionLabel3.setText("Description");
 
-        EditCarMakerTextField.setText("jTextField1");
+        editCarMakerTextField.setText("jTextField1");
+        editCarMakerTextField.setEnabled(false);
 
         editCarModelTextField.setText("jTextField1");
-
-        editCarYearTextField.setText("jTextField1");
 
         editCarDescriptionTextField.setText("jTextField1");
 
@@ -1664,11 +1647,10 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(yearLabel3)
                             .addComponent(makerLabel3))
                         .addGap(65, 65, 65)
-                        .addGroup(choosecarPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(choosecarPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(EditCarMakerTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(editCarModelTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))
-                            .addComponent(editCarYearTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)))
+                        .addGroup(choosecarPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(editCarMakerTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(editCarModelTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                            .addComponent(editCarYearSpinner)))
                     .addGroup(choosecarPanel2Layout.createSequentialGroup()
                         .addGroup(choosecarPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(descriptionLabel3)
@@ -1685,7 +1667,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(choosecarPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(makerLabel3)
-                    .addComponent(EditCarMakerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(editCarMakerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(choosecarPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(modelLabel3)
@@ -1693,7 +1675,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(choosecarPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(yearLabel3)
-                    .addComponent(editCarYearTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(editCarYearSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(choosecarPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(descriptionLabel3)
@@ -1731,7 +1713,6 @@ public class GUI extends javax.swing.JFrame {
         nextButton3.setBorder(null);
         nextButton3.setBorderPainted(false);
         nextButton3.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Next Button Disabled.jpg"))); // NOI18N
-        nextButton3.setEnabled(false);
         nextButton3.setMaximumSize(new java.awt.Dimension(80, 25));
         nextButton3.setMinimumSize(new java.awt.Dimension(80, 25));
         nextButton3.setPreferredSize(new java.awt.Dimension(80, 25));
@@ -2138,7 +2119,7 @@ public class GUI extends javax.swing.JFrame {
         switchVisibility(homeScreenPage);
 
         index = 1;
-        nullCounter = 0;;
+        nullCounter = 0;
     }//GEN-LAST:event_homeLabelMouseClicked
 
     private void vendorDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendorDropdownActionPerformed
@@ -2457,6 +2438,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void engineDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_engineDropdownActionPerformed
         engineDropdownReset();
+        deleteNextButton.setEnabled(true);
 
         try {
             ResultSet rs;
@@ -2577,6 +2559,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void carHomeLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carHomeLabel2MouseClicked
         // TODO add your handling code here:
+        switchVisibility(homeScreenPage);
     }//GEN-LAST:event_carHomeLabel2MouseClicked
 
     private void editCarEngineTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCarEngineTextFieldActionPerformed
@@ -2585,14 +2568,68 @@ public class GUI extends javax.swing.JFrame {
 
     private void homeLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeLabel1MouseClicked
         // TODO add your handling code here:
+        switchVisibility(homeScreenPage);
     }//GEN-LAST:event_homeLabel1MouseClicked
 
     private void vendorDropdown1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendorDropdown1ActionPerformed
         // TODO add your handling code here:
+        vendorPartNumberDropdown1.setEnabled(false);
+        try {
+            ResultSet rs;
+            String getPart = (String) vendorDropdown1.getSelectedItem();
+            ArrayList<String> name1 = new ArrayList<>();
+            String sql = "select distinct p_number from " + getPart;
+            if (!getPart.endsWith("-")) {
+                vendorPartNumberDropdown1.setEnabled(true);
+                rs = stmnt.executeQuery(sql);
+                while (rs.next()) {
+                    name1.add(rs.getString(1));
+                }
+
+                String namearr[] = name1.toArray(new String[name1.size()]);
+                subItems.put("Vendor", namearr);
+                Object o = subItems.get("Vendor");
+                if (o == null) {
+                    vendorPartNumberDropdown1.setModel(new DefaultComboBoxModel());
+                } else {
+                    vendorPartNumberDropdown1.setModel(new DefaultComboBoxModel((String[]) o));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_vendorDropdown1ActionPerformed
 
     private void vendorPartNumberDropdown1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendorPartNumberDropdown1ActionPerformed
         // TODO add your handling code here:
+                ResultSet rs;
+        if (vendorDropdown1.getSelectedItem() != null
+                && vendorPartNumberDropdown1.getSelectedItem() != null) {
+            try {
+                String getNumber = vendorPartNumberDropdown1.getSelectedItem().toString();
+                String getPart = vendorDropdown1.getSelectedItem().toString();
+
+
+                rs = stmnt.executeQuery("select * from " + getPart + " where "
+                        + "p_number = '" + getNumber + "'");
+
+                if (rs.next()) {
+                    editPartNumberTextField.setText(rs.getString(1));
+                    editPartCoreTextField.setText(rs.getString(2));
+                    editPartInheadTextField.setText(rs.getString(3));
+                    editPartOutheadTextField.setText(rs.getString(4));
+                    editPartInconTextField.setText(rs.getString(5));
+                    editPartOuconTextField.setText(rs.getString(6));
+                    editPartTmountTextField.setText(rs.getString(7));
+                    editPartOilcoolTextField.setText(rs.getString(8));
+                    editPartPriceTextField.setText(rs.getString(9));
+                    editPartAmountJspinner.setValue(Integer.parseInt(rs.getString(10)));
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }//GEN-LAST:event_vendorPartNumberDropdown1ActionPerformed
 
     private void deleteNextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteNextButtonActionPerformed
@@ -2628,13 +2665,14 @@ public class GUI extends javax.swing.JFrame {
 
     private void nextButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButton3ActionPerformed
         // TODO add your handling code here:
-        popup("Successfull updated car " + EditCarMakerTextField.getText()
-                + " " + editCarModelTextField + " " + editCarYearTextField);
+        popup("Successfully updated car '" + editCarMakerTextField.getText().substring(3)
+                + " " + editCarModelTextField.getText() + " " + editCarYearSpinner.getValue() + "'");
     }//GEN-LAST:event_nextButton3ActionPerformed
 
     private void deletePartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePartButtonActionPerformed
         // TODO add your handling code here:
-        String vendor = "";
+        
+        String vendor = vendorDropdown1.getSelectedItem().toString();
         popup("Deleted + " + editPartNumberTextField.getText() + " from " + vendor);
     }//GEN-LAST:event_deletePartButtonActionPerformed
 
@@ -2717,6 +2755,8 @@ public class GUI extends javax.swing.JFrame {
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
         hideAllPanels();
+        deleteNextButton.setVisible(false);
+        viewNextButton.setVisible(false);
         if (cameFrom.equals("part")) {
             updatePart.setVisible(true);
         } else {
@@ -2730,15 +2770,25 @@ public class GUI extends javax.swing.JFrame {
         hideAllPanels();
         if (cameFrom.equals("part")) {
             updatePart.setVisible(true);
+            
         } else {
             chooseByCarModel.setVisible(true);
             deleteNextButton.setVisible(true);
+            deleteNextButton.setEnabled(false);
+            viewNextButton.setVisible(false);
+            updateNextButton.setVisible(false);
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void updateNextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateNextButtonActionPerformed
         // TODO add your handling code here:
         switchVisibility(updateCar);
+        editCarMakerTextField.setText(carMakerDropdown.getSelectedItem().toString());
+        editCarModelTextField.setText(carModelDropdown.getSelectedItem().toString());
+        editCarYearSpinner.setValue(Integer.parseInt(yearDropdown.getSelectedItem().toString()));
+        editCarDescriptionTextField.setText(descriptionDropdown.getSelectedItem().toString());
+        editCarEngineTextField.setText(engineDropdown.getSelectedItem().toString());
+        
     }//GEN-LAST:event_updateNextButtonActionPerformed
 
     private void insertCarEngineTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertCarEngineTextFieldActionPerformed
@@ -2752,7 +2802,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        String vendor = "";
+        String vendor = vendorDropdown1.getSelectedItem().toString();
         popup("Successfully updated part. Part Number: " + editPartNumberTextField.getText()
                 + "in vendor " + vendor);
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -2846,7 +2896,7 @@ public class GUI extends javax.swing.JFrame {
         try {
             DBC = new partsDB(con, user, password);
             stmnt = DBC.getDBConnection().createStatement();
-            //DBC.getDBConnection().setAutoCommit(true);
+            DBC.getDBConnection().setAutoCommit(true);
 
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException |
@@ -2867,7 +2917,6 @@ public class GUI extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField EditCarMakerTextField;
     private javax.swing.JTextField InsertCarDescriptionTextField;
     private javax.swing.JComboBox InsertCarMakerDropdown;
     private java.awt.Panel InsertCarPanel2;
@@ -2904,14 +2953,18 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel descriptionLabel3;
     private javax.swing.JTextField editCarDescriptionTextField;
     private javax.swing.JTextField editCarEngineTextField;
+    private javax.swing.JTextField editCarMakerTextField;
     private javax.swing.JTextField editCarModelTextField;
-    private javax.swing.JTextField editCarYearTextField;
+    private javax.swing.JSpinner editCarYearSpinner;
+    private javax.swing.JSpinner editPartAmountJspinner;
     private javax.swing.JTextField editPartCoreTextField;
     private javax.swing.JTextField editPartInconTextField;
     private javax.swing.JTextField editPartInheadTextField;
     private javax.swing.JTextField editPartNumberTextField;
     private javax.swing.JTextField editPartOilcoolTextField;
+    private javax.swing.JTextField editPartOuconTextField;
     private javax.swing.JTextField editPartOutheadTextField;
+    private javax.swing.JTextField editPartPriceTextField;
     private javax.swing.JTextField editPartTmountTextField;
     private javax.swing.JComboBox engineDropdown;
     private javax.swing.JLabel engineLabel;
@@ -2955,9 +3008,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel lastNumLabel;
     private javax.swing.JLabel makerLabel;
     private javax.swing.JLabel makerLabel1;
