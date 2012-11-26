@@ -1535,6 +1535,11 @@ public class GUI extends javax.swing.JFrame {
         insertPart.setPreferredSize(new java.awt.Dimension(720, 320));
 
         insertCarLabel1.setText("Home >");
+        insertCarLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                insertCarLabel1MouseClicked(evt);
+            }
+        });
 
         partslistLeftPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -2028,8 +2033,8 @@ public class GUI extends javax.swing.JFrame {
         updatePart.add(updatePartButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, -1, -1));
 
         updateCar.setBackground(new java.awt.Color(255, 255, 255));
-        updateCar.setMaximumSize(new java.awt.Dimension(720, 320));
-        updateCar.setPreferredSize(new java.awt.Dimension(720, 320));
+        updateCar.setMaximumSize(new java.awt.Dimension(720, 335));
+        updateCar.setPreferredSize(new java.awt.Dimension(720, 335));
         updateCar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         choosecarPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -2292,7 +2297,7 @@ public class GUI extends javax.swing.JFrame {
                     .addGap(0, 699, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(updateCar, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateCar, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 752, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -2927,6 +2932,9 @@ public class GUI extends javax.swing.JFrame {
         chooseByVendor.setVisible(true);
         vendorDropdown1.setEnabled(true);
         vendorDropdown1.setSelectedIndex(0);
+        deletePartButton.setVisible(false);
+        updateSelectedPartButton.setVisible(false);
+        updatePart.setVisible(true);
     }//GEN-LAST:event_vendorButton2ActionPerformed
 
     private void userButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userButtonActionPerformed
@@ -2947,6 +2955,12 @@ public class GUI extends javax.swing.JFrame {
         cameFrom = "part";
         adminPage.setVisible(true);
         adminLabel.setText("Admin > Part");
+        
+        //For parts screen
+        vendorDropdown1.setEnabled(true);
+        vendorDropdown1.setSelectedIndex(0);
+        deletePartButton.setVisible(true);;
+        
     }//GEN-LAST:event_partButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -2993,6 +3007,7 @@ public class GUI extends javax.swing.JFrame {
         hideAllPanels();
         deleteNextButton.setVisible(false);
         viewNextButton.setVisible(false);
+        updatePartButton.setVisible(true);
         if (cameFrom.equals("part")) {
             updatePart.setVisible(true);
         } else {
@@ -3004,6 +3019,9 @@ public class GUI extends javax.swing.JFrame {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
         hideAllPanels();
+        deleteNextButton.setVisible(false);
+        viewNextButton.setVisible(false);
+        updatePartButton.setVisible(true);
         if (cameFrom.equals("part")) {
             updatePart.setVisible(true);
 
@@ -3023,8 +3041,10 @@ public class GUI extends javax.swing.JFrame {
         editCarModelTextField.setText(carModelDropdown.getSelectedItem().toString());
         editCarYearSpinner.setValue(Integer.parseInt(yearDropdown.getSelectedItem().toString()));
         editCarDescriptionTextField.setText(descriptionDropdown.getSelectedItem().toString());
-        editCarEngineTextField.setText(engineDropdown.getSelectedItem().toString());
-
+        String temp = engineDropdown.getSelectedItem().toString();
+        editCarEngineTextField.setText(temp.split("-")[0]);
+        editCarCubicInchesSpinner.setValue((Integer.parseInt(temp.split("-")[1])));
+        editCarLitersTextField.setText(temp.split("-")[2]);
     }//GEN-LAST:event_updateNextButtonActionPerformed
 
     private void insertCarEngineTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertCarEngineTextFieldActionPerformed
@@ -3038,10 +3058,9 @@ public class GUI extends javax.swing.JFrame {
 
     private void updateSelectedPartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateSelectedPartButtonActionPerformed
         // TODO add your handling code here:
-        //If the part number changes, it has to change in all the RLINKs
-        String vendor = vendorDropdown1.getSelectedItem().toString();
-        popup("Successfully updated part. Part Number: " + editPartNumberTextField.getText()
-                + "in vendor " + vendor);
+        switchVisibility(updateCar);
+        
+        //then update the parts list
     }//GEN-LAST:event_updateSelectedPartButtonActionPerformed
 
     private void insertPartVendorDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertPartVendorDropdownActionPerformed
@@ -3058,6 +3077,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void searchHomeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchHomeLabelMouseClicked
         // TODO add your handling code here:
+        switchVisibility(homeScreenPage);
     }//GEN-LAST:event_searchHomeLabelMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -3067,20 +3087,26 @@ public class GUI extends javax.swing.JFrame {
         vendorDropdown1.setEnabled(false);
         vendorDropdown1.setSelectedIndex(0);
         vendorPartNumberDropdown1.setEnabled(false);
+        deletePartButton.setVisible(false);
         
         // TODO add your handling code here:
         // Step 1 - Create new RLINK "RLINK MAX(RLINK) + 1"
         // Step 2 - Insert values from updatePartsList.getModel (values) or something.
         // Step 3 - Change part to be change
         
-        //Run after SQL commands:
-        switchVisibility(updateCar);
-        //then update updatePartsList
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void updatePartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePartButtonActionPerformed
         // TODO add your handling code here:
+        String vendor = vendorDropdown1.getSelectedItem().toString();
+        popup("Successfully updated part. Part Number: " + editPartNumberTextField.getText()
+                + "in vendor " + vendor);
     }//GEN-LAST:event_updatePartButtonActionPerformed
+
+    private void insertCarLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insertCarLabel1MouseClicked
+        // TODO add your handling code here:
+        switchVisibility(homeScreenPage);
+    }//GEN-LAST:event_insertCarLabel1MouseClicked
 
     private void switchVisibility(JPanel componentToShow) {
         hideAllPanels();
