@@ -3113,7 +3113,6 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void updateNextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateNextButtonActionPerformed
-        // TODO add your handling code here:
         switchVisibility(updateCar);
         editCarMakerTextField.setText(carMakerDropdown.getSelectedItem().toString());
         editCarModelTextField.setText(carModelDropdown.getSelectedItem().toString());
@@ -3123,6 +3122,53 @@ public class GUI extends javax.swing.JFrame {
         editCarEngineTextField.setText(temp.split("-")[0]);
         editCarCubicInchesSpinner.setValue((Integer.parseInt(temp.split("-")[1])));
         editCarLitersTextField.setText(temp.split("-")[2]);
+        String t = engineDropdown.getSelectedItem().toString();
+        String t1 = t.split("-")[0];
+        String t2 = t.split("-")[1];
+        String t3 = t.split("-")[2];
+
+        try {
+            ResultSet rs;
+            String updategetPart = carMakerDropdown.getSelectedItem().toString();
+            ArrayList<String> name1 = new ArrayList<>();
+
+            String sql = "SELECT RLINK from APL"
+                    + updategetPart.substring(0, 3)
+                    + " WHERE MODEL='" + carModelDropdown.getSelectedItem().toString()
+                    + "' AND YEAR='"
+                    + yearDropdown.getSelectedItem().toString() + "' AND DESCRIPTION='"
+                    + descriptionDropdown.getSelectedItem().toString()
+                    + "' AND ENGINE_TYPE = '" + t1
+                    + "' AND LITRES = '" + t3 + "' AND CUBIC_INCHES=" + "'" + t2
+                    + "'";
+            rs = stmnt.executeQuery(sql);
+            rs.next();
+            int rlinkparts = Integer.parseInt(rs.getString(1));
+
+            String sql1 = "SELECT ARS1, ARS2, ARS3, ARS4, MOD1, MOD2,"
+                    + "MOD3, MOD4, BEH1, BEH2, BEH3, BEH4, DAN1, DAN2, DAN3, DAN4 "
+                    + "from RADCRX"
+                    + " WHERE RLINK=" + rlinkparts;
+            System.out.println(sql1);
+            rs = stmnt.executeQuery(sql1);
+            rs.next();
+
+            for (int i = 1; i < 17; i++) {
+                name1.add(rs.getString(i));
+                System.out.println(rs.getString(i));
+            }
+
+            String namearr[] = name1.toArray(new String[name1.size()]);
+            subItems.put("updatecarparts", namearr);
+            Object o = subItems.get("updatecarparts");
+            if (o == null) {
+                updateCarPartsDropDown.setModel(new DefaultComboBoxModel());
+            } else {
+                updateCarPartsDropDown.setModel(new DefaultComboBoxModel((String[]) o));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_updateNextButtonActionPerformed
 
     private void insertCarEngineTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertCarEngineTextFieldActionPerformed
