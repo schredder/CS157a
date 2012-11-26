@@ -267,7 +267,7 @@ public class GUI extends javax.swing.JFrame {
         editCarYearSpinner = new javax.swing.JSpinner();
         makerLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        updatePartsList = new javax.swing.JList();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         carHomeLabel2 = new javax.swing.JLabel();
@@ -2062,14 +2062,19 @@ public class GUI extends javax.swing.JFrame {
         makerLabel4.setForeground(new java.awt.Color(0, 153, 204));
         makerLabel4.setText("Parts:");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        updatePartsList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(updatePartsList);
 
         jButton2.setText("Update This Part");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Delete This Part");
 
@@ -2281,8 +2286,8 @@ public class GUI extends javax.swing.JFrame {
                     .addGap(0, 690, Short.MAX_VALUE)))
         );
 
-        setSize(new java.awt.Dimension(736, 519));
-        setLocationRelativeTo(null);
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-736)/2, (screenSize.height-519)/2, 736, 519);
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeLabelMouseClicked
@@ -3031,6 +3036,13 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_searchHomeLabelMouseClicked
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        // Step 1 - Create new RLINK "RLINK MAX(RLINK) + 1"
+        // Step 2 - Insert values from updatePartsList.getModel (values) or something.
+        // Step 3 - Change part to be change
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void switchVisibility(JPanel componentToShow) {
         hideAllPanels();
         componentToShow.setVisible(true);
@@ -3237,7 +3249,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lastNumLabel;
     private javax.swing.JLabel makerLabel;
@@ -3331,6 +3342,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel updateCar;
     private javax.swing.JButton updateNextButton;
     private javax.swing.JPanel updatePart;
+    private javax.swing.JList updatePartsList;
     private javax.swing.JButton userButton;
     private javax.swing.JButton vendorButton2;
     private javax.swing.JScrollPane vendorDescriptionScrollPane;
@@ -3365,7 +3377,6 @@ public class GUI extends javax.swing.JFrame {
         insertCar.setVisible(false);
         adminPage.setVisible(false);
         searchPage.setVisible(false);
-        fosterHome.setVisible(false);
         engineDropdownReset();
         // Component[] components = this.getComponents();
 
