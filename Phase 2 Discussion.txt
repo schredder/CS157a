@@ -18,6 +18,11 @@ TRANSACTION MANAGEMENT:
     Basically means remembering to excute "COMMIT", 
         and using "SAVEPOINT" on longer transactions.
 
+IMPLEMENT TRIGGERS
+    (e.x. if a part is deleted, all references to that part are deleted)
+    http://docs.oracle.com/cd/B28359_01/appdev.111/b28370/triggers.htm
+    http://docs.oracle.com/cd/B19306_01/appdev.102/b14251/adfns_triggers.htm#ADFNS012
+    http://docs.oracle.com/cd/B19306_01/server.102/b14220/triggers.htm
 =============================
 
 =============================
