@@ -59,6 +59,40 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        homeScreenPage = new javax.swing.JPanel();
+        partButton = new javax.swing.JButton();
+        userButton = new javax.swing.JButton();
+        carButton = new javax.swing.JButton();
+        carDescriptionScrollPane = new javax.swing.JScrollPane();
+        carDescriptionTextArea = new javax.swing.JTextArea();
+        vendorDescriptionScrollPane = new javax.swing.JScrollPane();
+        vendorDescriptionTextArea = new javax.swing.JTextArea();
+        searchDescriptionScrollPane = new javax.swing.JScrollPane();
+        searchDescriptionTextArea = new javax.swing.JTextArea();
+        homeScreenLabel = new javax.swing.JLabel();
+        adminPage = new javax.swing.JPanel();
+        insertButton = new javax.swing.JButton();
+        updateButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
+        adminLabel = new javax.swing.JLabel();
+        adminHomeLabel = new javax.swing.JLabel();
+        adminUpdateScrollPane = new javax.swing.JScrollPane();
+        adminUpdateTextArea = new javax.swing.JTextArea();
+        adminDeleteScrollPane = new javax.swing.JScrollPane();
+        adminDeleteTextArea = new javax.swing.JTextArea();
+        adminInsertScrollPane = new javax.swing.JScrollPane();
+        adminInsertTextArea = new javax.swing.JTextArea();
+        searchPage = new javax.swing.JPanel();
+        carmodelButton2 = new javax.swing.JButton();
+        vendorButton2 = new javax.swing.JButton();
+        searchLabel = new javax.swing.JLabel();
+        searchHomeLabel = new javax.swing.JLabel();
+        searchVendorScrollPane = new javax.swing.JScrollPane();
+        searchVendorTextArea = new javax.swing.JTextArea();
+        searchCarModelScrollPane = new javax.swing.JScrollPane();
+        searchCarModelTextArea = new javax.swing.JTextArea();
+        searchScrollPane = new javax.swing.JScrollPane();
+        searchTextArea = new javax.swing.JTextArea();
         chooseByCarModel = new javax.swing.JPanel();
         choosecarPanel = new java.awt.Panel();
         makerLabel = new javax.swing.JLabel();
@@ -111,10 +145,6 @@ public class GUI extends javax.swing.JFrame {
         navigationPanel = new javax.swing.JPanel();
         partslistNextButton = new javax.swing.JButton();
         partslistPreviousButton = new javax.swing.JButton();
-        homeScreenPage = new javax.swing.JPanel();
-        partButton = new javax.swing.JButton();
-        userButton = new javax.swing.JButton();
-        carButton = new javax.swing.JButton();
         chooseByVendor = new javax.swing.JPanel();
         homeLabel = new javax.swing.JLabel();
         vendorLabel = new javax.swing.JLabel();
@@ -165,15 +195,33 @@ public class GUI extends javax.swing.JFrame {
         insertCarRLINKJspinner = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        fosterHome = new javax.swing.JPanel();
-        carmodelButton1 = new javax.swing.JButton();
-        vendorButton1 = new javax.swing.JButton();
-        insertCarButton1 = new javax.swing.JButton();
-        updateCarButton1 = new javax.swing.JButton();
-        deleteCarButton1 = new javax.swing.JButton();
-        userPage = new javax.swing.JPanel();
-        carmodelButton2 = new javax.swing.JButton();
-        vendorButton2 = new javax.swing.JButton();
+        insertPart = new javax.swing.JPanel();
+        insertCarLabel1 = new javax.swing.JLabel();
+        partslistLeftPanel1 = new javax.swing.JPanel();
+        partslistCoreLabel1 = new javax.swing.JLabel();
+        partslistInheadLabel1 = new javax.swing.JLabel();
+        partslistOutheadLabel1 = new javax.swing.JLabel();
+        partslistInconLabel1 = new javax.swing.JLabel();
+        partslistVendorLabel1 = new javax.swing.JLabel();
+        insertPartCoreTextField = new javax.swing.JTextField();
+        insertPartInheadTextField = new javax.swing.JTextField();
+        insertPartOutheadTextField = new javax.swing.JTextField();
+        insertPartInconTextField = new javax.swing.JTextField();
+        insertPartVendorDropdown = new javax.swing.JComboBox();
+        partslistRightPanel1 = new javax.swing.JPanel();
+        partslistOuconLabel1 = new javax.swing.JLabel();
+        partslistAmountLabel1 = new javax.swing.JLabel();
+        partslistPriceLabel1 = new javax.swing.JLabel();
+        partslistOilcoolLabel1 = new javax.swing.JLabel();
+        partslistTmountLabel1 = new javax.swing.JLabel();
+        insertPartPriceTextField = new javax.swing.JSpinner();
+        insertPartAmountTextField = new javax.swing.JSpinner();
+        insertPartTmountTextField = new javax.swing.JTextField();
+        insertPartOilcoolTextField = new javax.swing.JTextField();
+        insertPartOuconTextField = new javax.swing.JTextField();
+        navigationPanel1 = new javax.swing.JPanel();
+        partslistNextButton1 = new javax.swing.JButton();
+        insertCarLabel2 = new javax.swing.JLabel();
         updatePart = new javax.swing.JPanel();
         homeLabel1 = new javax.swing.JLabel();
         vendorLabel1 = new javax.swing.JLabel();
@@ -226,38 +274,6 @@ public class GUI extends javax.swing.JFrame {
         choosebycarmodelLabel2 = new javax.swing.JLabel();
         nextButtonPanel2 = new java.awt.Panel();
         nextButton3 = new javax.swing.JButton();
-        adminPage = new javax.swing.JPanel();
-        insertButton = new javax.swing.JButton();
-        updateButton = new javax.swing.JButton();
-        deleteButton = new javax.swing.JButton();
-        adminLabel = new javax.swing.JLabel();
-        insertPart = new javax.swing.JPanel();
-        insertCarLabel1 = new javax.swing.JLabel();
-        partslistLeftPanel1 = new javax.swing.JPanel();
-        partslistCoreLabel1 = new javax.swing.JLabel();
-        partslistInheadLabel1 = new javax.swing.JLabel();
-        partslistOutheadLabel1 = new javax.swing.JLabel();
-        partslistInconLabel1 = new javax.swing.JLabel();
-        partslistVendorLabel1 = new javax.swing.JLabel();
-        insertPartCoreTextField = new javax.swing.JTextField();
-        insertPartInheadTextField = new javax.swing.JTextField();
-        insertPartOutheadTextField = new javax.swing.JTextField();
-        insertPartInconTextField = new javax.swing.JTextField();
-        insertPartVendorDropdown = new javax.swing.JComboBox();
-        partslistRightPanel1 = new javax.swing.JPanel();
-        partslistOuconLabel1 = new javax.swing.JLabel();
-        partslistAmountLabel1 = new javax.swing.JLabel();
-        partslistPriceLabel1 = new javax.swing.JLabel();
-        partslistOilcoolLabel1 = new javax.swing.JLabel();
-        partslistTmountLabel1 = new javax.swing.JLabel();
-        insertPartPriceTextField = new javax.swing.JSpinner();
-        insertPartAmountTextField = new javax.swing.JSpinner();
-        insertPartTmountTextField = new javax.swing.JTextField();
-        insertPartOilcoolTextField = new javax.swing.JTextField();
-        insertPartOuconTextField = new javax.swing.JTextField();
-        navigationPanel1 = new javax.swing.JPanel();
-        partslistNextButton1 = new javax.swing.JButton();
-        insertCarLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Car Store");
@@ -268,6 +284,243 @@ public class GUI extends javax.swing.JFrame {
                 formWindowClosing(evt);
             }
         });
+
+        homeScreenPage.setBackground(new java.awt.Color(255, 255, 255));
+        homeScreenPage.setMaximumSize(new java.awt.Dimension(720, 320));
+        homeScreenPage.setMinimumSize(new java.awt.Dimension(720, 320));
+        homeScreenPage.setPreferredSize(new java.awt.Dimension(720, 320));
+        homeScreenPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        partButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vendor.jpg"))); // NOI18N
+        partButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                partButtonActionPerformed(evt);
+            }
+        });
+        homeScreenPage.add(partButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 150, 150));
+
+        userButton.setText("User");
+        userButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userButtonActionPerformed(evt);
+            }
+        });
+        homeScreenPage.add(userButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 150, 150));
+
+        carButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Car Model.jpg"))); // NOI18N
+        carButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carButtonActionPerformed(evt);
+            }
+        });
+        homeScreenPage.add(carButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 5, 150, 150));
+
+        carDescriptionScrollPane.setBorder(null);
+
+        carDescriptionTextArea.setColumns(15);
+        carDescriptionTextArea.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        carDescriptionTextArea.setForeground(new java.awt.Color(153, 153, 153));
+        carDescriptionTextArea.setRows(5);
+        carDescriptionTextArea.setText("Options to create a new car,\nupdate a current car model,\nand delete a current car model.");
+        carDescriptionScrollPane.setViewportView(carDescriptionTextArea);
+
+        homeScreenPage.add(carDescriptionScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 190, 140));
+
+        vendorDescriptionScrollPane.setBorder(null);
+
+        vendorDescriptionTextArea.setColumns(15);
+        vendorDescriptionTextArea.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        vendorDescriptionTextArea.setForeground(new java.awt.Color(153, 153, 153));
+        vendorDescriptionTextArea.setRows(5);
+        vendorDescriptionTextArea.setText("Options to create a new part,\nupdate a current part,\nand delete a current part.");
+        vendorDescriptionScrollPane.setViewportView(vendorDescriptionTextArea);
+
+        homeScreenPage.add(vendorDescriptionScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 190, 150));
+
+        searchDescriptionScrollPane.setBorder(null);
+
+        searchDescriptionTextArea.setColumns(15);
+        searchDescriptionTextArea.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        searchDescriptionTextArea.setForeground(new java.awt.Color(153, 153, 153));
+        searchDescriptionTextArea.setRows(5);
+        searchDescriptionTextArea.setText("Options to search for a part by\ncar model or vendor.");
+        searchDescriptionTextArea.setPreferredSize(new java.awt.Dimension(154, 84));
+        searchDescriptionScrollPane.setViewportView(searchDescriptionTextArea);
+
+        homeScreenPage.add(searchDescriptionScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 180, 140));
+
+        homeScreenLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        homeScreenLabel.setForeground(new java.awt.Color(153, 153, 153));
+        homeScreenLabel.setText("Options");
+        homeScreenPage.add(homeScreenLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        adminPage.setBackground(new java.awt.Color(255, 255, 255));
+        adminPage.setMaximumSize(new java.awt.Dimension(720, 320));
+        adminPage.setMinimumSize(new java.awt.Dimension(720, 320));
+        adminPage.setPreferredSize(new java.awt.Dimension(720, 320));
+        adminPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        insertButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Insert.jpg"))); // NOI18N
+        insertButton.setBorder(null);
+        insertButton.setPreferredSize(new java.awt.Dimension(150, 150));
+        insertButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Insert Hover.jpg"))); // NOI18N
+        insertButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertButtonActionPerformed(evt);
+            }
+        });
+        adminPage.add(insertButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+
+        updateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Update.jpg"))); // NOI18N
+        updateButton.setBorder(null);
+        updateButton.setPreferredSize(new java.awt.Dimension(150, 150));
+        updateButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Update Hover.jpg"))); // NOI18N
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButtonActionPerformed(evt);
+            }
+        });
+        adminPage.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 5, -1, -1));
+
+        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Delete.jpg"))); // NOI18N
+        deleteButton.setBorder(null);
+        deleteButton.setPreferredSize(new java.awt.Dimension(150, 150));
+        deleteButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Delete Hover.jpg"))); // NOI18N
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+        adminPage.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, -1, -1));
+
+        adminLabel.setFont(new java.awt.Font("Segoe UI Light", 1, 30)); // NOI18N
+        adminLabel.setForeground(new java.awt.Color(153, 153, 153));
+        adminLabel.setText("Admin Options");
+        adminLabel.setPreferredSize(new java.awt.Dimension(217, 50));
+        adminPage.add(adminLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 10, -1, -1));
+
+        adminHomeLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        adminHomeLabel.setForeground(new java.awt.Color(204, 204, 204));
+        adminHomeLabel.setText("Home");
+        adminHomeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                adminHomeLabelMouseClicked(evt);
+            }
+        });
+        adminPage.add(adminHomeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 50));
+
+        adminUpdateScrollPane.setBorder(null);
+
+        adminUpdateTextArea.setColumns(15);
+        adminUpdateTextArea.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        adminUpdateTextArea.setForeground(new java.awt.Color(153, 153, 153));
+        adminUpdateTextArea.setRows(5);
+        adminUpdateTextArea.setText("Options to update car model\ndetails or vendor part details.");
+        adminUpdateScrollPane.setViewportView(adminUpdateTextArea);
+
+        adminPage.add(adminUpdateScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 190, 140));
+
+        adminDeleteScrollPane.setBorder(null);
+        adminDeleteScrollPane.setForeground(new java.awt.Color(153, 153, 153));
+
+        adminDeleteTextArea.setColumns(15);
+        adminDeleteTextArea.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        adminDeleteTextArea.setForeground(new java.awt.Color(153, 153, 153));
+        adminDeleteTextArea.setRows(5);
+        adminDeleteTextArea.setText("Options to delete car model\ndetails or vendor part details.");
+        adminDeleteScrollPane.setViewportView(adminDeleteTextArea);
+
+        adminPage.add(adminDeleteScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 190, 150));
+
+        adminInsertScrollPane.setBorder(null);
+
+        adminInsertTextArea.setColumns(15);
+        adminInsertTextArea.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        adminInsertTextArea.setForeground(new java.awt.Color(153, 153, 153));
+        adminInsertTextArea.setRows(5);
+        adminInsertTextArea.setText("Options to add a new car model\nor a new vendor part.");
+        adminInsertScrollPane.setViewportView(adminInsertTextArea);
+
+        adminPage.add(adminInsertScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 180, 150));
+
+        searchPage.setBackground(new java.awt.Color(255, 255, 255));
+        searchPage.setMaximumSize(new java.awt.Dimension(720, 320));
+        searchPage.setMinimumSize(new java.awt.Dimension(720, 320));
+        searchPage.setPreferredSize(new java.awt.Dimension(720, 320));
+        searchPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        carmodelButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Car Model.jpg"))); // NOI18N
+        carmodelButton2.setBorder(null);
+        carmodelButton2.setBorderPainted(false);
+        carmodelButton2.setPreferredSize(new java.awt.Dimension(150, 150));
+        carmodelButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Car Model Hover.jpg"))); // NOI18N
+        carmodelButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carmodelButton2ActionPerformed(evt);
+            }
+        });
+        searchPage.add(carmodelButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, -1, -1));
+
+        vendorButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vendor.jpg"))); // NOI18N
+        vendorButton2.setBorder(null);
+        vendorButton2.setBorderPainted(false);
+        vendorButton2.setPreferredSize(new java.awt.Dimension(150, 150));
+        vendorButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vendor Hover.jpg"))); // NOI18N
+        vendorButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vendorButton2ActionPerformed(evt);
+            }
+        });
+        searchPage.add(vendorButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 5, -1, -1));
+
+        searchLabel.setFont(new java.awt.Font("Segoe UI Light", 1, 30)); // NOI18N
+        searchLabel.setForeground(new java.awt.Color(153, 153, 153));
+        searchLabel.setText("Search Options");
+        searchLabel.setPreferredSize(new java.awt.Dimension(217, 50));
+        searchPage.add(searchLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 10, 240, -1));
+
+        searchHomeLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        searchHomeLabel.setForeground(new java.awt.Color(204, 204, 204));
+        searchHomeLabel.setText("Home");
+        searchHomeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchHomeLabelMouseClicked(evt);
+            }
+        });
+        searchPage.add(searchHomeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 50));
+
+        searchVendorScrollPane.setBorder(null);
+
+        searchVendorTextArea.setColumns(20);
+        searchVendorTextArea.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        searchVendorTextArea.setForeground(new java.awt.Color(153, 153, 153));
+        searchVendorTextArea.setRows(5);
+        searchVendorTextArea.setText("Search for a specific vendor part.");
+        searchVendorScrollPane.setViewportView(searchVendorTextArea);
+
+        searchPage.add(searchVendorScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 210, 140));
+
+        searchCarModelScrollPane.setBorder(null);
+
+        searchCarModelTextArea.setColumns(20);
+        searchCarModelTextArea.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        searchCarModelTextArea.setForeground(new java.awt.Color(153, 153, 153));
+        searchCarModelTextArea.setRows(5);
+        searchCarModelTextArea.setText("Search for a specific car model to\nfind the list of compatible parts.");
+        searchCarModelScrollPane.setViewportView(searchCarModelTextArea);
+
+        searchPage.add(searchCarModelScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 210, 140));
+
+        searchScrollPane.setBorder(null);
+
+        searchTextArea.setColumns(20);
+        searchTextArea.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        searchTextArea.setForeground(new java.awt.Color(153, 153, 153));
+        searchTextArea.setRows(5);
+        searchTextArea.setText("Add some text here so it looks better.\nAdd some text here so it looks better.\nAdd some text here so it looks better.\nAdd some text here so it looks better.\nAdd some text here so it looks better.\nAdd some text here so it looks better.");
+        searchScrollPane.setViewportView(searchTextArea);
+
+        searchPage.add(searchScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 290, 220));
 
         chooseByCarModel.setBackground(new java.awt.Color(255, 255, 255));
         chooseByCarModel.setMaximumSize(new java.awt.Dimension(720, 320));
@@ -407,7 +660,7 @@ public class GUI extends javax.swing.JFrame {
 
         chooseByCarModel.add(choosecarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 720, 200));
 
-        carHomeLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        carHomeLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         carHomeLabel.setForeground(new java.awt.Color(204, 204, 204));
         carHomeLabel.setText("Home");
         carHomeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -415,12 +668,12 @@ public class GUI extends javax.swing.JFrame {
                 carHomeLabelMouseClicked(evt);
             }
         });
-        chooseByCarModel.add(carHomeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-9, 10, 70, -1));
+        chooseByCarModel.add(carHomeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 50));
 
-        choosebycarmodelLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        choosebycarmodelLabel.setFont(new java.awt.Font("Segoe UI Light", 1, 30)); // NOI18N
         choosebycarmodelLabel.setForeground(new java.awt.Color(153, 153, 153));
         choosebycarmodelLabel.setText("Choose by Car Model");
-        chooseByCarModel.add(choosebycarmodelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 0, 280, 50));
+        chooseByCarModel.add(choosebycarmodelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 0, 320, 50));
 
         nextButtonPanel.setBackground(new java.awt.Color(43, 181, 228));
         nextButtonPanel.setMaximumSize(new java.awt.Dimension(720, 25));
@@ -503,7 +756,7 @@ public class GUI extends javax.swing.JFrame {
         carModelParts.setPreferredSize(new java.awt.Dimension(720, 320));
         carModelParts.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        partslistCarHomeLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        partslistCarHomeLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         partslistCarHomeLabel.setForeground(new java.awt.Color(204, 204, 204));
         partslistCarHomeLabel.setText("Home");
         partslistCarHomeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -511,7 +764,7 @@ public class GUI extends javax.swing.JFrame {
                 partslistCarHomeLabelMouseClicked(evt);
             }
         });
-        carModelParts.add(partslistCarHomeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-9, 10, 70, -1));
+        carModelParts.add(partslistCarHomeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 50));
 
         partslistChoosebycarmodelLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         partslistChoosebycarmodelLabel.setForeground(new java.awt.Color(204, 204, 204));
@@ -521,12 +774,12 @@ public class GUI extends javax.swing.JFrame {
                 partslistChoosebycarmodelLabelMouseClicked(evt);
             }
         });
-        carModelParts.add(partslistChoosebycarmodelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 0, 280, 50));
+        carModelParts.add(partslistChoosebycarmodelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 0, 280, 50));
 
-        partslistLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        partslistLabel.setFont(new java.awt.Font("Segoe UI Light", 1, 30)); // NOI18N
         partslistLabel.setForeground(new java.awt.Color(153, 153, 153));
         partslistLabel.setText("Parts List");
-        carModelParts.add(partslistLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, -1, 50));
+        carModelParts.add(partslistLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, -1, 50));
 
         firstNumLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         firstNumLabel.setForeground(new java.awt.Color(0, 153, 204));
@@ -814,43 +1067,13 @@ public class GUI extends javax.swing.JFrame {
 
         carModelParts.add(navigationPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 295, 720, -1));
 
-        homeScreenPage.setBackground(new java.awt.Color(255, 255, 255));
-        homeScreenPage.setMaximumSize(new java.awt.Dimension(720, 320));
-        homeScreenPage.setMinimumSize(new java.awt.Dimension(720, 320));
-        homeScreenPage.setPreferredSize(new java.awt.Dimension(720, 320));
-        homeScreenPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        partButton.setText("Part");
-        partButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                partButtonActionPerformed(evt);
-            }
-        });
-        homeScreenPage.add(partButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 160, 300));
-
-        userButton.setText("User");
-        userButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userButtonActionPerformed(evt);
-            }
-        });
-        homeScreenPage.add(userButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 160, 300));
-
-        carButton.setText("Car");
-        carButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                carButtonActionPerformed(evt);
-            }
-        });
-        homeScreenPage.add(carButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 160, 300));
-
         chooseByVendor.setBackground(new java.awt.Color(255, 255, 255));
         chooseByVendor.setMaximumSize(new java.awt.Dimension(700, 320));
         chooseByVendor.setMinimumSize(new java.awt.Dimension(700, 320));
         chooseByVendor.setPreferredSize(new java.awt.Dimension(720, 320));
         chooseByVendor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        homeLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        homeLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         homeLabel.setForeground(new java.awt.Color(204, 204, 204));
         homeLabel.setText("Home");
         homeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -858,12 +1081,12 @@ public class GUI extends javax.swing.JFrame {
                 homeLabelMouseClicked(evt);
             }
         });
-        chooseByVendor.add(homeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-9, 10, 70, -1));
+        chooseByVendor.add(homeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 50));
 
-        vendorLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        vendorLabel.setFont(new java.awt.Font("Segoe UI Light", 1, 30)); // NOI18N
         vendorLabel.setForeground(new java.awt.Color(153, 153, 153));
         vendorLabel.setText("Choose By Vendor");
-        chooseByVendor.add(vendorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 0, 240, 50));
+        chooseByVendor.add(vendorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 0, 280, 50));
 
         partnumberdropdownLabel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         partnumberdropdownLabel.setForeground(new java.awt.Color(0, 153, 204));
@@ -1302,83 +1525,267 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        fosterHome.setBackground(new java.awt.Color(255, 255, 255));
-        fosterHome.setMaximumSize(new java.awt.Dimension(720, 320));
-        fosterHome.setMinimumSize(new java.awt.Dimension(720, 320));
-        fosterHome.setPreferredSize(new java.awt.Dimension(720, 320));
-        fosterHome.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        insertPart.setBackground(new java.awt.Color(255, 255, 255));
+        insertPart.setMaximumSize(new java.awt.Dimension(720, 320));
+        insertPart.setMinimumSize(new java.awt.Dimension(720, 320));
+        insertPart.setPreferredSize(new java.awt.Dimension(720, 320));
 
-        carmodelButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Car Model.jpg"))); // NOI18N
-        carmodelButton1.setBorder(null);
-        carmodelButton1.setBorderPainted(false);
-        carmodelButton1.setPreferredSize(new java.awt.Dimension(150, 150));
-        carmodelButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Car Model Hover.jpg"))); // NOI18N
-        carmodelButton1.addActionListener(new java.awt.event.ActionListener() {
+        insertCarLabel1.setText("Home >");
+
+        partslistLeftPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        partslistCoreLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        partslistCoreLabel1.setForeground(new java.awt.Color(0, 153, 204));
+        partslistCoreLabel1.setText("Core");
+
+        partslistInheadLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        partslistInheadLabel1.setForeground(new java.awt.Color(0, 153, 204));
+        partslistInheadLabel1.setText("Inhead");
+
+        partslistOutheadLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        partslistOutheadLabel1.setForeground(new java.awt.Color(0, 153, 204));
+        partslistOutheadLabel1.setText("Outhead");
+
+        partslistInconLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        partslistInconLabel1.setForeground(new java.awt.Color(0, 153, 204));
+        partslistInconLabel1.setText("Incon");
+
+        partslistVendorLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        partslistVendorLabel1.setForeground(new java.awt.Color(0, 153, 204));
+        partslistVendorLabel1.setText("Vendor");
+
+        insertPartCoreTextField.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
+        insertPartCoreTextField.setText("NA");
+
+        insertPartInheadTextField.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
+        insertPartInheadTextField.setText("NA");
+
+        insertPartOutheadTextField.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
+        insertPartOutheadTextField.setText("NA");
+
+        insertPartInconTextField.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
+        insertPartInconTextField.setText("NA");
+
+        insertPartVendorDropdown.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
+        insertPartVendorDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "BEH", "ARS", "BAN", "MOD" }));
+        insertPartVendorDropdown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                carmodelButton1ActionPerformed(evt);
+                insertPartVendorDropdownActionPerformed(evt);
             }
         });
-        fosterHome.add(carmodelButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
-        vendorButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vendor.jpg"))); // NOI18N
-        vendorButton1.setBorder(null);
-        vendorButton1.setBorderPainted(false);
-        vendorButton1.setPreferredSize(new java.awt.Dimension(150, 150));
-        vendorButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vendor Hover.jpg"))); // NOI18N
-        vendorButton1.addActionListener(new java.awt.event.ActionListener() {
+        javax.swing.GroupLayout partslistLeftPanel1Layout = new javax.swing.GroupLayout(partslistLeftPanel1);
+        partslistLeftPanel1.setLayout(partslistLeftPanel1Layout);
+        partslistLeftPanel1Layout.setHorizontalGroup(
+            partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(partslistLeftPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(partslistLeftPanel1Layout.createSequentialGroup()
+                        .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(partslistCoreLabel1)
+                            .addComponent(partslistInheadLabel1)
+                            .addComponent(partslistOutheadLabel1)
+                            .addComponent(partslistInconLabel1))
+                        .addGap(63, 63, 63)
+                        .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(insertPartInconTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                            .addComponent(insertPartOutheadTextField)
+                            .addComponent(insertPartInheadTextField)
+                            .addComponent(insertPartCoreTextField))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(partslistLeftPanel1Layout.createSequentialGroup()
+                        .addComponent(partslistVendorLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(insertPartVendorDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        partslistLeftPanel1Layout.setVerticalGroup(
+            partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(partslistLeftPanel1Layout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(insertPartVendorDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(partslistVendorLabel1))
+                .addGap(11, 11, 11)
+                .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(partslistCoreLabel1)
+                    .addComponent(insertPartCoreTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(partslistInheadLabel1)
+                    .addComponent(insertPartInheadTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(partslistOutheadLabel1)
+                    .addComponent(insertPartOutheadTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(partslistInconLabel1)
+                    .addComponent(insertPartInconTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        partslistRightPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        partslistOuconLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        partslistOuconLabel1.setForeground(new java.awt.Color(0, 153, 204));
+        partslistOuconLabel1.setText("Oucon");
+
+        partslistAmountLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        partslistAmountLabel1.setForeground(new java.awt.Color(0, 153, 204));
+        partslistAmountLabel1.setText("Amount");
+
+        partslistPriceLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        partslistPriceLabel1.setForeground(new java.awt.Color(0, 153, 204));
+        partslistPriceLabel1.setText("Price");
+
+        partslistOilcoolLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        partslistOilcoolLabel1.setForeground(new java.awt.Color(0, 153, 204));
+        partslistOilcoolLabel1.setText("Oilcool");
+
+        partslistTmountLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        partslistTmountLabel1.setForeground(new java.awt.Color(0, 153, 204));
+        partslistTmountLabel1.setText("Tmount");
+
+        insertPartPriceTextField.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
+
+        insertPartAmountTextField.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
+
+        insertPartTmountTextField.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
+        insertPartTmountTextField.setText("NA");
+
+        insertPartOilcoolTextField.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
+        insertPartOilcoolTextField.setText("NA");
+
+        insertPartOuconTextField.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
+        insertPartOuconTextField.setText("NA");
+
+        javax.swing.GroupLayout partslistRightPanel1Layout = new javax.swing.GroupLayout(partslistRightPanel1);
+        partslistRightPanel1.setLayout(partslistRightPanel1Layout);
+        partslistRightPanel1Layout.setHorizontalGroup(
+            partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(partslistRightPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(partslistRightPanel1Layout.createSequentialGroup()
+                        .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(partslistPriceLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(partslistRightPanel1Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(partslistAmountLabel1)))
+                        .addGap(31, 31, 31)
+                        .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(insertPartPriceTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                            .addComponent(insertPartAmountTextField)))
+                    .addGroup(partslistRightPanel1Layout.createSequentialGroup()
+                        .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(partslistOilcoolLabel1)
+                            .addComponent(partslistTmountLabel1)
+                            .addComponent(partslistOuconLabel1))
+                        .addGap(34, 34, 34)
+                        .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(insertPartTmountTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(insertPartOuconTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                            .addComponent(insertPartOilcoolTextField))))
+                .addContainerGap())
+        );
+        partslistRightPanel1Layout.setVerticalGroup(
+            partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(partslistRightPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(partslistOuconLabel1)
+                    .addComponent(insertPartOuconTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(partslistTmountLabel1)
+                    .addComponent(insertPartTmountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(partslistOilcoolLabel1)
+                    .addComponent(insertPartOilcoolTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(partslistPriceLabel1)
+                    .addComponent(insertPartPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(partslistAmountLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(insertPartAmountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10))
+        );
+
+        navigationPanel1.setBackground(new java.awt.Color(43, 181, 228));
+        navigationPanel1.setMaximumSize(new java.awt.Dimension(720, 25));
+        navigationPanel1.setMinimumSize(new java.awt.Dimension(720, 25));
+
+        partslistNextButton1.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        partslistNextButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Next Button.jpg"))); // NOI18N
+        partslistNextButton1.setBorder(null);
+        partslistNextButton1.setIconTextGap(0);
+        partslistNextButton1.setMaximumSize(new java.awt.Dimension(80, 25));
+        partslistNextButton1.setMinimumSize(new java.awt.Dimension(80, 25));
+        partslistNextButton1.setPreferredSize(new java.awt.Dimension(80, 25));
+        partslistNextButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Next Button Hover.jpg"))); // NOI18N
+        partslistNextButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vendorButton1ActionPerformed(evt);
+                partslistNextButton1ActionPerformed(evt);
             }
         });
-        fosterHome.add(vendorButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
-        insertCarButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Insert.jpg"))); // NOI18N
-        insertCarButton1.setBorder(null);
-        insertCarButton1.setPreferredSize(new java.awt.Dimension(150, 150));
-        insertCarButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Insert Hover.jpg"))); // NOI18N
-        fosterHome.add(insertCarButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 150, -1));
+        javax.swing.GroupLayout navigationPanel1Layout = new javax.swing.GroupLayout(navigationPanel1);
+        navigationPanel1.setLayout(navigationPanel1Layout);
+        navigationPanel1Layout.setHorizontalGroup(
+            navigationPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navigationPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(partslistNextButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
+        );
+        navigationPanel1Layout.setVerticalGroup(
+            navigationPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navigationPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(partslistNextButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
-        updateCarButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Update.jpg"))); // NOI18N
-        updateCarButton1.setBorder(null);
-        updateCarButton1.setPreferredSize(new java.awt.Dimension(150, 150));
-        updateCarButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Update Hover.jpg"))); // NOI18N
-        fosterHome.add(updateCarButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, -1, -1));
+        insertCarLabel2.setText("Insert Part");
 
-        deleteCarButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Delete.jpg"))); // NOI18N
-        deleteCarButton1.setBorder(null);
-        deleteCarButton1.setPreferredSize(new java.awt.Dimension(150, 150));
-        deleteCarButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Delete Hover.jpg"))); // NOI18N
-        fosterHome.add(deleteCarButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, -1, -1));
-
-        userPage.setBackground(new java.awt.Color(255, 255, 255));
-        userPage.setMaximumSize(new java.awt.Dimension(720, 320));
-        userPage.setMinimumSize(new java.awt.Dimension(720, 320));
-        userPage.setPreferredSize(new java.awt.Dimension(720, 320));
-        userPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        carmodelButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Car Model.jpg"))); // NOI18N
-        carmodelButton2.setBorder(null);
-        carmodelButton2.setBorderPainted(false);
-        carmodelButton2.setPreferredSize(new java.awt.Dimension(150, 150));
-        carmodelButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Car Model Hover.jpg"))); // NOI18N
-        carmodelButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                carmodelButton2ActionPerformed(evt);
-            }
-        });
-        userPage.add(carmodelButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, -1, -1));
-
-        vendorButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vendor.jpg"))); // NOI18N
-        vendorButton2.setBorder(null);
-        vendorButton2.setBorderPainted(false);
-        vendorButton2.setPreferredSize(new java.awt.Dimension(150, 150));
-        vendorButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vendor Hover.jpg"))); // NOI18N
-        vendorButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vendorButton2ActionPerformed(evt);
-            }
-        });
-        userPage.add(vendorButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+        javax.swing.GroupLayout insertPartLayout = new javax.swing.GroupLayout(insertPart);
+        insertPart.setLayout(insertPartLayout);
+        insertPartLayout.setHorizontalGroup(
+            insertPartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(insertPartLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(insertPartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(insertPartLayout.createSequentialGroup()
+                        .addComponent(insertCarLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(insertCarLabel2))
+                    .addGroup(insertPartLayout.createSequentialGroup()
+                        .addComponent(partslistLeftPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(partslistRightPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addComponent(navigationPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        insertPartLayout.setVerticalGroup(
+            insertPartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(insertPartLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(insertPartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(insertCarLabel1)
+                    .addComponent(insertCarLabel2))
+                .addGap(23, 23, 23)
+                .addGroup(insertPartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(insertPartLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(partslistLeftPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(partslistRightPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(navigationPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         updatePart.setBackground(new java.awt.Color(255, 255, 255));
         updatePart.setPreferredSize(new java.awt.Dimension(720, 373));
@@ -1739,7 +2146,7 @@ public class GUI extends javax.swing.JFrame {
 
         updateCar.add(choosecarPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 720, 200));
 
-        carHomeLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        carHomeLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
         carHomeLabel2.setForeground(new java.awt.Color(204, 204, 204));
         carHomeLabel2.setText("Home");
         carHomeLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1747,12 +2154,12 @@ public class GUI extends javax.swing.JFrame {
                 carHomeLabel2MouseClicked(evt);
             }
         });
-        updateCar.add(carHomeLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 70, -1));
+        updateCar.add(carHomeLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 50));
 
-        choosebycarmodelLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 30)); // NOI18N
+        choosebycarmodelLabel2.setFont(new java.awt.Font("Segoe UI Light", 1, 30)); // NOI18N
         choosebycarmodelLabel2.setForeground(new java.awt.Color(153, 153, 153));
         choosebycarmodelLabel2.setText("Update Car Model");
-        updateCar.add(choosebycarmodelLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 280, 50));
+        updateCar.add(choosebycarmodelLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 0, 280, 50));
 
         nextButtonPanel2.setBackground(new java.awt.Color(43, 181, 228));
         nextButtonPanel2.setMaximumSize(new java.awt.Dimension(720, 25));
@@ -1791,333 +2198,45 @@ public class GUI extends javax.swing.JFrame {
 
         updateCar.add(nextButtonPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 295, 720, -1));
 
-        adminPage.setBackground(new java.awt.Color(255, 255, 255));
-        adminPage.setMaximumSize(new java.awt.Dimension(720, 320));
-        adminPage.setMinimumSize(new java.awt.Dimension(720, 320));
-        adminPage.setPreferredSize(new java.awt.Dimension(720, 320));
-        adminPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        insertButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Insert.jpg"))); // NOI18N
-        insertButton.setBorder(null);
-        insertButton.setPreferredSize(new java.awt.Dimension(150, 150));
-        insertButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Insert Hover.jpg"))); // NOI18N
-        insertButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                insertButtonActionPerformed(evt);
-            }
-        });
-        adminPage.add(insertButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 150, -1));
-
-        updateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Update.jpg"))); // NOI18N
-        updateButton.setBorder(null);
-        updateButton.setPreferredSize(new java.awt.Dimension(150, 150));
-        updateButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Update Hover.jpg"))); // NOI18N
-        updateButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateButtonActionPerformed(evt);
-            }
-        });
-        adminPage.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, -1));
-
-        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Delete.jpg"))); // NOI18N
-        deleteButton.setBorder(null);
-        deleteButton.setPreferredSize(new java.awt.Dimension(150, 150));
-        deleteButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Delete Hover.jpg"))); // NOI18N
-        deleteButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButtonActionPerformed(evt);
-            }
-        });
-        adminPage.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, -1, -1));
-
-        adminLabel.setText("Admin > ");
-        adminPage.add(adminLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        insertCarLabel1.setText("Home >");
-
-        partslistLeftPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        partslistCoreLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        partslistCoreLabel1.setForeground(new java.awt.Color(0, 153, 204));
-        partslistCoreLabel1.setText("Core");
-
-        partslistInheadLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        partslistInheadLabel1.setForeground(new java.awt.Color(0, 153, 204));
-        partslistInheadLabel1.setText("Inhead");
-
-        partslistOutheadLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        partslistOutheadLabel1.setForeground(new java.awt.Color(0, 153, 204));
-        partslistOutheadLabel1.setText("Outhead");
-
-        partslistInconLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        partslistInconLabel1.setForeground(new java.awt.Color(0, 153, 204));
-        partslistInconLabel1.setText("Incon");
-
-        partslistVendorLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        partslistVendorLabel1.setForeground(new java.awt.Color(0, 153, 204));
-        partslistVendorLabel1.setText("Vendor");
-
-        insertPartCoreTextField.setText("NA");
-
-        insertPartInheadTextField.setText("NA");
-
-        insertPartOutheadTextField.setText("NA");
-
-        insertPartInconTextField.setText("NA");
-
-        insertPartVendorDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "BEH", "ARS", "BAN", "MOD" }));
-        insertPartVendorDropdown.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                insertPartVendorDropdownActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout partslistLeftPanel1Layout = new javax.swing.GroupLayout(partslistLeftPanel1);
-        partslistLeftPanel1.setLayout(partslistLeftPanel1Layout);
-        partslistLeftPanel1Layout.setHorizontalGroup(
-            partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(partslistLeftPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(partslistCoreLabel1)
-                    .addComponent(partslistInheadLabel1)
-                    .addComponent(partslistOutheadLabel1)
-                    .addComponent(partslistInconLabel1)
-                    .addComponent(partslistVendorLabel1))
-                .addGap(63, 63, 63)
-                .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(insertPartInconTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-                    .addComponent(insertPartOutheadTextField)
-                    .addComponent(insertPartInheadTextField)
-                    .addComponent(insertPartCoreTextField)
-                    .addComponent(insertPartVendorDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        partslistLeftPanel1Layout.setVerticalGroup(
-            partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(partslistLeftPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partslistCoreLabel1)
-                    .addComponent(insertPartCoreTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partslistInheadLabel1)
-                    .addComponent(insertPartInheadTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partslistOutheadLabel1)
-                    .addComponent(insertPartOutheadTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partslistInconLabel1)
-                    .addComponent(insertPartInconTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(partslistLeftPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partslistVendorLabel1)
-                    .addComponent(insertPartVendorDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
-
-        partslistRightPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        partslistOuconLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        partslistOuconLabel1.setForeground(new java.awt.Color(0, 153, 204));
-        partslistOuconLabel1.setText("Oucon");
-
-        partslistAmountLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        partslistAmountLabel1.setForeground(new java.awt.Color(0, 153, 204));
-        partslistAmountLabel1.setText("Amount");
-
-        partslistPriceLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        partslistPriceLabel1.setForeground(new java.awt.Color(0, 153, 204));
-        partslistPriceLabel1.setText("Price");
-
-        partslistOilcoolLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        partslistOilcoolLabel1.setForeground(new java.awt.Color(0, 153, 204));
-        partslistOilcoolLabel1.setText("Oilcool");
-
-        partslistTmountLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        partslistTmountLabel1.setForeground(new java.awt.Color(0, 153, 204));
-        partslistTmountLabel1.setText("Tmount");
-
-        insertPartTmountTextField.setText("NA");
-
-        insertPartOilcoolTextField.setText("NA");
-
-        insertPartOuconTextField.setText("NA");
-
-        javax.swing.GroupLayout partslistRightPanel1Layout = new javax.swing.GroupLayout(partslistRightPanel1);
-        partslistRightPanel1.setLayout(partslistRightPanel1Layout);
-        partslistRightPanel1Layout.setHorizontalGroup(
-            partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(partslistRightPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(partslistRightPanel1Layout.createSequentialGroup()
-                        .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(partslistPriceLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(partslistRightPanel1Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(partslistAmountLabel1)))
-                        .addGap(31, 31, 31)
-                        .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(insertPartPriceTextField)
-                            .addComponent(insertPartAmountTextField)))
-                    .addGroup(partslistRightPanel1Layout.createSequentialGroup()
-                        .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(partslistOilcoolLabel1)
-                            .addComponent(partslistTmountLabel1)
-                            .addComponent(partslistOuconLabel1))
-                        .addGap(34, 34, 34)
-                        .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(insertPartOuconTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                            .addComponent(insertPartTmountTextField)
-                            .addComponent(insertPartOilcoolTextField))))
-                .addContainerGap())
-        );
-        partslistRightPanel1Layout.setVerticalGroup(
-            partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(partslistRightPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partslistOuconLabel1)
-                    .addComponent(insertPartOuconTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partslistTmountLabel1)
-                    .addComponent(insertPartTmountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partslistOilcoolLabel1)
-                    .addComponent(insertPartOilcoolTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partslistPriceLabel1)
-                    .addComponent(insertPartPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addGroup(partslistRightPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(partslistAmountLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(insertPartAmountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10))
-        );
-
-        navigationPanel1.setBackground(new java.awt.Color(43, 181, 228));
-        navigationPanel1.setMaximumSize(new java.awt.Dimension(720, 25));
-        navigationPanel1.setMinimumSize(new java.awt.Dimension(720, 25));
-
-        partslistNextButton1.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        partslistNextButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Next Button.jpg"))); // NOI18N
-        partslistNextButton1.setBorder(null);
-        partslistNextButton1.setIconTextGap(0);
-        partslistNextButton1.setMaximumSize(new java.awt.Dimension(80, 25));
-        partslistNextButton1.setMinimumSize(new java.awt.Dimension(80, 25));
-        partslistNextButton1.setPreferredSize(new java.awt.Dimension(80, 25));
-        partslistNextButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Next Button Hover.jpg"))); // NOI18N
-        partslistNextButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                partslistNextButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout navigationPanel1Layout = new javax.swing.GroupLayout(navigationPanel1);
-        navigationPanel1.setLayout(navigationPanel1Layout);
-        navigationPanel1Layout.setHorizontalGroup(
-            navigationPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navigationPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(partslistNextButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        navigationPanel1Layout.setVerticalGroup(
-            navigationPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navigationPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(partslistNextButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        insertCarLabel2.setText("Insert Part");
-
-        javax.swing.GroupLayout insertPartLayout = new javax.swing.GroupLayout(insertPart);
-        insertPart.setLayout(insertPartLayout);
-        insertPartLayout.setHorizontalGroup(
-            insertPartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(insertPartLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(insertPartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(insertPartLayout.createSequentialGroup()
-                        .addGroup(insertPartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(insertPartLayout.createSequentialGroup()
-                                .addComponent(insertCarLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(insertCarLabel2))
-                            .addGroup(insertPartLayout.createSequentialGroup()
-                                .addComponent(partslistLeftPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(42, 42, 42)
-                                .addComponent(partslistRightPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 42, Short.MAX_VALUE))
-                    .addComponent(navigationPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-        insertPartLayout.setVerticalGroup(
-            insertPartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(insertPartLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(insertPartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(insertCarLabel1)
-                    .addComponent(insertCarLabel2))
-                .addGap(23, 23, 23)
-                .addGroup(insertPartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(partslistRightPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(partslistLeftPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(navigationPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(homeScreenPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(chooseByCarModel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(chooseByVendor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 90, Short.MAX_VALUE)))
+                    .addGap(0, 20, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(carModelParts, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(fosterHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 90, Short.MAX_VALUE)))
+                .addComponent(carModelParts, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(userPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 90, Short.MAX_VALUE)))
+                    .addComponent(searchPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 20, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(updatePart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 90, Short.MAX_VALUE)))
+                    .addGap(0, 20, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(updateCar, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 90, Short.MAX_VALUE)))
+                    .addGap(0, 20, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(adminPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 90, Short.MAX_VALUE)))
+                    .addGap(0, 20, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(insertPart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 20, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(insertCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 70, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2138,11 +2257,7 @@ public class GUI extends javax.swing.JFrame {
                     .addGap(0, 752, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(fosterHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 752, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(userPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 752, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -2158,17 +2273,16 @@ public class GUI extends javax.swing.JFrame {
                     .addGap(0, 752, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 334, Short.MAX_VALUE)
                     .addComponent(insertPart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 334, Short.MAX_VALUE)))
+                    .addGap(0, 752, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(insertCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 690, Short.MAX_VALUE)))
         );
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-736)/2, (screenSize.height-519)/2, 736, 519);
+        setSize(new java.awt.Dimension(736, 519));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeLabelMouseClicked
@@ -2774,14 +2888,6 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_deletePartButtonActionPerformed
 
-    private void carmodelButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carmodelButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_carmodelButton1ActionPerformed
-
-    private void vendorButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendorButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vendorButton1ActionPerformed
-
     private void carmodelButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carmodelButton2ActionPerformed
         // TODO add your handling code here:
         hideAllPanels();
@@ -2795,7 +2901,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_vendorButton2ActionPerformed
 
     private void userButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userButtonActionPerformed
-        switchVisibility(userPage);
+        switchVisibility(searchPage);
     }//GEN-LAST:event_userButtonActionPerformed
 
     private void carButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carButtonActionPerformed
@@ -2917,6 +3023,14 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_insertCarRLINKJspinnerActionPerformed
 
+    private void adminHomeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminHomeLabelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_adminHomeLabelMouseClicked
+
+    private void searchHomeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchHomeLabelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchHomeLabelMouseClicked
+
     private void switchVisibility(JPanel componentToShow) {
         hideAllPanels();
         componentToShow.setVisible(true);
@@ -3026,18 +3140,26 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField InsertCarDescriptionTextField;
     private javax.swing.JComboBox InsertCarMakerDropdown;
     private java.awt.Panel InsertCarPanel2;
+    private javax.swing.JScrollPane adminDeleteScrollPane;
+    private javax.swing.JTextArea adminDeleteTextArea;
+    private javax.swing.JLabel adminHomeLabel;
+    private javax.swing.JScrollPane adminInsertScrollPane;
+    private javax.swing.JTextArea adminInsertTextArea;
     private javax.swing.JLabel adminLabel;
     private javax.swing.JPanel adminPage;
+    private javax.swing.JScrollPane adminUpdateScrollPane;
+    private javax.swing.JTextArea adminUpdateTextArea;
     private javax.swing.JLabel amountLabel;
     private javax.swing.JLabel amountLabel1;
     private javax.swing.JLabel amountText;
     private javax.swing.JButton carButton;
+    private javax.swing.JScrollPane carDescriptionScrollPane;
+    private javax.swing.JTextArea carDescriptionTextArea;
     private javax.swing.JLabel carHomeLabel;
     private javax.swing.JLabel carHomeLabel2;
     private javax.swing.JComboBox carMakerDropdown;
     private javax.swing.JComboBox carModelDropdown;
     private javax.swing.JPanel carModelParts;
-    private javax.swing.JButton carmodelButton1;
     private javax.swing.JButton carmodelButton2;
     private javax.swing.JPanel chooseByCarModel;
     private javax.swing.JPanel chooseByVendor;
@@ -3049,7 +3171,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel coreLabel1;
     private javax.swing.JLabel coreText;
     private javax.swing.JButton deleteButton;
-    private javax.swing.JButton deleteCarButton1;
     private javax.swing.JButton deleteNextButton;
     private javax.swing.JButton deletePartButton;
     private javax.swing.JComboBox descriptionDropdown;
@@ -3079,9 +3200,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel engineLabel4;
     private javax.swing.JLabel engineLabel6;
     private javax.swing.JLabel firstNumLabel;
-    private javax.swing.JPanel fosterHome;
     private javax.swing.JLabel homeLabel;
     private javax.swing.JLabel homeLabel1;
+    private javax.swing.JLabel homeScreenLabel;
     private javax.swing.JPanel homeScreenPage;
     private javax.swing.JLabel inconLabel;
     private javax.swing.JLabel inconLabel1;
@@ -3091,7 +3212,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel inheadText;
     private javax.swing.JButton insertButton;
     private javax.swing.JPanel insertCar;
-    private javax.swing.JButton insertCarButton1;
     private javax.swing.JSpinner insertCarCubicInchesSpinner;
     private javax.swing.JTextField insertCarEngineTextField;
     private javax.swing.JLabel insertCarLabel;
@@ -3193,18 +3313,28 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel priceLabel;
     private javax.swing.JLabel priceLabel1;
     private javax.swing.JLabel priceText;
+    private javax.swing.JScrollPane searchCarModelScrollPane;
+    private javax.swing.JTextArea searchCarModelTextArea;
+    private javax.swing.JScrollPane searchDescriptionScrollPane;
+    private javax.swing.JTextArea searchDescriptionTextArea;
+    private javax.swing.JLabel searchHomeLabel;
+    private javax.swing.JLabel searchLabel;
+    private javax.swing.JPanel searchPage;
+    private javax.swing.JScrollPane searchScrollPane;
+    private javax.swing.JTextArea searchTextArea;
+    private javax.swing.JScrollPane searchVendorScrollPane;
+    private javax.swing.JTextArea searchVendorTextArea;
     private javax.swing.JLabel tmountLabel;
     private javax.swing.JLabel tmountLabel1;
     private javax.swing.JLabel tmountText;
     private javax.swing.JButton updateButton;
     private javax.swing.JPanel updateCar;
-    private javax.swing.JButton updateCarButton1;
     private javax.swing.JButton updateNextButton;
     private javax.swing.JPanel updatePart;
     private javax.swing.JButton userButton;
-    private javax.swing.JPanel userPage;
-    private javax.swing.JButton vendorButton1;
     private javax.swing.JButton vendorButton2;
+    private javax.swing.JScrollPane vendorDescriptionScrollPane;
+    private javax.swing.JTextArea vendorDescriptionTextArea;
     private javax.swing.JComboBox vendorDropdown;
     private javax.swing.JComboBox vendorDropdown1;
     private javax.swing.JLabel vendorLabel;
@@ -3234,7 +3364,7 @@ public class GUI extends javax.swing.JFrame {
         updatePart.setVisible(false);
         insertCar.setVisible(false);
         adminPage.setVisible(false);
-        userPage.setVisible(false);
+        searchPage.setVisible(false);
         fosterHome.setVisible(false);
         engineDropdownReset();
         // Component[] components = this.getComponents();
