@@ -2288,7 +2288,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(updateCar, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 752, Short.MAX_VALUE)))
+                    .addGap(0, 737, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(adminPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2496,7 +2496,7 @@ public class GUI extends javax.swing.JFrame {
     private void InsertCarMakerDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertCarMakerDropdownActionPerformed
         // populate the RLINK dropdown
         insertCarRLINKJspinner.setEnabled(true);
-        
+
         try {
             ResultSet rs;
             String getPart = (String) InsertCarMakerDropdown.getSelectedItem();
@@ -2882,31 +2882,31 @@ public class GUI extends javax.swing.JFrame {
 
     private void nextButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButton3ActionPerformed
         String editcarmake = editCarMakerTextField.getText().substring(0, 3);
-    String editcarmodel = editCarModelTextField.getText();
-    String editcardesc = editCarDescriptionTextField.getText();
-    String editcaryear = editCarYearSpinner.getValue().toString();
-    String editengine = editCarEngineTextField.getText();
-    String editcubic= editCarCubicInchesSpinner.getValue().toString();
-    String editlitres = editCarLitersTextField.getText();
-    //int editcary = Integer.parseInt(editcaryear);
+        String editcarmodel = editCarModelTextField.getText();
+        String editcardesc = editCarDescriptionTextField.getText();
+        String editcaryear = editCarYearSpinner.getValue().toString();
+        String editengine = editCarEngineTextField.getText();
+        String editcubic = editCarCubicInchesSpinner.getValue().toString();
+        String editlitres = editCarLitersTextField.getText();
+        //int editcary = Integer.parseInt(editcaryear);
         String t = engineDropdown.getSelectedItem().toString();
-        String t1= t.split("-")[0];
-        String t2= t.split("-")[1];
-        String t3= t.split("-")[2];
-        
+        String t1 = t.split("-")[0];
+        String t2 = t.split("-")[1];
+        String t3 = t.split("-")[2];
+
         try {
             String sql = "UPDATE APL" + editcarmake + " SET YEAR = '"
-                    +editcaryear+"', DESCRIPTION = '"+editcardesc+"', LITRES='"
-                    +editlitres +"', ENGINE_TYPE = '"
-                    + editengine+"', CUBIC_INCHES = '"
-                    + editcubic+"'"+ " WHERE MODEL='" + carModelDropdown.getSelectedItem().toString() + 
-                    "' AND YEAR='"
-                    + yearDropdown.getSelectedItem().toString() + "' AND DESCRIPTION='" +
-                    descriptionDropdown.getSelectedItem().toString() 
+                    + editcaryear + "', DESCRIPTION = '" + editcardesc + "', LITRES='"
+                    + editlitres + "', ENGINE_TYPE = '"
+                    + editengine + "', CUBIC_INCHES = '"
+                    + editcubic + "'" + " WHERE MODEL='" + carModelDropdown.getSelectedItem().toString()
+                    + "' AND YEAR='"
+                    + yearDropdown.getSelectedItem().toString() + "' AND DESCRIPTION='"
+                    + descriptionDropdown.getSelectedItem().toString()
                     + "' AND ENGINE_TYPE = '" + t1
                     + "' AND LITRES = '" + t3 + "' AND CUBIC_INCHES=" + "'" + t2
                     + "'";
-System.out.println(sql);
+            System.out.println(sql);
             int update = stmnt.executeUpdate(sql);
             if (update == 1) {
                 popup("Successfully Updated vendor " + carModelDropdown.getSelectedItem().toString()
@@ -2964,7 +2964,6 @@ System.out.println(sql);
         deletePartButton.setVisible(false);
         updatePart.setVisible(false);
         updateSelectedPartButton.setVisible(false);
-        updatePart.setVisible(true);
     }//GEN-LAST:event_vendorButton2ActionPerformed
 
     private void userButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userButtonActionPerformed
@@ -2985,12 +2984,12 @@ System.out.println(sql);
         cameFrom = "part";
         adminPage.setVisible(true);
         adminLabel.setText("Admin > Part");
-        
+
         //For parts screen
         vendorDropdown1.setEnabled(true);
         vendorDropdown1.setSelectedIndex(0);
         deletePartButton.setVisible(true);;
-        
+
     }//GEN-LAST:event_partButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -3001,13 +3000,13 @@ System.out.println(sql);
         String insertcarengine = insertCarEngineTextField.getText();
         String insertcarcubic = insertCarCubicInchesSpinner.getValue().toString();
         String insertcarlitres = insertCarLitersSpinner.getValue().toString();
-        String insertrlink  = insertCarRLINKJspinner.getSelectedItem().toString();
+        String insertrlink = insertCarRLINKJspinner.getSelectedItem().toString();
         int insertrlinkint = Integer.parseInt(insertrlink);
         System.out.println("Choose Car: " + choosecar);
 
         String insertsql = "INSERT INTO APL" + choosecar + " VALUES ('"
                 + insertcarmodel + "','" + insertcaryear + "','" + insertcardesc + "','" + insertcarlitres + "','"
-                + insertcarengine + "','" + insertcarcubic + "',"+insertrlinkint+")";
+                + insertcarengine + "','" + insertcarcubic + "'," + insertrlinkint + ")";
         System.out.println(insertsql);
 
         try {
@@ -3038,6 +3037,7 @@ System.out.println(sql);
         deleteNextButton.setVisible(false);
         viewNextButton.setVisible(false);
         updatePartButton.setVisible(true);
+        updateSelectedPartButton.setVisible(false);
         if (cameFrom.equals("part")) {
             updatePart.setVisible(true);
         } else {
@@ -3052,6 +3052,7 @@ System.out.println(sql);
         deleteNextButton.setVisible(false);
         viewNextButton.setVisible(false);
         updatePartButton.setVisible(true);
+        updateSelectedPartButton.setVisible(false);
         if (cameFrom.equals("part")) {
             updatePart.setVisible(true);
 
@@ -3089,7 +3090,7 @@ System.out.println(sql);
     private void updateSelectedPartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateSelectedPartButtonActionPerformed
         // TODO add your handling code here:
         switchVisibility(updateCar);
-        
+
         //then update the parts list
     }//GEN-LAST:event_updateSelectedPartButtonActionPerformed
 
@@ -3118,12 +3119,12 @@ System.out.println(sql);
         vendorDropdown1.setSelectedIndex(0);
         vendorPartNumberDropdown1.setEnabled(false);
         deletePartButton.setVisible(false);
-        
+
         // TODO add your handling code here:
         // Step 1 - Create new RLINK "RLINK MAX(RLINK) + 1"
         // Step 2 - Insert values from updatePartsList.getModel (values) or something.
         // Step 3 - Change part to be change
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void updatePartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePartButtonActionPerformed
