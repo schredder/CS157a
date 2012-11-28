@@ -524,11 +524,11 @@ public class GUI extends javax.swing.JFrame {
 
         searchScrollPane.setBorder(null);
 
-        searchTextArea.setColumns(20);
+        searchTextArea.setColumns(15);
         searchTextArea.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         searchTextArea.setForeground(new java.awt.Color(153, 153, 153));
         searchTextArea.setRows(5);
-        searchTextArea.setText("By using these search options, you agree to the\n Team 12 license and agreements policy.");
+        searchTextArea.setText("Search by Vendor and Part Number or\nby Car Maker, Model, Year, etc.");
         searchScrollPane.setViewportView(searchTextArea);
 
         searchPage.add(searchScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 290, 220));
@@ -1544,7 +1544,13 @@ public class GUI extends javax.swing.JFrame {
         insertCarNavigationPanel.setBackground(new java.awt.Color(48, 181, 228));
         insertCarNavigationPanel.setPreferredSize(new java.awt.Dimension(720, 25));
 
-        jButton1.setText("Submit");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Submit Button.jpg"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Submit Button Disabled.jpg"))); // NOI18N
+        jButton1.setMaximumSize(new java.awt.Dimension(80, 25));
+        jButton1.setMinimumSize(new java.awt.Dimension(80, 25));
+        jButton1.setPreferredSize(new java.awt.Dimension(80, 25));
+        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Submit Button Hover.jpg"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -1556,15 +1562,15 @@ public class GUI extends javax.swing.JFrame {
         insertCarNavigationPanelLayout.setHorizontalGroup(
             insertCarNavigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, insertCarNavigationPanelLayout.createSequentialGroup()
-                .addContainerGap(645, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addContainerGap(630, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         insertCarNavigationPanelLayout.setVerticalGroup(
             insertCarNavigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(insertCarNavigationPanelLayout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addGap(0, 2, Short.MAX_VALUE))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         insertCar.add(insertCarNavigationPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 295, -1, -1));
@@ -2025,21 +2031,39 @@ public class GUI extends javax.swing.JFrame {
         updatePartNavigationPanel.setBackground(new java.awt.Color(43, 181, 228));
         updatePartNavigationPanel.setPreferredSize(new java.awt.Dimension(720, 25));
 
-        deletePartButton.setText("Delete Part");
+        deletePartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Delete Button.jpg"))); // NOI18N
+        deletePartButton.setBorder(null);
+        deletePartButton.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Delete Button Disabled.jpg"))); // NOI18N
+        deletePartButton.setMaximumSize(new java.awt.Dimension(80, 25));
+        deletePartButton.setMinimumSize(new java.awt.Dimension(80, 25));
+        deletePartButton.setPreferredSize(new java.awt.Dimension(80, 25));
+        deletePartButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Delete Button Hover.jpg"))); // NOI18N
         deletePartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deletePartButtonActionPerformed(evt);
             }
         });
 
-        updateSelectedPartButton.setText("Update");
+        updateSelectedPartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Update Button.jpg"))); // NOI18N
+        updateSelectedPartButton.setBorder(null);
+        updateSelectedPartButton.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Update Button Disabled.jpg"))); // NOI18N
+        updateSelectedPartButton.setMaximumSize(new java.awt.Dimension(80, 25));
+        updateSelectedPartButton.setMinimumSize(new java.awt.Dimension(80, 25));
+        updateSelectedPartButton.setPreferredSize(new java.awt.Dimension(80, 25));
+        updateSelectedPartButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Update Button Hover.jpg"))); // NOI18N
         updateSelectedPartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateSelectedPartButtonActionPerformed(evt);
             }
         });
 
-        updatePartButton.setText("Update");
+        updatePartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Update Button.jpg"))); // NOI18N
+        updatePartButton.setBorder(null);
+        updatePartButton.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Update Button Disabled.jpg"))); // NOI18N
+        updatePartButton.setMaximumSize(new java.awt.Dimension(80, 25));
+        updatePartButton.setMinimumSize(new java.awt.Dimension(80, 25));
+        updatePartButton.setPreferredSize(new java.awt.Dimension(80, 25));
+        updatePartButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Update Button Hover.jpg"))); // NOI18N
         updatePartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updatePartButtonActionPerformed(evt);
@@ -2051,12 +2075,12 @@ public class GUI extends javax.swing.JFrame {
         updatePartNavigationPanelLayout.setHorizontalGroup(
             updatePartNavigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updatePartNavigationPanelLayout.createSequentialGroup()
-                .addContainerGap(469, Short.MAX_VALUE)
-                .addComponent(updateSelectedPartButton)
+                .addContainerGap(450, Short.MAX_VALUE)
+                .addComponent(updateSelectedPartButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(updatePartButton)
+                .addComponent(updatePartButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(deletePartButton)
+                .addComponent(deletePartButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         updatePartNavigationPanelLayout.setVerticalGroup(
@@ -2064,9 +2088,9 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updatePartNavigationPanelLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addGroup(updatePartNavigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(updatePartButton)
-                    .addComponent(deletePartButton)
-                    .addComponent(updateSelectedPartButton)))
+                    .addComponent(updatePartButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deletePartButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateSelectedPartButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         updatePart.add(updatePartNavigationPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 295, -1, -1));
@@ -2331,7 +2355,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(updatePart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 699, Short.MAX_VALUE)))
+                    .addGap(0, 752, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(updateCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3022,7 +3046,7 @@ public class GUI extends javax.swing.JFrame {
         hideAllPanels();
         cameFrom = "car";
         adminPage.setVisible(true);
-        adminLabel.setText("Admin > Car");
+        adminLabel.setText("Car Options");
     }//GEN-LAST:event_carButtonActionPerformed
 
     private void partButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partButtonActionPerformed
@@ -3030,7 +3054,7 @@ public class GUI extends javax.swing.JFrame {
         hideAllPanels();
         cameFrom = "part";
         adminPage.setVisible(true);
-        adminLabel.setText("Admin > Part");
+        adminLabel.setText("Part Options");
 
         //For parts screen
         vendorDropdown1.setEnabled(true);
