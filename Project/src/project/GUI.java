@@ -3007,20 +3007,20 @@ public class GUI extends javax.swing.JFrame {
         try {
             String sql = "DELETE FROM " + deletevendor + " WHERE P_NUMBER='" + deletevendorpartnumber + "' AND AMOUNT="
                     + deletevendoramount;
-            String sql1 = "UPDATE RADCRX SET " + deletevendor.substring(4, 7) + "1='NA' WHERE "
-                    + deletevendor.substring(4, 7) + "1='" + deletevendorpartnumber + "'";
-            String sql2 = "UPDATE RADCRX SET " + deletevendor.substring(4, 7) + "2='NA' WHERE "
-                    + deletevendor.substring(4, 7) + "2='" + deletevendorpartnumber + "'";
-            String sql3 = "UPDATE RADCRX SET " + deletevendor.substring(4, 7) + "3='NA' WHERE "
-                    + deletevendor.substring(4, 7) + "3='" + deletevendorpartnumber + "'";
-            String sql4 = "UPDATE RADCRX SET " + deletevendor.substring(4, 7) + "4='NA' WHERE "
-                    + deletevendor.substring(4, 7) + "4='" + deletevendorpartnumber + "'";
+            String sql1 = "UPDATE RADCRX SET "+deletevendor.substring(4,7)+"1='NA' WHERE "+
+                    deletevendor.substring(4, 7)+"1='"+deletevendorpartnumber+"'";
+            String sql2 = "UPDATE RADCRX SET "+deletevendor.substring(4,7)+"2='NA' WHERE "+
+                    deletevendor.substring(4, 7)+"2='"+deletevendorpartnumber+"'";
+            String sql3 = "UPDATE RADCRX SET "+deletevendor.substring(4,7)+"3='NA' WHERE "+
+                    deletevendor.substring(4, 7)+"3='"+deletevendorpartnumber+"'";
+            String sql4 = "UPDATE RADCRX SET "+deletevendor.substring(4,7)+"4='NA' WHERE "+
+                    deletevendor.substring(4, 7)+"4='"+deletevendorpartnumber+"'";
             int delete = stmnt.executeUpdate(sql);
             stmnt.executeUpdate(sql1);
             stmnt.executeUpdate(sql2);
             stmnt.executeUpdate(sql3);
             stmnt.executeUpdate(sql4);
-
+            
             if (delete == 1) {
                 popup("Successfully Deleted vendor " + vendorDropdown1.getSelectedItem().toString()
                         + " " + vendorPartNumberDropdown1.getSelectedItem());
@@ -3196,7 +3196,8 @@ public class GUI extends javax.swing.JFrame {
                 name1.add(rs.getString(i));
                 System.out.println(rs.getString(i));
             }
-            arr[] = name1.toArray(new String[name1.size()]);
+            
+            String namearr[] = name1.toArray(new String[name1.size()]);
             subItems.put("updatecarparts", namearr);
             Object o = subItems.get("updatecarparts");
             if (o == null) {
@@ -3237,23 +3238,30 @@ public class GUI extends javax.swing.JFrame {
 
     private void updatePartButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
         // TODO add your handling code here:
-               String editpartnum = editPartNumberTextField.getT        g editpartcore = editPartCoreTextField.getText();
-             head = editPartInheadTextField.getText();
-        String ed        PartOutheadTextField.getText();
-        String editpartincon         ield.getText();
-        String editpartoucon = editPartOu        ();
-        String editparttmount = editPartTmountTextFie          String editpartoilcool = editPartOilcoolTextField.getText        ditpartprice = Double.parseDouble(editPartPriceTextField.getT        ng editpartamount = editPartAmountJspinner.getValue().toString();
-        Str        mp = vendorDropdown1.getSelectedItem().toString();
-        ResultSet r        l = "SELECT MAX(P_NUMBER) FROM " + vendorDropdown1.getSelectedItem().toStr        m.out.println(sql);
-        try {
+ String editpartnum = editPartNumberTextField.getText();
+                    String editpartcore = editPartCoreTextField.getText();
+                    String editpartinhead = editPartInheadTextField.getText();
+                    String editpartouthead = editPartOutheadTextField.getText();
+                    String editpartincon = editPartInconTextField.getText();
+                    String editpartoucon = editPartOuconTextField.getText();
+                    String editparttmount = editPartTmountTextField.getText();
+                    String editpartoilcool = editPartOilcoolTextField.getText();
+                    double editpartprice = Double.parseDouble(editPartPriceTextField.getText());
+                    String editpartamount = editPartAmountJspinner.getValue().toString();
+                    String editvendornametemp = vendorDropdown1.getSelectedItem().toString();
+                    ResultSet rs;
+        String sql = "SELECT MAX(P_NUMBER) FROM " + vendorDropdown1.getSelectedItem().toString();
+        System.out.println(sql);
+        try{
 
             rs = stmnt.executeQuery(sql);
             rs.next();
             String max = rs.getString(1);
-
-            I nteger maxnum = Integer.parseInt(max);
+            
+            Integer maxnum = Integer.parseInt(max);
             maxnum = maxnum + 1;
-            String maxi = maxnum.toStr       String insertsql = "INSERT INTO " + vendorDropdown1.getSelectedItem().toString() + " VALUES ('"
+            String maxi = maxnum.toString();
+            String insertsql = "INSERT INTO " + vendorDropdown1.getSelectedItem().toString() + " VALUES ('"
                     + maxi + "','" + editpartcore + "','" + editpartinhead + "','" + editpartouthead + "','"
                     + editpartincon + "','" + editpartoucon + "','" + editparttmount + "','"
                     + editpartoilcool + "'," + editpartprice + "," + editpartamount + ")";
@@ -3261,59 +3269,48 @@ public class GUI extends javax.swing.JFrame {
             int insert = stmnt.executeUpdate(insertsql);
 
 
-            String sql1 = "UPDATE RADCRX SET " + editvendornametemp.substring(4, 7) + "1='" + maxi + "' WHERE "
-                    + editvendornametemp.substring(4, 7) + "1='" + edi tpartnum + "'";
-            Strin g  s ql2 = "UPDATE RADCRX SET 
-                    " .substring(4, 7) + "2='" + maxi  +   "' WH E RE "
-                      + editvendornametemp.substring(4, 7) +   "2='" + editpartnum + "'";
-               String sql3 = "UPDAT
-                    E endornametemp.substring(4, 7) +  " 3 ='" +   maxi + "' W H ERE "
-                    + editvendornametemp.subs t ring(4, 7) + "3='" + editpartnu m  +  "'";
-            String 
-                    s SET " + editvendornametemp.subs tr i ng(4,   7) + "4='"  +  maxi + "' WHERE "
-                    + editvendor n ametemp.substring(4, 7) + "4='"  +   editpartnum + "'";
-      
-                      tmnt.executeUpdate(sql);
-               st m nt.executeU p date(sql1);
+            String sql1 = "UPDATE RADCRX SET "+ editvendornametemp.substring(4,7)+"1='" + maxi + "' WHERE "+
+                    editvendornametemp.substring(4,7)+"1='"+editpartnum+"'";
+            String sql2 = "UPDATE RADCRX SET "+editvendornametemp.substring(4,7)+"2='" + maxi + "' WHERE "+
+                    editvendornametemp.substring(4,7)+"2='"+editpartnum+"'";
+            String sql3 = "UPDATE RADCRX SET "+editvendornametemp.substring(4,7)+"3='" + maxi + "' WHERE "+
+                    editvendornametemp.substring(4,7)+"3='"+editpartnum+"'";
+            String sql4 = "UPDATE RADCRX SET "+editvendornametemp.substring(4,7)+"4='" + maxi + "' WHERE "+
+                    editvendornametemp.substring(4,7)+"4='"+editpartnum+"'";
+            //int delete = stmnt.executeUpdate(sql);
+            stmnt.executeUpdate(sql1);
             stmnt.executeUpdate(sql2);
             stmnt.executeUpdate(sql3);
             stmnt.executeUpdate(sql4);
 
-            /*            String sql = "UPDATE " + vendorDropdown1.getSelectedItem().            toString() + " SET P_NUMBER = '"
-             + editpartnum + "', CORE= '" + editpartcore + "', INHEAD='"
-             artinhead + "', OUTHEAD = '"
-             + editpartouthead
-                       + editpartincon 
+/*            String sql = "UPDATE " + vendorDropdown1.getSelectedItem().toString() + " SET P_NUMBER = '"
+                    + editpartnum + "', CORE= '" + editpartcore + "', INHEAD='"
+                    + editpartinhead + "', OUTHEAD = '"
+                    + editpartouthead + "', INCON = '"
+                    + editpartincon 
+                    + "', OUCON = '"
+                    + editpartoucon + "', TMOUNT = '"
+                    + editparttmount + "', OILCOOl = '"
+                    + editpartoilcool +"', PRICE = " + editpartprice +
+                    ", AMOUNT = "+editpartamount 
+                     + " WHERE P_NUMBER='" + vendorPartNumberDropdown1.getSelectedItem().toString()
+                    + "'";
+            System.out.println(sql);
+  */          
+    //        stmnt.executeUpdate(sql);
+            if (insert == 1) {
+            popup("Successfully inserted the replaced part" + vendorDropdown1.getSelectedItem().toString()
+                    + " " + editpartprice + " " + editpartamount);}
+             else {
+                popup("Oops! Something went wrong."
+                        + "Check the system output for details.");
+            }
         
-             
-             + editpartoucon + "'
-                   + editpart
-             = '"
-           
-             "', PRICE = " + editpartprice +
- 
-              = "+editpartamount 
-             +
-             + vendorPartNumberDropdown1.getSelectedItem().toSt
-              "'";
-             System.out
-                   */
-            //        stmnt.executeUpdate(sql);
-            if (inser
-                  p
-             fully inserted the repla
-              pd            opdown1.getSelectedItem().toString()
-                        + " "                 ice + " " + editpartamount);
-            } else {
-                popup("Oops! Something went 
-                                   + "Check the system output for deta
-            i      }
-
-
+            
         } catch (Exception e) {
             e.printStackTrace();
             popup("Oops! Something went wrong."
-                  c output for details.");
+                    + "Check the system output for details.");
         }
     }                                                
 
@@ -3327,25 +3324,31 @@ public class GUI extends javax.swing.JFrame {
         updateCarPartsNewDropDown.setEnabled(true);
         int ii = updateCarPartsOldDropDown1.getSelectedIndex();
         int oldselectedpart = Integer.parseInt(updateCarPartsOldDropDown1.getSelectedItem().toString());
-
+        
         try {
             ResultSet rs;
             //String getPart = (String) carMakerDropdown.getSelectedItem();
             ArrayList<String> name1 = new ArrayList<>();
-            System.out.println("selecteditemindex:" + ii);
+            System.out.println("selecteditemindex:"+ii);
             String sql;
-            if (ii >= 0 && ii < 4) {
-                sql = "select distinct P_NUMBER from RDIMARS"
-                        + " order by model asc";
-            } else if (ii >= 4 && ii < 8) {
-                sql = "select distinct P_NUMBER from RDIMMOD"
-                        + " order by model asc";
-            } else if (ii >= 8 && ii < 12) {
-                sql = "select distinct P_NUMBER from RDIMBEH"
-                        + " order by model asc";
-            } else {
-                sql = "select distinct P_NUMBER from RDIMDAN"
-                        + " order by model asc";
+            if(ii>=0 && ii<4)
+            {
+             sql = "select distinct P_NUMBER from RDIMARS"
+                     + " order by model asc";
+            }
+            else if(ii>=4 && ii<8)
+                    {
+             sql = "select distinct P_NUMBER from RDIMMOD"
+                     + " order by model asc";
+            }
+            else if(ii>=8 && ii<12)
+                     {
+             sql = "select distinct P_NUMBER from RDIMBEH"
+                     + " order by model asc";
+            }
+            else{
+             sql = "select distinct P_NUMBER from RDIMDAN"
+                     + " order by model asc";
             }
             rs = stmnt.executeQuery(sql);
             while (rs.next()) {
@@ -3462,6 +3465,7 @@ public class GUI extends javax.swing.JFrame {
          * Create and display the form
          */
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             @Override
             public void run() {
                 new GUI().setVisible(true);
