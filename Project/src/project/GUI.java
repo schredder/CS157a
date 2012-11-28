@@ -3051,7 +3051,6 @@ public class GUI extends javax.swing.JFrame {
         vendorDropdown1.setSelectedIndex(0);
         deletePartButton.setVisible(false);
         updatePart.setVisible(false);
-        updateSelectedPartButton.setVisible(false);
     }//GEN-LAST:event_vendorButton2ActionPerformed
 
     private void userButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userButtonActionPerformed
@@ -3125,7 +3124,6 @@ public class GUI extends javax.swing.JFrame {
         deleteNextButton.setVisible(false);
         viewNextButton.setVisible(false);
         updatePartButton.setVisible(true);
-        updateSelectedPartButton.setVisible(false);
         if (cameFrom.equals("part")) {
             updatePart.setVisible(true);
         } else {
@@ -3140,7 +3138,6 @@ public class GUI extends javax.swing.JFrame {
         deleteNextButton.setVisible(false);
         viewNextButton.setVisible(false);
         updatePartButton.setVisible(true);
-        updateSelectedPartButton.setVisible(false);
         if (cameFrom.equals("part")) {
             updatePart.setVisible(true);
 
